@@ -6,8 +6,10 @@ Mysql >= 5.7.0 (推荐5.7版本)，高版本需要[修改mysql配置](https://bl
 Redis >= 3.0
 Maven >= 3.0
 Node >= 12
+
 2.配置更改
 （1）修改数据库连接：编辑khonsu-admin/src/main/resources目录下的application-druid.yml——spring.datasource.druid.master.url/username/password,修改为本机密码
+
 （2）修改服务器配置：编辑khonsu-admin/src/main/resources目录下的application.yml——server.port/servlet（不修改也可使用项目）
 
 （3）修改tmp文件路径：编辑khonsu-admin/src/main/resources目录下的application.yml中的path，改为本机项目中tmp文件夹的绝对路径。
