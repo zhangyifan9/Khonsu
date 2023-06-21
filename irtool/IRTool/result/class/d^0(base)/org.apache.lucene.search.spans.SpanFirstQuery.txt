@@ -1,0 +1,60 @@
+org.apache.lucene.search.spans.SpanFirstQuery{
+getTerms(){
+return match.getTerms();
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+getSpans(IndexReader){
+return new Spans() {
+
+    private Spans spans = match.getSpans(reader);
+
+    public boolean next() throws IOException {
+        while (spans.next()) {
+            // scan to next match
+            if (end() <= end)
+                return true;
+        }
+        return false;
+    }
+
+    public boolean skipTo(int target) throws IOException {
+        if (!spans.skipTo(target))
+            return false;
+        return spans.end() <= end || next();
+    }
+
+    public int doc() {
+        return spans.doc();
+    }
+
+    public int start() {
+        return spans.start();
+    }
+
+    public int end() {
+        return spans.end();
+    }
+
+    // TODO: Remove warning after API has been finalized
+    public Collection getPayload() throws IOException {
+        ArrayList result = null;
+        if (spans.isPayloadAvailable()) {
+            result = new ArrayList(spans.getPayload());
+        }
+        // TODO: any way to avoid the new construction?
+        return result;
+    }
+
+    // TODO: Remove warning after API has been finalized
+    public boolean isPayloadAvailable() {
+        return spans.isPayloadAvailable();
+    }
+
+    public String toString() {
+        return "spans(" + SpanFirstQuery.this.toString() + ")";
+    }
+};
+}
+}

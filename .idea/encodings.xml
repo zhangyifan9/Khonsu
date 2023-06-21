@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/khonsu-admin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-admin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-analyze/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-analyze/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/ecco-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/ecco-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/ecco-base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/ecco-base/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/ecco-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/ecco-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-ecco/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-framework/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-generator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-quartz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-quartz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/khonsu-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

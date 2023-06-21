@@ -1,0 +1,89 @@
+import java.util.Iterator
+org.apache.lucene.index.SegmentReader{
+CloseableThreadLocal fieldsReaderLocal = new FieldsReaderLocal();
+CloseableThreadLocal termVectorsLocal = new CloseableThreadLocal();
+Map norms = new HashMap();
+/**
+ * The class which implements SegmentReader.
+ */
+private static Class IMPL;
+private static Class READONLY_IMPL;
+private byte[] ones;
+get(SegmentInfo){
+return get(false, si.dir, si, BufferedIndexInput.BUFFER_SIZE, true, IndexReader.DEFAULT_TERMS_INDEX_DIVISOR);
+}
+get(SegmentInfo, int, boolean, int){
+return get(false, si.dir, si, readBufferSize, doOpenStores, termInfosIndexDivisor);
+}
+get(boolean, Directory, SegmentInfo, int, boolean, int){
+SegmentReader instance
+try
+}
+reopenSegment(SegmentInfo, boolean, boolean){
+SegmentReader clone
+try
+try
+}
+doCommit(){
+doCommit(null);
+}
+commitChanges(Map){
+if (normsDirty)
+}
+getFieldsReader(){
+return (FieldsReader) fieldsReaderLocal.get();
+}
+doClose(){
+Iterator it = norms.values().iterator()
+while(it.hasNext())
+}
+files(){
+return new ArrayList(si.files());
+}
+getFieldNames(IndexReader.FieldOption){
+Set fieldSet = new HashSet()
+}
+createFakeNorms(int){
+byte[] ones = new byte[size]
+Arrays.fill(ones, DefaultSimilarity.encodeNorm(1.0f));
+return ones;
+}
+fakeNorms(){
+if (ones == null)
+return ones;
+}
+getNorms(String){
+Norm norm = (Norm) norms.get(field)
+}
+norms(String){
+if (bytes == null && !getDisableFakeNorms())
+}
+doSetNorm(int, String, byte){
+Norm norm = (Norm) norms.get(field)
+}
+norms(String, byte[], int){
+Norm norm = (Norm) norms.get(field)
+}
+normsClosed(){
+Iterator it = norms.values().iterator()
+while(it.hasNext())
+}
+normsClosed(String){
+Norm norm = (Norm) norms.get(field)
+return norm.refCount == 0;
+}
+getTermVectorsReader(){
+TermVectorsReader tvReader = (TermVectorsReader) termVectorsLocal.get()
+}
+startCommit(){
+Iterator it = norms.values().iterator()
+while(it.hasNext())
+}
+rollbackCommit(){
+Iterator it = norms.values().iterator()
+while(it.hasNext())
+}
+getOnlySegmentReader(Directory){
+return getOnlySegmentReader(IndexReader.open(dir));
+}
+}

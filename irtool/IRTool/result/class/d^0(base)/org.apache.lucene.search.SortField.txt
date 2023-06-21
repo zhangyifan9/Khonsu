@@ -1,0 +1,50 @@
+org.apache.lucene.search.SortField{
+public static final int AUTO = 2;
+public static final int STRING = 3;
+private int type = AUTO;
+private SortComparatorSource factory;
+private boolean useLegacy = false;
+SortField(String){
+initFieldType(field, AUTO);
+}
+SortField(String, boolean){
+initFieldType(field, AUTO);
+this.reverse = reverse;
+}
+SortField(String, SortComparatorSource){
+initFieldType(field, CUSTOM);
+setUseLegacySearch(true);
+this.factory = comparator;
+}
+SortField(String, SortComparatorSource, boolean){
+initFieldType(field, CUSTOM);
+setUseLegacySearch(true);
+this.reverse = reverse;
+this.factory = comparator;
+}
+getFactory(){
+return factory;
+}
+setUseLegacySearch(boolean){
+this.useLegacy = legacy;
+}
+getUseLegacySearch(){
+return this.useLegacy;
+}
+toString(){
+StringBuffer buffer = new StringBuffer()
+switch(type)
+}
+equals(Object){
+return (// field is always interned
+other.field == this.field && other.type == this.type && other.reverse == this.reverse && (other.locale == null ? this.locale == null : other.locale.equals(this.locale)) && (other.factory == null ? this.factory == null : other.factory.equals(this.factory)) && (other.comparatorSource == null ? this.comparatorSource == null : other.comparatorSource.equals(this.comparatorSource)) && (other.parser == null ? this.parser == null : other.parser.equals(this.parser)));
+}
+hashCode(){
+if (factory != null)
+}
+detectFieldType(IndexReader, String){
+String field = StringHelper.intern(fieldKey)
+TermEnum enumerator = reader.terms(new Term(field))
+try
+}
+}

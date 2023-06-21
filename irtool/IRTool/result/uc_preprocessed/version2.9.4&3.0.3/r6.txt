@@ -1,0 +1,1 @@
+lucen fix numericrangequeri return incorrect result endpoint long min valu long max valu numericutil splitrang overflow rang bound greater long max valu precisionstep rang upper bound long min valu precisionstep standard precis step effect queri onli met abov condit queri larg precis step fail easi queri precis step affect bit data type int float affect 

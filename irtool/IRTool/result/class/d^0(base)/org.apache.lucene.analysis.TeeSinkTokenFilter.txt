@@ -1,0 +1,22 @@
+org.apache.lucene.analysis.TeeSinkTokenFilter{
+private final List sinks = new LinkedList();
+private static final SinkFilter ACCEPT_ALL_FILTER = new SinkFilter() {
+
+    public boolean accept(AttributeSource source) {
+        return true;
+    }
+};
+newSinkTokenStream(SinkFilter){
+this.sinks.add(new WeakReference(sink));
+}
+addSinkTokenStream(SinkTokenStream){
+for(Iterator it = this.cloneAttributes().getAttributeImplsIterator())
+this.sinks.add(new WeakReference(sink));
+}
+incrementToken(){
+if (input.incrementToken())
+}
+end(){
+for(Iterator it = sinks.iterator())
+}
+}

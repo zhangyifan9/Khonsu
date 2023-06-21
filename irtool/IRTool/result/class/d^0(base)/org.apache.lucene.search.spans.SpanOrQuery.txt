@@ -1,0 +1,124 @@
+org.apache.lucene.search.spans.SpanOrQuery{
+private List clauses;
+SpanOrQuery(SpanQuery[]){
+// copy clauses array into an ArrayList
+this.clauses = new ArrayList(clauses.length);
+}
+getClauses(){
+return (SpanQuery[]) clauses.toArray(new SpanQuery[clauses.size()]);
+}
+getTerms(){
+Collection terms = new ArrayList()
+Iterator i = clauses.iterator()
+while(i.hasNext())
+return terms;
+}
+extractTerms(Set){
+Iterator i = clauses.iterator()
+while(i.hasNext())
+}
+clone(){
+for(int i = 0; i < sz; i++)
+}
+rewrite(IndexReader){
+for(int i = 0; i < clauses.size(); i++)
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+Iterator i = clauses.iterator()
+while(i.hasNext())
+}
+getSpans(IndexReader){
+if (// optimize 1-clause case
+clauses.size() == 1)
+return new Spans() {
+
+    private SpanQueue queue = null;
+
+    private boolean initSpanQueue(int target) throws IOException {
+        queue = new SpanQueue(clauses.size());
+        Iterator i = clauses.iterator();
+        while (i.hasNext()) {
+            Spans spans = ((SpanQuery) i.next()).getSpans(reader);
+            if (((target == -1) && spans.next()) || ((target != -1) && spans.skipTo(target))) {
+                queue.put(spans);
+            }
+        }
+        return queue.size() != 0;
+    }
+
+    public boolean next() throws IOException {
+        if (queue == null) {
+            return initSpanQueue(-1);
+        }
+        if (queue.size() == 0) {
+            // all done
+            return false;
+        }
+        if (top().next()) {
+            // move to next
+            queue.adjustTop();
+            return true;
+        }
+        // exhausted a clause
+        queue.pop();
+        return queue.size() != 0;
+    }
+
+    private Spans top() {
+        return (Spans) queue.top();
+    }
+
+    public boolean skipTo(int target) throws IOException {
+        if (queue == null) {
+            return initSpanQueue(target);
+        }
+        boolean skipCalled = false;
+        while (queue.size() != 0 && top().doc() < target) {
+            if (top().skipTo(target)) {
+                queue.adjustTop();
+            } else {
+                queue.pop();
+            }
+            skipCalled = true;
+        }
+        if (skipCalled) {
+            return queue.size() != 0;
+        }
+        return next();
+    }
+
+    public int doc() {
+        return top().doc();
+    }
+
+    public int start() {
+        return top().start();
+    }
+
+    public int end() {
+        return top().end();
+    }
+
+    // TODO: Remove warning after API has been finalized
+    public Collection getPayload() throws IOException {
+        ArrayList result = null;
+        Spans theTop = top();
+        if (theTop != null && theTop.isPayloadAvailable()) {
+            result = new ArrayList(theTop.getPayload());
+        }
+        return result;
+    }
+
+    // TODO: Remove warning after API has been finalized
+    public boolean isPayloadAvailable() {
+        Spans top = top();
+        return top != null && top.isPayloadAvailable();
+    }
+
+    public String toString() {
+        return "spans(" + SpanOrQuery.this + ")@" + ((queue == null) ? "START" : (queue.size() > 0 ? (doc() + ":" + start() + "-" + end()) : "END"));
+    }
+};
+}
+}

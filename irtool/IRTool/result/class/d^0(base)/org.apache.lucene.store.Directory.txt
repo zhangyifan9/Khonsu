@@ -1,0 +1,9 @@
+org.apache.lucene.store.Directory{
+list(){
+}
+listAll(){
+return list();
+}
+renameFile(String, String){
+}
+}

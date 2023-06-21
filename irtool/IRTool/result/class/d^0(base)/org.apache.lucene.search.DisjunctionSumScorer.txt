@@ -1,0 +1,33 @@
+import java.util.Iterator
+org.apache.lucene.search.DisjunctionSumScorer{
+protected final List subScorers;
+initScorerDocQueue(){
+Iterator si = subScorers.iterator()
+while(si.hasNext())
+}
+score(HitCollector){
+score(new HitCollectorWrapper(hc));
+}
+score(HitCollector, int){
+return score(new HitCollectorWrapper(hc), max, docID());
+}
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+doc(){
+return currentDoc;
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+explain(int){
+Explanation res = new Explanation()
+Iterator ssi = subScorers.iterator()
+float sumScore = 0.0f
+int nrMatches = 0
+while(ssi.hasNext())
+if (nrMatchers >= minimumNrMatchers)
+else
+return res;
+}
+}

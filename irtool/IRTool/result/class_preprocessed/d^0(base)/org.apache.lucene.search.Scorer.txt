@@ -1,0 +1,1 @@
+org apach lucen search scorer score hit collector score hit collector wrapper score hit collector int return score hit collector wrapper max doc explain int unsupport oper 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/IRTool/IRTool.iml" filepath="$PROJECT_DIR$/IRTool/IRTool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IRTool/data/data.iml" filepath="$PROJECT_DIR$/IRTool/data/data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/irtool.iml" filepath="$PROJECT_DIR$/.idea/irtool.iml" />
+    </modules>
+  </component>
+</project>

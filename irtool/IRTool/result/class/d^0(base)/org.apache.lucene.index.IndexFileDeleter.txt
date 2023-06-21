@@ -1,0 +1,55 @@
+import java.util.Iterator
+org.apache.lucene.index.IndexFileDeleter{
+private List deletable;
+private Map refCounts = new HashMap();
+private List commits = new ArrayList();
+private List lastFiles = new ArrayList();
+private List commitsToDelete = new ArrayList();
+private final Set synced;
+IndexFileDeleter(Directory, IndexDeletionPolicy, SegmentInfos, PrintStream, DocumentsWriter, Set){
+Iterator it = refCounts.keySet().iterator()
+while(it.hasNext())
+}
+deleteCommits(){
+if (size > 0)
+}
+close(){
+if (size > 0)
+}
+deletePendingFiles(){
+if (deletable != null)
+}
+checkpoint(SegmentInfos, boolean){
+else
+}
+incRef(SegmentInfos, boolean){
+Iterator it = segmentInfos.files(directory, isCommit).iterator()
+while(it.hasNext())
+}
+incRef(List){
+int size = files.size()
+for(int i = 0; i < size; i++)
+}
+decRef(Collection){
+Iterator it = files.iterator()
+while(it.hasNext())
+}
+decRef(SegmentInfos){
+Iterator it = segmentInfos.files(directory, false).iterator()
+while(it.hasNext())
+}
+getRefCount(String){
+else
+}
+deleteFiles(List){
+final int size = files.size()
+for(int i = 0; i < size; i++)
+}
+deleteNewFiles(Collection){
+final Iterator it = files.iterator()
+while(it.hasNext())
+}
+deleteFile(String){
+try
+}
+}

@@ -1,0 +1,13 @@
+import java.io.IOException
+org.apache.lucene.analysis.TeeTokenFilter{
+SinkTokenizer sink;
+TeeTokenFilter(TokenStream, SinkTokenizer){
+super(input);
+this.sink = sink;
+}
+next(Token){
+Token nextToken = input.next(reusableToken)
+sink.add(nextToken);
+return nextToken;
+}
+}

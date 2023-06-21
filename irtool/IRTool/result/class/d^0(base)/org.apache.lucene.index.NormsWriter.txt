@@ -1,0 +1,8 @@
+org.apache.lucene.index.NormsWriter{
+flush(Map, SegmentWriteState){
+final Map byField = new HashMap()
+final Iterator it = threadsAndFields.entrySet().iterator()
+while(it.hasNext())
+try
+}
+}

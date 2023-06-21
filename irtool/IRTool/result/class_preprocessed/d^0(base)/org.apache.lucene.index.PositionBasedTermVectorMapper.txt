@@ -1,0 +1,1 @@
+org apach lucen index posit base term vector mapper privat map string map integ posit info field term privat map integ posit info current posit map string int term vector offset info int int posit length set expect string int boolean boolean field term hash map num term current posit hash map 

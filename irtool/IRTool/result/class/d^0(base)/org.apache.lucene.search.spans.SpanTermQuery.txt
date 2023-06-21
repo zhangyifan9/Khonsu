@@ -1,0 +1,12 @@
+import java.util.ArrayList
+import java.util.Collection
+org.apache.lucene.search.spans.SpanTermQuery{
+getTerms(){
+Collection terms = new ArrayList()
+terms.add(term);
+return terms;
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+}

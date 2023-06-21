@@ -1,0 +1,36 @@
+org.apache.lucene.search.TimeLimitedCollector{
+public static final int DEFAULT_RESOLUTION = 20;
+public boolean DEFAULT_GREEDY = false;
+private static long resolution = DEFAULT_RESOLUTION;
+private boolean greedy = DEFAULT_GREEDY;
+// Declare and initialize a single static timer thread to be used by
+// all TimeLimitedCollector instances.  The JVM assures that
+private static final TimerThread TIMER_THREAD = new TimerThread();
+private final long t0;
+private final long timeout;
+private final HitCollector hc;
+TimeLimitedCollector(HitCollector, long){
+this.hc = hc;
+t0 = TIMER_THREAD.getMilliseconds();
+this.timeout = t0 + timeAllowed;
+}
+collect(int, float){
+long time = TIMER_THREAD.getMilliseconds()
+if (timeout < time)
+// System.out.println(this+"  collecting: "+doc+"  "+(time-t0));
+hc.collect(doc, score);
+}
+getResolution(){
+return resolution;
+}
+setResolution(long){
+// 5 milliseconds is about the minimum reasonable time for a Object.wait(long) call.
+resolution = Math.max(newResolution, 5);
+}
+isGreedy(){
+return greedy;
+}
+setGreedy(boolean){
+this.greedy = greedy;
+}
+}

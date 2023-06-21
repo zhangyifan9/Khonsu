@@ -1,0 +1,1 @@
+org apach lucen util cach simpl cach privat int cach size simpl cach int super null cach size cach size int capac int math ceil cach size super map link hash map capac true protect boolean remov eldest entri map entri eldest return size simpl cach cach size 

@@ -1,0 +1,52 @@
+org.apache.lucene.util.AttributeSource{
+// These two maps must always be in sync!!!
+private final Map /*<Class<Attribute>,AttributeImpl>*/
+attributes;
+private final Map /*<Class<AttributeImpl>,AttributeImpl>*/
+attributeImpls;
+AttributeSource(AttributeFactory){
+this.attributes = new LinkedHashMap();
+this.attributeImpls = new LinkedHashMap();
+}
+private static final WeakHashMap /*<Class<? extends AttributeImpl>,LinkedList<WeakReference<Class<? extends Attribute>>>>*/
+knownImplClasses = new WeakHashMap();
+getAttributeImplsIterator(){
+if (hasAttributes())
+else
+}
+addAttributeImpl(AttributeImpl){
+final Class clazz = att.getClass()
+LinkedList foundInterfaces
+for(Iterator it = foundInterfaces.iterator())
+}
+addAttribute(Class){
+final Attribute att = (Attribute) attributes.get(attClass)
+if (att == null)
+else
+}
+getAttribute(Class){
+final Attribute att = (Attribute) this.attributes.get(attClass)
+if (att == null)
+return att;
+}
+computeCurrentState(){
+Iterator it = attributeImpls.values().iterator()
+c.attribute = (AttributeImpl) it.next();
+while(it.hasNext())
+}
+restoreState(State){
+do (state != null )
+}
+toString(){
+StringBuffer sb = new StringBuffer()
+sb.append('(');
+sb.append(')');
+return sb.toString();
+}
+cloneAttributes(){
+if (hasAttributes())
+Iterator /*<Entry<Class<Attribute>, AttributeImpl>>*/
+attIt = this.attributes.entrySet().iterator()
+while(attIt.hasNext())
+}
+}

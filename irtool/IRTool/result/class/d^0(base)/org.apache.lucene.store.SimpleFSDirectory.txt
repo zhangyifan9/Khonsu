@@ -1,0 +1,4 @@
+org.apache.lucene.store.SimpleFSDirectory{
+SimpleFSDirectory(){
+}
+}

@@ -1,0 +1,7 @@
+org.apache.lucene.util.cache.Cache{
+getSynchronizedCache(){
+return new SynchronizedCache(this);
+}
+put(Object, Object){
+}
+}

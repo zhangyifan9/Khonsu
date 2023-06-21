@@ -1,0 +1,5 @@
+org.apache.lucene.search.TermRangeQuery{
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+}

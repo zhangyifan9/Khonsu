@@ -1,0 +1,15 @@
+org.apache.lucene.analysis.PerFieldAnalyzerWrapper{
+private Map analyzerMap = new HashMap();
+tokenStream(String, Reader){
+Analyzer analyzer = (Analyzer) analyzerMap.get(fieldName)
+}
+reusableTokenStream(String, Reader){
+Analyzer analyzer = (Analyzer) analyzerMap.get(fieldName)
+}
+getPositionIncrementGap(String){
+Analyzer analyzer = (Analyzer) analyzerMap.get(fieldName)
+}
+getOffsetGap(Fieldable){
+Analyzer analyzer = (Analyzer) analyzerMap.get(field.name())
+}
+}

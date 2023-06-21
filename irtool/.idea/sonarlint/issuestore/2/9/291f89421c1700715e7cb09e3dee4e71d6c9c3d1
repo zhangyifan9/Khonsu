@@ -1,0 +1,16 @@
+
+W
+java:S1118":Add a private constructor to hide the implicit public one.(“€Š 8ÁÉ©¥Ç/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ø×–ìúÿÿÿÿ8ÅÉ©¥Ç/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ä¿Š»þÿÿÿÿ8ÆÉ©¥Ç/
+\
+java:S4719":Replace Charset.forName() call with StandardCharsets.UTF_8(Ýû†þùÿÿÿÿ8ÏÉ©¥Ç/
+\
+java:S4719&":Replace Charset.forName() call with StandardCharsets.UTF_8(§ˆå“øÿÿÿÿ8ÕÉ©¥Ç/
+U	java:S106+"9Replace this use of System.out or System.err by a logger.(É˜•ž8ÛÉ©¥Ç/
+]	java:S125@"<This block of commented-out lines of code should be removed.(…žÇÙÿÿÿÿÿ8®Ê©¥Ç/
+]	java:S125I"<This block of commented-out lines of code should be removed.(žµØàÿÿÿÿÿ8²Ê©¥Ç/
+C
+java:S1128"&Remove this unused import 'java.util'.(Î€ŒÙ8·Ê©¥Ç/
+R
+java:S1191"5Use classes from the Java API instead of Sun classes.(¤œÐ8¾Ê©¥Ç/

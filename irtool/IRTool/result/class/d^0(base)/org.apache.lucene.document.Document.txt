@@ -1,0 +1,61 @@
+org.apache.lucene.document.Document{
+List fields = new ArrayList();
+removeField(String){
+Iterator it = fields.iterator()
+while(it.hasNext())
+}
+removeFields(String){
+Iterator it = fields.iterator()
+while(it.hasNext())
+}
+getField(String){
+for(int i = 0; i < fields.size(); i++)
+}
+getFieldable(String){
+for(int i = 0; i < fields.size(); i++)
+}
+get(String){
+for(int i = 0; i < fields.size(); i++)
+}
+fields(){
+return new Enumeration() {
+
+    final Iterator iter = fields.iterator();
+
+    public boolean hasMoreElements() {
+        return iter.hasNext();
+    }
+
+    public Object nextElement() {
+        return iter.next();
+    }
+};
+}
+getFields(String){
+List result = new ArrayList()
+for(int i = 0; i < fields.size(); i++)
+return (Field[]) result.toArray(new Field[result.size()]);
+}
+getFieldables(String){
+List result = new ArrayList()
+for(int i = 0; i < fields.size(); i++)
+return (Fieldable[]) result.toArray(new Fieldable[result.size()]);
+}
+getValues(String){
+List result = new ArrayList()
+for(int i = 0; i < fields.size(); i++)
+return (String[]) result.toArray(new String[result.size()]);
+}
+getBinaryValues(String){
+List result = new ArrayList()
+for(int i = 0; i < fields.size(); i++)
+return (byte[][]) result.toArray(new byte[result.size()][]);
+}
+getBinaryValue(String){
+for(int i = 0; i < fields.size(); i++)
+}
+toString(){
+StringBuffer buffer = new StringBuffer()
+for(int i = 0; i < fields.size(); i++)
+}
+}

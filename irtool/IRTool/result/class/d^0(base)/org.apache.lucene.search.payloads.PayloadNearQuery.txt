@@ -1,0 +1,10 @@
+org.apache.lucene.search.payloads.PayloadNearQuery{
+clone(){
+for(int i = 0; i < sz; i++)
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+Iterator i = clauses.iterator()
+while(i.hasNext())
+}
+}

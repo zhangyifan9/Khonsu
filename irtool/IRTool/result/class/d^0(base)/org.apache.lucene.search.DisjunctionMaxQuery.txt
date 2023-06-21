@@ -1,0 +1,17 @@
+org.apache.lucene.search.DisjunctionMaxQuery{
+private ArrayList disjuncts = new ArrayList();
+rewrite(IndexReader){
+if (numDisjunctions == 1)
+for(int i = 0; i < numDisjunctions; i++)
+}
+clone(){
+clone.disjuncts = (ArrayList) this.disjuncts.clone();
+}
+extractTerms(Set){
+for(Iterator iter = disjuncts.iterator())
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+for(int i = 0; i < numDisjunctions; i++)
+}
+}

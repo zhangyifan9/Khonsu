@@ -1,0 +1,10 @@
+org.apache.lucene.search.FilteredDocIdSet{
+iterator(){
+return new FilteredDocIdSetIterator(_innerSet.iterator()) {
+
+    protected boolean match(int docid) throws IOException {
+        return FilteredDocIdSet.this.match(docid);
+    }
+};
+}
+}

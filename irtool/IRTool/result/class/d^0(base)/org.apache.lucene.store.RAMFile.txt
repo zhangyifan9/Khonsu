@@ -1,0 +1,6 @@
+org.apache.lucene.store.RAMFile{
+protected ArrayList buffers = new ArrayList();
+getBuffer(int){
+return (byte[]) buffers.get(index);
+}
+}

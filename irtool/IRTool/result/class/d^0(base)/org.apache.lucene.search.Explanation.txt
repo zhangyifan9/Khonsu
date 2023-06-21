@@ -1,0 +1,12 @@
+org.apache.lucene.search.Explanation{
+private ArrayList details;
+getDetails(){
+return (Explanation[]) details.toArray(new Explanation[0]);
+}
+toString(int){
+StringBuffer buffer = new StringBuffer()
+}
+toHtml(){
+StringBuffer buffer = new StringBuffer()
+}
+}

@@ -1,0 +1,8 @@
+org.apache.lucene.search.PrefixFilter{
+getPrefix(){
+return ((PrefixQuery) query).getPrefix();
+}
+toString(){
+StringBuffer buffer = new StringBuffer()
+}
+}

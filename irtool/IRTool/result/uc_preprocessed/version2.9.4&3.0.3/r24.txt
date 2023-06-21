@@ -1,0 +1,1 @@
+lucen fix bug indexwrit caus hold open file handl delet file compound file enabl default reader pool result peak worst case free disk space requir dure optim index size compound file enabl els 

@@ -1,0 +1,136 @@
+org.apache.lucene.search.FilteredQuery{
+createWeight(Searcher){
+return new Weight() {
+
+    private float value;
+
+    // pass these methods through to enclosed query's weight
+    public float getValue() {
+        return value;
+    }
+
+    public float sumOfSquaredWeights() throws IOException {
+        return weight.sumOfSquaredWeights() * getBoost() * getBoost();
+    }
+
+    public void normalize(float v) {
+        weight.normalize(v);
+        value = weight.getValue() * getBoost();
+    }
+
+    public Explanation explain(IndexReader ir, int i) throws IOException {
+        Explanation inner = weight.explain(ir, i);
+        if (getBoost() != 1) {
+            Explanation preBoost = inner;
+            inner = new Explanation(inner.getValue() * getBoost(), "product of:");
+            inner.addDetail(new Explanation(getBoost(), "boost"));
+            inner.addDetail(preBoost);
+        }
+        Filter f = FilteredQuery.this.filter;
+        DocIdSet docIdSet = f.getDocIdSet(ir);
+        DocIdSetIterator docIdSetIterator = docIdSet == null ? DocIdSet.EMPTY_DOCIDSET.iterator() : docIdSet.iterator();
+        if (docIdSetIterator == null) {
+            docIdSetIterator = DocIdSet.EMPTY_DOCIDSET.iterator();
+        }
+        if (docIdSetIterator.advance(i) == i) {
+            return inner;
+        } else {
+            Explanation result = new Explanation(0.0f, "failure to match filter: " + f.toString());
+            result.addDetail(inner);
+            return result;
+        }
+    }
+
+    // return this query
+    public Query getQuery() {
+        return FilteredQuery.this;
+    }
+
+    // return a filtering scorer
+    public Scorer scorer(IndexReader indexReader, boolean scoreDocsInOrder, boolean topScorer) throws IOException {
+        final Scorer scorer = weight.scorer(indexReader, true, false);
+        if (scorer == null) {
+            return null;
+        }
+        DocIdSet docIdSet = filter.getDocIdSet(indexReader);
+        if (docIdSet == null) {
+            return null;
+        }
+        final DocIdSetIterator docIdSetIterator = docIdSet.iterator();
+        if (docIdSetIterator == null) {
+            return null;
+        }
+        return new Scorer(similarity) {
+
+            private int doc = -1;
+
+            private int advanceToCommon(int scorerDoc, int disiDoc) throws IOException {
+                while (scorerDoc != disiDoc) {
+                    if (scorerDoc < disiDoc) {
+                        scorerDoc = scorer.advance(disiDoc);
+                    } else {
+                        disiDoc = docIdSetIterator.advance(scorerDoc);
+                    }
+                }
+                return scorerDoc;
+            }
+
+            /**
+             * @deprecated use {@link #nextDoc()} instead.
+             */
+            public boolean next() throws IOException {
+                return nextDoc() != NO_MORE_DOCS;
+            }
+
+            public int nextDoc() throws IOException {
+                int scorerDoc, disiDoc;
+                return doc = (disiDoc = docIdSetIterator.nextDoc()) != NO_MORE_DOCS && (scorerDoc = scorer.nextDoc()) != NO_MORE_DOCS && advanceToCommon(scorerDoc, disiDoc) != NO_MORE_DOCS ? scorer.docID() : NO_MORE_DOCS;
+            }
+
+            /**
+             * @deprecated use {@link #docID()} instead.
+             */
+            public int doc() {
+                return scorer.doc();
+            }
+
+            public int docID() {
+                return doc;
+            }
+
+            /**
+             * @deprecated use {@link #advance(int)} instead.
+             */
+            public boolean skipTo(int i) throws IOException {
+                return advance(i) != NO_MORE_DOCS;
+            }
+
+            public int advance(int target) throws IOException {
+                int disiDoc, scorerDoc;
+                return doc = (disiDoc = docIdSetIterator.advance(target)) != NO_MORE_DOCS && (scorerDoc = scorer.advance(disiDoc)) != NO_MORE_DOCS && advanceToCommon(scorerDoc, disiDoc) != NO_MORE_DOCS ? scorer.docID() : NO_MORE_DOCS;
+            }
+
+            public float score() throws IOException {
+                return getBoost() * scorer.score();
+            }
+
+            // add an explanation about whether the document was filtered
+            public Explanation explain(int i) throws IOException {
+                Explanation exp = scorer.explain(i);
+                if (docIdSetIterator.advance(i) == i) {
+                    exp.setDescription("allowed by filter: " + exp.getDescription());
+                    exp.setValue(getBoost() * exp.getValue());
+                } else {
+                    exp.setDescription("removed by filter: " + exp.getDescription());
+                    exp.setValue(0.0f);
+                }
+                return exp;
+            }
+        };
+    }
+};
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+}

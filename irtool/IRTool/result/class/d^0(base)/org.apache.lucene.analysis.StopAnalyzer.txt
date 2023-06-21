@@ -1,0 +1,77 @@
+org.apache.lucene.analysis.StopAnalyzer{
+private final Set /*<String>*/
+stopWords;
+private final boolean useDefaultStopPositionIncrement;
+Array ENGLISH_STOP_WORDS
+public static final Set /*<String>*/
+ENGLISH_STOP_WORDS_SET;
+StopAnalyzer(){
+stopWords = ENGLISH_STOP_WORDS_SET;
+useDefaultStopPositionIncrement = true;
+enablePositionIncrements = false;
+}
+StopAnalyzer(Version){
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(boolean){
+stopWords = ENGLISH_STOP_WORDS_SET;
+this.enablePositionIncrements = enablePositionIncrements;
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(Set){
+this.stopWords = stopWords;
+useDefaultStopPositionIncrement = true;
+enablePositionIncrements = false;
+}
+StopAnalyzer(Version, Set){
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(Set, boolean){
+this.stopWords = stopWords;
+this.enablePositionIncrements = enablePositionIncrements;
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(String[]){
+this.stopWords = StopFilter.makeStopSet(stopWords);
+useDefaultStopPositionIncrement = true;
+enablePositionIncrements = false;
+}
+StopAnalyzer(String[], boolean){
+this.stopWords = StopFilter.makeStopSet(stopWords);
+this.enablePositionIncrements = enablePositionIncrements;
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(File){
+stopWords = WordlistLoader.getWordSet(stopwordsFile);
+useDefaultStopPositionIncrement = true;
+enablePositionIncrements = false;
+}
+StopAnalyzer(File, boolean){
+stopWords = WordlistLoader.getWordSet(stopwordsFile);
+this.enablePositionIncrements = enablePositionIncrements;
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(Version, File){
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(Reader){
+stopWords = WordlistLoader.getWordSet(stopwords);
+useDefaultStopPositionIncrement = true;
+enablePositionIncrements = false;
+}
+StopAnalyzer(Reader, boolean){
+stopWords = WordlistLoader.getWordSet(stopwords);
+this.enablePositionIncrements = enablePositionIncrements;
+useDefaultStopPositionIncrement = false;
+}
+StopAnalyzer(Version, Reader){
+useDefaultStopPositionIncrement = false;
+}
+tokenStream(String, Reader){
+if (useDefaultStopPositionIncrement)
+else
+}
+reusableTokenStream(String, Reader){
+if (streams == null)
+}
+}

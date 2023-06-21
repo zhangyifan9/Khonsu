@@ -1,0 +1,1 @@
+org apach lucen index buffer delet map term map queri hash map list doc array list buffer delet boolean term sort els remap merg doc remapp segment info int int merg polici merg int final map delet term term size final list delet doc doc size final hash map delet queri queri size 

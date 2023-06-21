@@ -1,0 +1,1 @@
+import java util iter org apach lucen index term vector term writer flush map segment write state iter thread field entri set iter 

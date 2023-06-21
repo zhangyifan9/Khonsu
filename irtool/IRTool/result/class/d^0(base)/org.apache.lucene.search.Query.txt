@@ -1,0 +1,15 @@
+import java.util.Iterator
+org.apache.lucene.search.Query{
+combine(Query[]){
+HashSet uniques = new HashSet()
+if (uniques.size() == 1)
+Iterator it = uniques.iterator()
+while(it.hasNext())
+}
+mergeBooleanQueries(BooleanQuery[]){
+HashSet allClauses = new HashSet()
+for(int i = 0; i < queries.length; i++)
+Iterator i = allClauses.iterator()
+while(i.hasNext())
+}
+}

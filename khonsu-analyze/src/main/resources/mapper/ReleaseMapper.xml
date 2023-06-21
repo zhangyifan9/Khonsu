@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nju.mapper.ReleaseMapper">
+    <insert id="insertRelease" useGeneratedKeys="true" keyProperty="id">
+        insert into `release` (repo_name, tag, category, content)
+        values (#{repoName}, #{tag}, #{category}, #{content})
+    </insert>
+
+    <insert id="batchInsertRelease" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+        insert into `release`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            repo_name,
+            tag,
+            category,
+            content
+        </trim>
+        values
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.repoName},
+                #{item.tag},
+                #{item.category},
+                #{item.content}
+            </trim>
+        </foreach>
+    </insert>
+
+    <update id="updateReleaseStateById">
+        update `release`
+        set read_state = #{readState}
+        where id= #{id}
+    </update>
+
+    <select id="selectReleaseByRepoName" parameterType="string" resultType="cn.edu.nju.domain.entity.Release">
+        select *
+        from `release`
+        where repo_name = #{repoName};
+    </select>
+
+
+
+    <delete id="deleteReleaseByRepoName">
+        DELETE
+        FROM `release`
+        WHERE repo_name = #{repoName}
+    </delete>
+</mapper>

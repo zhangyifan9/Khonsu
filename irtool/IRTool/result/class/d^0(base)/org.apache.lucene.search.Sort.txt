@@ -1,0 +1,29 @@
+org.apache.lucene.search.Sort{
+Sort(String){
+setSort(field, false);
+}
+Sort(String, boolean){
+setSort(field, reverse);
+}
+Sort(String[]){
+setSort(fields);
+}
+setSort(String){
+setSort(field, false);
+}
+setSort(String, boolean){
+fields = new SortField[] { new SortField(field, SortField.AUTO, reverse) };
+}
+setSort(String[]){
+final int n = fieldnames.length
+SortField[] nfields = new SortField[n]
+for(int i = 0; i < n; ++i)
+fields = nfields;
+}
+toString(){
+StringBuffer buffer = new StringBuffer()
+}
+hashCode(){
+return 0x45aaf665 + Arrays.asList(fields).hashCode();
+}
+}

@@ -1,0 +1,1 @@
+lucen fix thread safeti issu addindex indexread potenti result index corrupt 

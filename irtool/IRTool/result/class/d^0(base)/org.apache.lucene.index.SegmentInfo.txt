@@ -1,0 +1,29 @@
+org.apache.lucene.index.SegmentInfo{
+// false otherwise
+// this is currently false for segments populated by DocumentWriter
+// and true for newly created merged segments (both
+// compound and non compound).
+private List files;
+private Map diagnostics;
+SegmentInfo(Directory, int, IndexInput){
+if (format <= SegmentInfos.FORMAT_LOCKLESS)
+else
+}
+sizeInBytes(){
+if (sizeInBytes == -1)
+}
+clone(){
+si.diagnostics = new HashMap(diagnostics);
+}
+hasSeparateNorms(){
+if (normGen == null)
+}
+files(){
+files = new ArrayList();
+}
+equals(Object){
+SegmentInfo other
+try
+return other.dir == dir && other.name.equals(name);
+}
+}

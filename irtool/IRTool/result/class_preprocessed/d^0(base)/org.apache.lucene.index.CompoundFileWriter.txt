@@ -1,0 +1,1 @@
+import java util iter org apach lucen index compound file writer privat hash set id privat link list entri compound file writer directori string segment merger check abort id hash set entri link list close tri 

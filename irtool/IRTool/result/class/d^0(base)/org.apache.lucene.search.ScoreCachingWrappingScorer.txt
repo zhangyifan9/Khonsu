@@ -1,0 +1,14 @@
+org.apache.lucene.search.ScoreCachingWrappingScorer{
+explain(int){
+return scorer.explain(doc);
+}
+doc(){
+return scorer.doc();
+}
+next(){
+return scorer.next();
+}
+skipTo(int){
+return scorer.skipTo(target);
+}
+}

@@ -1,0 +1,11 @@
+org.apache.lucene.search.Scorer{
+score(HitCollector){
+score(new HitCollectorWrapper(hc));
+}
+score(HitCollector, int){
+return score(new HitCollectorWrapper(hc), max, docID());
+}
+explain(int){
+new UnsupportedOperationException()
+}
+}

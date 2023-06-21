@@ -1,0 +1,5 @@
+org.apache.lucene.index.Term{
+compareTo(Object){
+return compareTo((Term) other);
+}
+}

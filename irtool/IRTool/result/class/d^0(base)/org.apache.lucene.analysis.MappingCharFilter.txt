@@ -1,0 +1,19 @@
+org.apache.lucene.analysis.MappingCharFilter{
+private LinkedList buffer;
+read(){
+while(true)
+}
+nextChar(){
+if (buffer != null && !buffer.isEmpty())
+}
+pushChar(int){
+buffer.addFirst(new Character((char) c));
+}
+pushLastChar(int){
+if (buffer == null)
+buffer.addLast(new Character((char) c));
+}
+match(NormalizeCharMap){
+if (map.submap != null)
+}
+}

@@ -1,0 +1,30 @@
+org.apache.lucene.search.ConjunctionScorer{
+ConjunctionScorer(Similarity, Collection){
+this(similarity, (Scorer[]) scorers.toArray(new Scorer[scorers.size()]));
+}
+ConjunctionScorer(Similarity, Scorer[]){
+// Sort the array the first time...
+// We don't need to sort the array in any future calls because we know
+// it will already start off sorted (all scorers on same doc).
+// note that this comparator is not consistent with equals!
+Arrays.sort(scorers, new // sort the array
+Comparator() {
+
+    public int compare(Object o1, Object o2) {
+        return ((Scorer) o1).docID() - ((Scorer) o2).docID();
+    }
+});
+}
+doc(){
+return lastDoc;
+}
+explain(int){
+new UnsupportedOperationException()
+}
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+}

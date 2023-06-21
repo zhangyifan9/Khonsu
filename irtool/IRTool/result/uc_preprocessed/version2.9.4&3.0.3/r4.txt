@@ -1,0 +1,1 @@
+lucen open writabl indexread current commit overwrit futur commit 

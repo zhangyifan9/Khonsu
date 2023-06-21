@@ -1,0 +1,30 @@
+org.apache.lucene.index.ConcurrentMergeScheduler{
+protected List mergeThreads = new ArrayList();
+private static List allInstances;
+setMergeThreadPriority(int){
+for(int i = 0; i < numThreads; i++)
+}
+sync(){
+while(mergeThreadCount() > 0)
+}
+mergeThreadCount(){
+return mergeThreadCount(false);
+}
+mergeThreadCount(boolean){
+int count = 0
+final int numThreads = mergeThreads.size()
+for(int i = 0; i < numThreads; i++)
+return count;
+}
+merge(IndexWriter){
+// TODO: enable this once we are on JRE 1.5
+// assert !Thread.holdsLock(writer);
+this.writer = writer;
+}
+handleMergeException(Throwable){
+try
+}
+setTestMode(){
+allInstances = new ArrayList();
+}
+}

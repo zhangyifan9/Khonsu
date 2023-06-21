@@ -1,0 +1,4 @@
+org.apache.lucene.document.SetBasedFieldSelector{
+private Set fieldsToLoad;
+private Set lazyFieldsToLoad;
+}

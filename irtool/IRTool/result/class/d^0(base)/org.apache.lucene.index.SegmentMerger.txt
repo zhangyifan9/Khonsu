@@ -1,0 +1,67 @@
+import java.util.Iterator
+import org.apache.lucene.document.FieldSelector
+import org.apache.lucene.document.FieldSelectorResult
+org.apache.lucene.index.SegmentMerger{
+private List readers = new ArrayList();
+SegmentMerger(Directory, String){
+checkAbort = new CheckAbort(null, null) {
+
+    public void work(double units) throws MergeAbortedException {
+    // do nothing
+    }
+};
+}
+SegmentMerger(IndexWriter, String, MergePolicy.OneMerge){
+else
+}
+segmentReader(int){
+return (IndexReader) readers.get(i);
+}
+closeReaders(){
+for(Iterator iter = readers.iterator())
+}
+getMergedFiles(){
+Set fileSet = new HashSet()
+}
+createCompoundFile(String){
+Collection files = getMergedFiles()
+Iterator it = files.iterator()
+while(it.hasNext())
+}
+addIndexed(IndexReader, FieldInfos, Collection, boolean, boolean, boolean, boolean, boolean){
+Iterator i = names.iterator()
+while(i.hasNext())
+}
+setMatchingSegmentReaders(){
+for(int i = 0; i < numReaders; i++)
+}
+mergeFields(){
+for(Iterator iter = readers.iterator())
+if (mergeDocStores)
+else
+}
+copyFieldsWithDeletions(FieldSelector, FieldsWriter, IndexReader, FieldsReader){
+int docCount = 0
+final int maxDoc = reader.maxDoc()
+if (matchingFieldsReader != null)
+else
+return docCount;
+}
+copyFieldsNoDeletions(FieldSelector, FieldsWriter, IndexReader, FieldsReader){
+final int maxDoc = reader.maxDoc()
+int docCount = 0
+if (matchingFieldsReader != null)
+else
+return docCount;
+}
+mergeVectors(){
+try
+}
+mergeTermInfos(FormatPostingsFieldsConsumer){
+for(int i = 0; i < readerCount; i++)
+while(queue.size() > 0)
+}
+mergeNorms(){
+try
+}
+}

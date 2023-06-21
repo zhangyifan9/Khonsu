@@ -1,0 +1,13 @@
+org.apache.lucene.index.CompoundFileReader{
+private HashMap entries = new HashMap();
+openInput(String, int){
+FileEntry entry = (FileEntry) entries.get(id)
+}
+list(){
+String[] res = new String[entries.size()]
+return (String[]) entries.keySet().toArray(res);
+}
+fileLength(String){
+FileEntry e = (FileEntry) entries.get(name)
+}
+}

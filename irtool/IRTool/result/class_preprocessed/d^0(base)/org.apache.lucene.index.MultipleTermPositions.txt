@@ -1,0 +1,1 @@
+import java util iter org apach lucen index multipl term posit multipl term posit index reader term list term posit link list term posit queue size term posit queue peek doc doc skip int term posit queue peek null target term posit queue peek doc close term posit queue size 

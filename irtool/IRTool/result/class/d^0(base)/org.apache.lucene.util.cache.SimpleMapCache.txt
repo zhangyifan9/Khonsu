@@ -1,0 +1,12 @@
+org.apache.lucene.util.cache.SimpleMapCache{
+Map map;
+SimpleMapCache(){
+this(new HashMap());
+}
+put(Object, Object){
+map.put(key, value);
+}
+getSynchronizedCache(){
+return new SynchronizedSimpleMapCache(this);
+}
+}

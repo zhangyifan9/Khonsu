@@ -1,0 +1,10 @@
+org.apache.lucene.util.ReaderUtil{
+subReader(int, IndexReader){
+List subReadersList = new ArrayList()
+IndexReader[] subReaders = (IndexReader[]) subReadersList.toArray(new IndexReader[subReadersList.size()])
+}
+subReader(IndexReader, int){
+List subReadersList = new ArrayList()
+IndexReader[] subReaders = (IndexReader[]) subReadersList.toArray(new IndexReader[subReadersList.size()])
+}
+}

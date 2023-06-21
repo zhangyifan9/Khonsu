@@ -1,0 +1,1 @@
+lucen fix memori leak indexwrit reader track alreadi sync file 

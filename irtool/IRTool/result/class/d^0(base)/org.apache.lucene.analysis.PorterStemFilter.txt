@@ -1,0 +1,5 @@
+org.apache.lucene.analysis.PorterStemFilter{
+PorterStemFilter(TokenStream){
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+}
+}

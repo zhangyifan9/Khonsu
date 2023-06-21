@@ -1,0 +1,5 @@
+org.apache.lucene.analysis.ASCIIFoldingFilter{
+ASCIIFoldingFilter(TokenStream){
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+}
+}

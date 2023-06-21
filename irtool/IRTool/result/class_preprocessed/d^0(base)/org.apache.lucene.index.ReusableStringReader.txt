@@ -1,0 +1,1 @@
+org apach lucen index reusabl string reader read char int int els 

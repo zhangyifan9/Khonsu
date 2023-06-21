@@ -1,0 +1,59 @@
+import java.util.Iterator
+org.apache.lucene.search.Similarity{
+private final MethodSupport supportedMethods = getSupportedMethods(this.getClass());
+private static final IdentityHashMap /*<Class<? extends Similarity>,MethodSupport>*/
+knownMethodSupport = new IdentityHashMap();
+idf(Term, Searcher){
+return idf(searcher.docFreq(term), searcher.maxDoc());
+}
+idfExplain(Term, Searcher){
+if (supportedMethods.overridesTermIDF)
+return new IDFExplanation() {
+
+    // @Override
+    public String explain() {
+        return "idf(docFreq=" + df + ", maxDocs=" + max + ")";
+    }
+
+    // @Override
+    public float getIdf() {
+        return idf;
+    }
+};
+}
+idf(Collection, Searcher){
+float idf = 0.0f
+Iterator i = terms.iterator()
+while(i.hasNext())
+return idf;
+}
+idfExplain(Collection, Searcher){
+if (supportedMethods.overridesCollectionIDF)
+final StringBuffer exp = new StringBuffer()
+Iterator i = terms.iterator()
+while(i.hasNext())
+return new IDFExplanation() {
+
+    // @Override
+    public float getIdf() {
+        return fIdf;
+    }
+
+    // @Override
+    public String explain() {
+        return exp.toString();
+    }
+};
+}
+scorePayload(String, byte[], int, int){
+return 1;
+}
+scorePayload(int, String, int, int, byte[], int, int){
+return 1
+return scorePayload(fieldName, payload, offset, length);
+}
+getSupportedMethods(Class){
+MethodSupport supportedMethods
+return supportedMethods;
+}
+}

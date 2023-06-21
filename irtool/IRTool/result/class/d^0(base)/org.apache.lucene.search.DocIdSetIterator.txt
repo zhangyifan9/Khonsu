@@ -1,0 +1,21 @@
+org.apache.lucene.search.DocIdSetIterator{
+doc(){
+new UnsupportedOperationException("Call docID() instead.")
+}
+docID(){
+return doc;
+}
+next(){
+new UnsupportedOperationException("Call nextDoc() instead.")
+}
+skipTo(int){
+new UnsupportedOperationException("Call advance() instead.")
+}
+nextDoc(){
+return doc = next() ? doc() : NO_MORE_DOCS;
+}
+advance(int){
+if (target == NO_MORE_DOCS)
+return doc = skipTo(target) ? doc() : NO_MORE_DOCS;
+}
+}

@@ -1,0 +1,33 @@
+import org.apache.lucene.util.Parameter
+org.apache.lucene.document.Field{
+Field(String, boolean, String, Store, Index, TermVector){
+if (store == Store.YES)
+else
+if (index == Index.NO)
+else
+}
+Field(String, Reader, TermVector){
+this.isCompressed = false;
+}
+Field(String, TokenStream, TermVector){
+this.isCompressed = false;
+}
+Field(String, byte[], int, int, Store){
+if (store == Store.YES)
+else
+}
+binaryValue(){
+if (!isBinary)
+final byte[] data = (byte[]) fieldsData
+if (binaryOffset == 0 && data.length == binaryLength)
+final byte[] ret = new byte[binaryLength]
+System.arraycopy(data, binaryOffset, ret, 0, binaryLength);
+return ret;
+}
+setValue(TokenStream){
+if (isBinary)
+if (isStored)
+fieldsData = null;
+tokenStream = value;
+}
+}

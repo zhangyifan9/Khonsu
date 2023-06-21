@@ -1,0 +1,1 @@
+declar undeclar person repr case precondit regist user trust medic record system trust user authent trust medic record system main flow select patient type patient choo add remov anoth regist user person health repr patient flow altern flow health care personnel type invalid medic identif number prompt tri 

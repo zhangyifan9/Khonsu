@@ -1,0 +1,52 @@
+import java.util.Vector
+import org.apache.lucene.util.Parameter
+org.apache.lucene.queryParser.QueryParser{
+Map fieldToDateResolution = null;
+QueryParser(String, Analyzer){
+this(Version.LUCENE_24, f, a);
+}
+private java.util.List jj_expentries = new java.util.ArrayList();
+setUseOldRangeQuery(boolean){
+if (useOldRangeQuery)
+else
+}
+getUseOldRangeQuery(){
+if (getMultiTermRewriteMethod() == MultiTermQuery.SCORING_BOOLEAN_QUERY_REWRITE)
+else
+}
+setDateResolution(String, DateTools.Resolution){
+if (fieldToDateResolution == null)
+}
+getDateResolution(String){
+DateTools.Resolution resolution = (DateTools.Resolution) fieldToDateResolution.get(fieldName)
+}
+addClause(Vector, int, int, Query){
+addClause((List) clauses, conj, mods, q);
+}
+addClause(List, int, int, Query){
+if (clauses.size() > 0 && conj == CONJ_AND)
+if (clauses.size() > 0 && operator == AND_OPERATOR && conj == CONJ_OR)
+}
+getFieldQuery(String, String){
+if (success)
+else
+}
+getBooleanQuery(Vector){
+return getBooleanQuery((List) clauses, false);
+}
+getBooleanQuery(Vector, boolean){
+return getBooleanQuery((List) clauses, disableCoord);
+}
+getBooleanQuery(List, boolean){
+for(int i = 0; i < clauses.size(); i++)
+}
+escape(String){
+StringBuffer sb = new StringBuffer()
+}
+Query(String){
+List clauses = new ArrayList()
+}
+generateParseException(){
+for(int i = 0; i < jj_expentries.size(); i++)
+}
+}

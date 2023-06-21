@@ -1,0 +1,31 @@
+import java.util.Iterator
+org.apache.lucene.util.FieldCacheSanityChecker{
+check(CacheEntry[]){
+final MapOfSets valIdToItems = new MapOfSets(new HashMap(17))
+final MapOfSets readerFieldToValIds = new MapOfSets(new HashMap(17))
+final Set valMismatchKeys = new HashSet()
+for(int i = 0; i < cacheEntries.length; i++)
+final List insanity = new ArrayList(valMismatchKeys.size() * 3)
+return (Insanity[]) insanity.toArray(new Insanity[insanity.size()]);
+}
+checkValueMismatch(MapOfSets, MapOfSets, Set){
+final List insanity = new ArrayList(valMismatchKeys.size() * 3)
+if (!valMismatchKeys.isEmpty())
+}
+checkSubreaders(MapOfSets, MapOfSets){
+final List insanity = new ArrayList(23)
+Map badChildren = new HashMap(17)
+MapOfSets badKids = new MapOfSets(badChildren)
+Map viToItemSets = valIdToItems.getMap()
+Map rfToValIdSets = readerFieldToValIds.getMap()
+Set seen = new HashSet(17)
+Set readerFields = rfToValIdSets.keySet()
+Iterator rfIter = readerFields.iterator()
+while(rfIter.hasNext())
+Iterator parentsIter = badChildren.keySet().iterator()
+while(parentsIter.hasNext())
+}
+getAllDecendentReaderKeys(Object){
+List all = new ArrayList(17)
+}
+}

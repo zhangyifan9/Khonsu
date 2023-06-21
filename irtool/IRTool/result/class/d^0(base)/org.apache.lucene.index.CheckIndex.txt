@@ -1,0 +1,26 @@
+import java.util.Iterator
+org.apache.lucene.index.CheckIndex{
+public static PrintStream out = null;
+CheckIndex(Directory){
+infoStream = out;
+}
+check(Directory, boolean){
+return check(dir, doFix, null);
+}
+check(Directory, boolean, List){
+CheckIndex checker = new CheckIndex(dir)
+Status status = checker.checkIndex(onlySegments)
+if (doFix && !status.clean)
+return status.clean;
+}
+checkIndex(List){
+if (onlySegments != null)
+for(int i = 0; i < numSegments; i++)
+}
+testFieldNorms(Collection, SegmentReader){
+try
+}
+main(String[]){
+List onlySegments = new ArrayList()
+}
+}

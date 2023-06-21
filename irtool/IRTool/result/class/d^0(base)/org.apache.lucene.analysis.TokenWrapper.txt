@@ -1,0 +1,94 @@
+import org.apache.lucene.analysis.tokenattributes.OffsetAttribute
+import org.apache.lucene.analysis.tokenattributes.FlagsAttribute
+import org.apache.lucene.analysis.tokenattributes.PayloadAttribute
+import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute
+import org.apache.lucene.analysis.tokenattributes.TermAttribute
+import org.apache.lucene.analysis.tokenattributes.TypeAttribute
+import org.apache.lucene.index.Payload
+import org.apache.lucene.util.AttributeImpl
+org.apache.lucene.analysis.TokenWrapper{
+Token delegate;
+TokenWrapper(){
+this(new Token());
+}
+TokenWrapper(Token){
+this.delegate = delegate;
+}
+term(){
+return delegate.term();
+}
+setTermBuffer(char[], int, int){
+delegate.setTermBuffer(buffer, offset, length);
+}
+setTermBuffer(String){
+delegate.setTermBuffer(buffer);
+}
+setTermBuffer(String, int, int){
+delegate.setTermBuffer(buffer, offset, length);
+}
+termBuffer(){
+return delegate.termBuffer();
+}
+resizeTermBuffer(int){
+return delegate.resizeTermBuffer(newSize);
+}
+termLength(){
+return delegate.termLength();
+}
+setTermLength(int){
+delegate.setTermLength(length);
+}
+type(){
+return delegate.type();
+}
+setType(String){
+delegate.setType(type);
+}
+setPositionIncrement(int){
+delegate.setPositionIncrement(positionIncrement);
+}
+getPositionIncrement(){
+return delegate.getPositionIncrement();
+}
+getFlags(){
+return delegate.getFlags();
+}
+setFlags(int){
+delegate.setFlags(flags);
+}
+startOffset(){
+return delegate.startOffset();
+}
+setOffset(int, int){
+delegate.setOffset(startOffset, endOffset);
+}
+endOffset(){
+return delegate.endOffset();
+}
+getPayload(){
+return delegate.getPayload();
+}
+setPayload(Payload){
+delegate.setPayload(payload);
+}
+clear(){
+delegate.clear();
+}
+toString(){
+return delegate.toString();
+}
+hashCode(){
+return delegate.hashCode();
+}
+equals(Object){
+if (other instanceof TokenWrapper)
+return false;
+}
+clone(){
+return new TokenWrapper((Token) delegate.clone());
+}
+copyTo(AttributeImpl){
+if (target instanceof TokenWrapper)
+else
+}
+}

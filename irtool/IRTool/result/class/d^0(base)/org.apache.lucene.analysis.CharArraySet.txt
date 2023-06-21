@@ -1,0 +1,8 @@
+org.apache.lucene.analysis.CharArraySet{
+contains(Object){
+if (o instanceof char[])
+}
+iterator(){
+return new CharArraySetIterator();
+}
+}

@@ -1,0 +1,41 @@
+
+v
+java:S1149ş"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(í…Ò‰
+c	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Á‰¾
+c	java:S100="NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•® ©
+m
+java:S3776B"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(êùô’øÿÿÿÿ
+A
+java:S1905"&Remove this unnecessary cast to "int".(ä¯’“øÿÿÿÿ
+A
+java:S1905"&Remove this unnecessary cast to "int".(ä¯’“øÿÿÿÿ
+i	java:S100±"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„éÛèıÿÿÿÿ
+n
+java:S3776±"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(„éÛèıÿÿÿÿ
+R	java:S125…"<This block of commented-out lines of code should be removed.(óõ¯
+o
+java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(¯ôââ
+p
+java:S2293¸"YReplace the type specification in this constructor call with the diamond operator ("<>").(èĞ·Ë
+p
+java:S2293¹"YReplace the type specification in this constructor call with the diamond operator ("<>").(³åŸ
+p
+java:S2293¾"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡œ‚¿
+p
+java:S2293¿"YReplace the type specification in this constructor call with the diamond operator ("<>").(“¿©Ö
+u
+java:S2293Á"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ˜Ôøÿÿÿÿ
+p
+java:S2293Â"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤ä†ò
+u
+java:S2293Ã"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÆœÜÿÿÿÿÿ
+u
+java:S2293×"YReplace the type specification in this constructor call with the diamond operator ("<>").(ËÀµ™ÿÿÿÿÿ
+p
+java:S2293Ø"YReplace the type specification in this constructor call with the diamond operator ("<>").(¥¢¼™
+p
+java:S2293ç"YReplace the type specification in this constructor call with the diamond operator ("<>").(èÛ­œ
+o
+java:S2293è"YReplace the type specification in this constructor call with the diamond operator ("<>").(ö¦­'
+J
+java:S1066W"/Merge this if statement with the enclosing one.(ÈŠ²Àùÿÿÿÿ

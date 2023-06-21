@@ -1,0 +1,8 @@
+org.apache.lucene.util.RamUsageEstimator{
+private final Map seen;
+RamUsageEstimator(MemoryModel, boolean){
+// Use Map rather than Set so that we can use an IdentityHashMap - not
+// seeing an IdentityHashSet
+seen = new IdentityHashMap(64);
+}
+}

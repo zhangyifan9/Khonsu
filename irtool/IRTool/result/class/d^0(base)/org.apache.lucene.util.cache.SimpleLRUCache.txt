@@ -1,0 +1,14 @@
+org.apache.lucene.util.cache.SimpleLRUCache{
+private int cacheSize;
+SimpleLRUCache(int){
+super(null);
+this.cacheSize = cacheSize;
+int capacity = (int) Math.ceil(cacheSize / LOADFACTOR) + 1
+super.map = new LinkedHashMap(capacity, LOADFACTOR, true) {
+
+    protected boolean removeEldestEntry(Map.Entry eldest) {
+        return size() > SimpleLRUCache.this.cacheSize;
+    }
+};
+}
+}

@@ -1,0 +1,17 @@
+org.apache.lucene.search.WildcardQuery{
+WildcardQuery(Term){
+// will be removed in 3.0
+super(term);
+this.termContainsWildcard = (term.text().indexOf('*') != -1) || (term.text().indexOf('?') != -1);
+}
+getEnum(IndexReader){
+return new WildcardTermEnum(reader, getTerm());
+}
+rewrite(IndexReader){
+if (!termContainsWildcard)
+else
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+}

@@ -1,0 +1,40 @@
+import java.util.BitSet
+org.apache.lucene.search.QueryWrapperFilter{
+bits(IndexReader){
+final BitSet bits = new BitSet(reader.maxDoc())
+new IndexSearcher(reader).search(query, new Collector() {
+
+    private int base = 0;
+
+    public void setScorer(Scorer scorer) throws IOException {
+    // score is not needed by this collector
+    }
+
+    public final void collect(int doc) {
+        // set bit for hit
+        bits.set(doc + base);
+    }
+
+    public void setNextReader(IndexReader reader, int docBase) {
+        base = docBase;
+    }
+
+    public boolean acceptsDocsOutOfOrder() {
+        return true;
+    }
+});
+return bits;
+}
+getDocIdSet(IndexReader){
+return new DocIdSet() {
+
+    public DocIdSetIterator iterator() throws IOException {
+        return weight.scorer(reader, true, false);
+    }
+
+    public boolean isCacheable() {
+        return false;
+    }
+};
+}
+}

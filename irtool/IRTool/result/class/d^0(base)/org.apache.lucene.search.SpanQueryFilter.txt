@@ -1,0 +1,5 @@
+org.apache.lucene.search.SpanQueryFilter{
+bitSpans(IndexReader){
+List tmp = new ArrayList(20)
+}
+}

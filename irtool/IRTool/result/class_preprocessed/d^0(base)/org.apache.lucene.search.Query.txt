@@ -1,0 +1,1 @@
+import java util iter org apach lucen search queri combin queri hash set uniqu hash set uniqu size iter uniqu iter merg boolean queri boolean queri hash set claus hash set int queri length iter claus iter 

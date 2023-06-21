@@ -1,0 +1,43 @@
+org.apache.lucene.search.NumericRangeQuery{
+NumericRangeQuery(String, int, int, Number, Number, boolean, boolean){
+if (precisionStep < 1)
+this.field = StringHelper.intern(field);
+this.precisionStep = precisionStep;
+this.valSize = valSize;
+this.min = min;
+this.max = max;
+this.minInclusive = minInclusive;
+this.maxInclusive = maxInclusive;
+// creates new enums from IndexReader for each sub-range)
+switch(valSize)
+if (min != null && min.equals(max))
+}
+final Number min, max;
+newLongRange(String, int, Long, Long, boolean, boolean){
+return new NumericRangeQuery(field, precisionStep, 64, min, max, minInclusive, maxInclusive);
+}
+newLongRange(String, Long, Long, boolean, boolean){
+return new NumericRangeQuery(field, NumericUtils.PRECISION_STEP_DEFAULT, 64, min, max, minInclusive, maxInclusive);
+}
+newIntRange(String, int, Integer, Integer, boolean, boolean){
+return new NumericRangeQuery(field, precisionStep, 32, min, max, minInclusive, maxInclusive);
+}
+newIntRange(String, Integer, Integer, boolean, boolean){
+return new NumericRangeQuery(field, NumericUtils.PRECISION_STEP_DEFAULT, 32, min, max, minInclusive, maxInclusive);
+}
+newDoubleRange(String, int, Double, Double, boolean, boolean){
+return new NumericRangeQuery(field, precisionStep, 64, min, max, minInclusive, maxInclusive);
+}
+newDoubleRange(String, Double, Double, boolean, boolean){
+return new NumericRangeQuery(field, NumericUtils.PRECISION_STEP_DEFAULT, 64, min, max, minInclusive, maxInclusive);
+}
+newFloatRange(String, int, Float, Float, boolean, boolean){
+return new NumericRangeQuery(field, precisionStep, 32, min, max, minInclusive, maxInclusive);
+}
+newFloatRange(String, Float, Float, boolean, boolean){
+return new NumericRangeQuery(field, NumericUtils.PRECISION_STEP_DEFAULT, 32, min, max, minInclusive, maxInclusive);
+}
+toString(String){
+final StringBuffer sb = new StringBuffer()
+}
+}

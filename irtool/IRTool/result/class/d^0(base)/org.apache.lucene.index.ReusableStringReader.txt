@@ -1,0 +1,5 @@
+org.apache.lucene.index.ReusableStringReader{
+read(char[], int, int){
+else
+}
+}

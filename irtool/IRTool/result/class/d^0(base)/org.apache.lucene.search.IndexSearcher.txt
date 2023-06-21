@@ -1,0 +1,23 @@
+org.apache.lucene.search.IndexSearcher{
+private IndexReader[] subReaders;
+private int[] docStarts;
+IndexSearcher(String){
+this(IndexReader.open(path), true);
+}
+IndexSearcher(String, boolean){
+this(IndexReader.open(path, readOnly), true);
+}
+IndexSearcher(Directory){
+this(IndexReader.open(directory), true);
+}
+IndexSearcher(IndexReader, boolean){
+List subReadersList = new ArrayList()
+subReaders = (IndexReader[]) subReadersList.toArray(new IndexReader[subReadersList.size()]);
+}
+search(Weight, Filter, int, Sort, boolean){
+SortField[] fields = sort.fields
+boolean legacy = false
+for(int i = 0; i < fields.length; i++)
+if (legacy)
+}
+}

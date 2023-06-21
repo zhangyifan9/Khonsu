@@ -1,0 +1,5 @@
+org.apache.lucene.index.DocumentsWriterThreadState{
+DocumentsWriterThreadState(DocumentsWriter){
+docState.allowMinus1Position = docWriter.writer.getAllowMinus1Position();
+}
+}

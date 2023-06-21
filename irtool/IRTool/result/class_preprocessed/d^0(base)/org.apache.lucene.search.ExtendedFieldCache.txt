@@ -1,0 +1,1 @@
+import org apach lucen index index reader import java org apach lucen search extend field cach public static extend field cach extend field cach field cach long index reader string extend field cach long parser doubl index reader string extend field cach doubl parser 

@@ -1,0 +1,22 @@
+import java.io.IOException
+import org.apache.lucene.index.IndexReader
+org.apache.lucene.search.HitCollectorWrapper{
+private HitCollector collector;
+private int base = 0;
+private Scorer scorer = null;
+HitCollectorWrapper(HitCollector){
+this.collector = collector;
+}
+setNextReader(IndexReader, int){
+base = docBase;
+}
+collect(int){
+collector.collect(doc + base, scorer.score());
+}
+setScorer(Scorer){
+this.scorer = scorer;
+}
+acceptsDocsOutOfOrder(){
+return false;
+}
+}

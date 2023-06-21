@@ -1,0 +1,12 @@
+org.apache.lucene.index.DocFieldProcessorPerThread{
+fields(){
+Collection fields = new HashSet()
+}
+rehash(){
+final int newHashSize = (int) (fieldHash.length * 2)
+}
+processDocument(){
+final List docFields = doc.getFields()
+for(int i = 0; i < numDocFields; i++)
+}
+}

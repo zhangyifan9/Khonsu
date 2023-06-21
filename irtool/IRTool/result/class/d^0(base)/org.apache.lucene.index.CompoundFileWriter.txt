@@ -1,0 +1,12 @@
+import java.util.Iterator
+org.apache.lucene.index.CompoundFileWriter{
+private HashSet ids;
+private LinkedList entries;
+CompoundFileWriter(Directory, String, SegmentMerger.CheckAbort){
+ids = new HashSet();
+entries = new LinkedList();
+}
+close(){
+try
+}
+}

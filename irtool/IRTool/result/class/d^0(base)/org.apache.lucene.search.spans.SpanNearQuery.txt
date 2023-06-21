@@ -1,0 +1,36 @@
+import java.util.Collection
+org.apache.lucene.search.spans.SpanNearQuery{
+protected List clauses;
+SpanNearQuery(SpanQuery[], int, boolean, boolean){
+// copy clauses array into an ArrayList
+this.clauses = new ArrayList(clauses.length);
+}
+getClauses(){
+return (SpanQuery[]) clauses.toArray(new SpanQuery[clauses.size()]);
+}
+getTerms(){
+Collection terms = new ArrayList()
+Iterator i = clauses.iterator()
+while(i.hasNext())
+return terms;
+}
+extractTerms(Set){
+Iterator i = clauses.iterator()
+while(i.hasNext())
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+Iterator i = clauses.iterator()
+while(i.hasNext())
+}
+getSpans(IndexReader){
+if (// optimize 1-clause case
+clauses.size() == 1)
+}
+rewrite(IndexReader){
+for(int i = 0; i < clauses.size(); i++)
+}
+clone(){
+for(int i = 0; i < sz; i++)
+}
+}

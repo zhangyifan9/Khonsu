@@ -1,0 +1,24 @@
+import java.io.Serializable
+org.apache.lucene.document.FieldSelectorResult{
+public static final transient FieldSelectorResult LOAD = new FieldSelectorResult(0);
+public static final transient FieldSelectorResult LAZY_LOAD = new FieldSelectorResult(1);
+public static final transient FieldSelectorResult NO_LOAD = new FieldSelectorResult(2);
+public static final transient FieldSelectorResult LOAD_AND_BREAK = new FieldSelectorResult(3);
+public static final transient FieldSelectorResult LOAD_FOR_MERGE = new FieldSelectorResult(4);
+public static final transient FieldSelectorResult SIZE = new FieldSelectorResult(5);
+public static final transient FieldSelectorResult SIZE_AND_BREAK = new FieldSelectorResult(6);
+private int id;
+FieldSelectorResult(int){
+this.id = id;
+}
+equals(Object){
+if (this == o)
+if (o == null || getClass() != o.getClass())
+final FieldSelectorResult that = (FieldSelectorResult) o
+if (id != that.id)
+return true;
+}
+hashCode(){
+return id;
+}
+}

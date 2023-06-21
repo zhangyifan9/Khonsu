@@ -1,0 +1,1 @@
+org apach lucen search doc set public static final doc set doc set privat final doc set iter iter doc set iter public int advanc int target throw return public int doc return public int doc throw return public doc set iter iter return iter public boolean cacheabl return true 

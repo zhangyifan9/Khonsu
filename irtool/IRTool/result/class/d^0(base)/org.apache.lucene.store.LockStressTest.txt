@@ -1,0 +1,9 @@
+org.apache.lucene.store.LockStressTest{
+main(String[]){
+Class c
+try
+try
+if (lockFactory instanceof NativeFSLockFactory)
+else
+}
+}

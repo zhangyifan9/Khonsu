@@ -1,0 +1,99 @@
+org.apache.lucene.index.IndexReader{
+private boolean disableFakeNorms = false;
+private Directory directory;
+IndexReader(Directory){
+this();
+this.directory = directory;
+}
+open(String){
+return open(path, false);
+}
+open(String, boolean){
+final Directory dir = FSDirectory.getDirectory(path)
+IndexReader r = null
+try
+return new DirectoryOwningReader(r);
+}
+open(File){
+return open(path, false);
+}
+open(File, boolean){
+final Directory dir = FSDirectory.getDirectory(path)
+IndexReader r = null
+try
+return new DirectoryOwningReader(r);
+}
+open(Directory){
+return open(directory, null, null, false, DEFAULT_TERMS_INDEX_DIVISOR);
+}
+open(IndexCommit){
+return open(commit.getDirectory(), null, commit, false, DEFAULT_TERMS_INDEX_DIVISOR);
+}
+open(Directory, IndexDeletionPolicy){
+return open(directory, deletionPolicy, null, false, DEFAULT_TERMS_INDEX_DIVISOR);
+}
+open(IndexCommit, IndexDeletionPolicy){
+return open(commit.getDirectory(), deletionPolicy, commit, false, DEFAULT_TERMS_INDEX_DIVISOR);
+}
+directory(){
+if (null != directory)
+else
+}
+lastModified(String){
+return lastModified(new File(directory));
+}
+lastModified(File){
+Directory dir = FSDirectory.getDirectory(fileDirectory)
+try
+}
+lastModified(Directory){
+return ((Long) new SegmentInfos.FindSegmentsFile(directory2) {
+
+    public Object doBody(String segmentFileName) throws IOException {
+        return new Long(directory2.fileModified(segmentFileName));
+    }
+}.run()).longValue();
+}
+getCurrentVersion(String){
+return getCurrentVersion(new File(directory));
+}
+getCurrentVersion(File){
+Directory dir = FSDirectory.getDirectory(directory)
+try
+}
+setTermInfosIndexDivisor(int){
+new UnsupportedOperationException("Please pass termInfosIndexDivisor up-front when opening IndexReader")
+}
+indexExists(String){
+return indexExists(new File(directory));
+}
+indexExists(File){
+return SegmentInfos.getCurrentSegmentGeneration(directory.list()) != -1;
+}
+doCommit(){
+}
+doCommit(Map){
+// Default impl discards commitUserData; all Lucene
+// subclasses override this (do not discard it).
+doCommit();
+}
+isLocked(Directory){
+return directory.makeLock(IndexWriter.WRITE_LOCK_NAME).isLocked();
+}
+isLocked(String){
+Directory dir = FSDirectory.getDirectory(directory)
+try
+}
+unlock(Directory){
+directory.makeLock(IndexWriter.WRITE_LOCK_NAME).release();
+}
+main(String[]){
+try
+}
+getDisableFakeNorms(){
+return disableFakeNorms;
+}
+setDisableFakeNorms(boolean){
+this.disableFakeNorms = disableFakeNorms;
+}
+}

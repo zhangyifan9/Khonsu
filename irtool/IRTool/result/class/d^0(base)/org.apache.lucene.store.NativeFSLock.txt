@@ -1,0 +1,3 @@
+org.apache.lucene.store.NativeFSLock{
+private static HashSet LOCK_HELD = new HashSet();
+}

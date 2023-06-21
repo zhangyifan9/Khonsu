@@ -1,0 +1,1 @@
+org apach lucen search phrase scorer doc return doc return doc skip int return advanc target list top null explain int explan explan explan int advanc doc float phrase freq doc freq explan set valu similar phrase freq explan set descript phrase freq phrase freq return explan 

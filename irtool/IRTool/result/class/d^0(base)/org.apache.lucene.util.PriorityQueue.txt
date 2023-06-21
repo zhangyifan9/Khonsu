@@ -1,0 +1,39 @@
+org.apache.lucene.util.PriorityQueue{
+protected Object[] heap;
+lessThan(Object, Object){
+}
+initialize(int){
+heap = new Object[heapSize];
+Object sentinel = getSentinelObject()
+}
+put(Object){
+size++;
+heap[size] = element;
+upHeap();
+}
+add(Object){
+size++;
+heap[size] = element;
+upHeap();
+return heap[1];
+}
+insert(Object){
+return insertWithOverflow(element) != element;
+}
+insertWithOverflow(Object){
+if (size < maxSize)
+else
+}
+pop(){
+if (size > 0)
+}
+adjustTop(){
+downHeap();
+}
+upHeap(){
+Object node = heap[i]
+}
+downHeap(){
+Object node = heap[i]
+}
+}

@@ -1,0 +1,1 @@
+org apach lucen search filter doc set iter return filter doc set iter set iter protect boolean match int docid throw return filter doc set match docid 

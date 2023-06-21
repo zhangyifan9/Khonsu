@@ -1,0 +1,4 @@
+org.apache.lucene.search.HitCollector{
+collect(int, float){
+}
+}

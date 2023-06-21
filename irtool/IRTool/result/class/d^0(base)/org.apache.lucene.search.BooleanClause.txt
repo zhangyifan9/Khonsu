@@ -1,0 +1,15 @@
+import org.apache.lucene.util.Parameter
+org.apache.lucene.search.BooleanClause{
+isProhibited(){
+return Occur.MUST_NOT.equals(occur);
+}
+isRequired(){
+return Occur.MUST.equals(occur);
+}
+equals(Object){
+return this.query.equals(other.query) && this.occur.equals(other.occur);
+}
+hashCode(){
+return query.hashCode() ^ (Occur.MUST.equals(occur) ? 1 : 0) ^ (Occur.MUST_NOT.equals(occur) ? 2 : 0);
+}
+}

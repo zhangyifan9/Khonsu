@@ -1,0 +1,1 @@
+lucen process term vector enabl multipl field lead invalid arrayindexoutofboundsexcept 

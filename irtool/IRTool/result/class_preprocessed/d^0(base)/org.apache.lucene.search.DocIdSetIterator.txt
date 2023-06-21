@@ -1,0 +1,1 @@
+org apach lucen search doc set iter doc unsupport oper call doc doc return doc unsupport oper call doc skip int unsupport oper call advanc doc return doc doc advanc int target return doc skip target doc 

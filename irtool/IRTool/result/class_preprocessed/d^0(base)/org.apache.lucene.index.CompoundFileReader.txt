@@ -1,0 +1,1 @@
+org apach lucen index compound file reader privat hash map entri hash map open input string int file entri entri file entri entri list string res string entri size return string entri key set array res file length string file entri file entri entri 

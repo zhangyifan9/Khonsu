@@ -1,0 +1,39 @@
+
+j	java:S116"PRename this field "LSI_K" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄóÅ¬ÿÿÿÿÿ
+b
+java:S1871"LThis branch's code block is the same as the block for the branch on line 23.(—§¦Â
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ú—£˜ýÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ì¥µÏ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ú—£˜ýÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ì¥µÏ
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(Ú—£˜ýÿÿÿÿ
+V	java:S125&"<This block of commented-out lines of code should be removed.(¹áû«ÿÿÿÿÿ
+h	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý‰‰øûÿÿÿÿ
+c	java:S100d"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÞÅÊñ
+h	java:S100m"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý¾œÒþÿÿÿÿ
+c	java:S100v"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ðþò‘
+i	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘Íüçùÿÿÿÿ
+d	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(žîÏ
+d	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã…Úï
+d	java:S100¤"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ©º’
+V
+java:S1118Ö":Add a private constructor to hide the implicit public one.(Çøèõùÿÿÿÿ
+k	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Óþêÿÿÿÿÿ
+f	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÛœŒ
+f	java:S1175"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¿™Ó
+e	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÚé\
+f	java:S117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÀ÷¤
+k	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì¶ËŒùÿÿÿÿ
+f	java:S117J"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ÈÈŸ
+e	java:S117W"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìŒ|
+g	java:S117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à¤êå
+f	java:S117å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜóðC
+g	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßÃ‹È
+|
+java:S1488E"aImmediately return this expression instead of assigning it to the temporary variable "tfidf_svd".(ì¶ËŒùÿÿÿÿ
+}
+java:S1488S"bImmediately return this expression instead of assigning it to the temporary variable "realMatrix".(’®ë‰ûÿÿÿÿ
+u
+java:S1488è"^Immediately return this expression instead of assigning it to the temporary variable "result".(…Å¢¦
+U
+java:S3518•"9Make sure "max" can't be zero before doing this division.(¢®Ä…ùÿÿÿÿ

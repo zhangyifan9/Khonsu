@@ -1,0 +1,4 @@
+import org.apache.lucene.analysis.TokenStream
+org.apache.lucene.index.DocInverterPerThread{
+final SingleTokenTokenStream singleTokenTokenStream = new SingleTokenTokenStream();
+}

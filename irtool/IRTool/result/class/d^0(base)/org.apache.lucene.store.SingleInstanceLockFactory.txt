@@ -1,0 +1,3 @@
+org.apache.lucene.store.SingleInstanceLockFactory{
+private HashSet locks = new HashSet();
+}

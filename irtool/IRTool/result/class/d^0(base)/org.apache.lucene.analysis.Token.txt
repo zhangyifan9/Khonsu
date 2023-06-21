@@ -1,0 +1,55 @@
+org.apache.lucene.analysis.Token{
+private String termText;
+char[] termBuffer;
+int termLength;
+int startOffset;
+int endOffset;
+String type = DEFAULT_TYPE;
+Payload payload;
+int positionIncrement = 1;
+Token(String, int, int){
+termText = text;
+}
+Token(String, int, int, String){
+termText = text;
+}
+Token(String, int, int, int){
+termText = text;
+}
+setTermText(String){
+termText = text;
+termBuffer = null;
+}
+termText(){
+if (termText == null && termBuffer != null)
+return termText;
+}
+term(){
+if (termText != null)
+}
+setTermBuffer(char[], int, int){
+termText = null;
+}
+setTermBuffer(String){
+termText = null;
+}
+setTermBuffer(String, int, int){
+termText = null;
+}
+resizeTermBuffer(int){
+if (termBuffer == null)
+}
+initTermBuffer(){
+if (termBuffer == null)
+else
+}
+toString(){
+StringBuffer sb = new StringBuffer()
+}
+clear(){
+termText = null;
+}
+copyTo(AttributeImpl){
+else
+}
+}

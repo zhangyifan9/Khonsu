@@ -1,0 +1,7 @@
+import java.util.Iterator
+org.apache.lucene.index.TermVectorsTermsWriter{
+flush(Map, SegmentWriteState){
+Iterator it = threadsAndFields.entrySet().iterator()
+while(it.hasNext())
+}
+}

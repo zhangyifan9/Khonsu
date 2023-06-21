@@ -1,0 +1,8 @@
+org.apache.lucene.index.FieldSortedTermVectorMapper{
+private Map fieldToTerms = new HashMap();
+private SortedSet currentSet;
+private Comparator comparator;
+setExpectations(String, int, boolean, boolean){
+currentSet = new TreeSet(comparator);
+}
+}

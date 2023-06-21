@@ -1,0 +1,6 @@
+org.apache.lucene.index.TermEnum{
+skipTo(Term){
+do (target.compareTo(term()) > 0 )
+return true;
+}
+}

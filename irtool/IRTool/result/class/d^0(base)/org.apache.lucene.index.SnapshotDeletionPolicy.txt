@@ -1,0 +1,12 @@
+org.apache.lucene.index.SnapshotDeletionPolicy{
+onInit(List){
+lastCommit = (IndexCommit) commits.get(commits.size() - 1);
+}
+onCommit(List){
+lastCommit = (IndexCommit) commits.get(commits.size() - 1);
+}
+wrapCommits(List){
+List myCommits = new ArrayList(count)
+for(int i = 0; i < count; i++)
+}
+}

@@ -1,0 +1,26 @@
+org.apache.lucene.search.function.ByteFieldSource{
+getCachedFieldValues(FieldCache, String, IndexReader){
+return new DocValues() {
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#floatVal(int) */
+    public float floatVal(int doc) {
+        return (float) arr[doc];
+    }
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#intVal(int) */
+    public int intVal(int doc) {
+        return arr[doc];
+    }
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#toString(int) */
+    public String toString(int doc) {
+        return description() + '=' + intVal(doc);
+    }
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#getInnerArray() */
+    Object getInnerArray() {
+        return arr;
+    }
+};
+}
+}

@@ -1,0 +1,9 @@
+org.apache.lucene.index.FreqProxTermsWriterPerField{
+compareTo(Object){
+FreqProxTermsWriterPerField other = (FreqProxTermsWriterPerField) other0
+return fieldInfo.name.compareTo(other.fieldInfo.name);
+}
+start(Fieldable){
+if (fieldState.attributeSource.hasAttribute(PayloadAttribute.class))
+}
+}

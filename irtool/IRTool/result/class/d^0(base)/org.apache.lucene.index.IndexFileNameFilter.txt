@@ -1,0 +1,8 @@
+org.apache.lucene.index.IndexFileNameFilter{
+private HashSet extensions;
+private HashSet extensionsInCFS;
+IndexFileNameFilter(){
+extensions = new HashSet();
+extensionsInCFS = new HashSet();
+}
+}

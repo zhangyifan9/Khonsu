@@ -1,0 +1,11 @@
+org.apache.lucene.search.FilteredDocIdSetIterator{
+doc(){
+return doc;
+}
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+skipTo(int){
+return advance(n) != NO_MORE_DOCS;
+}
+}

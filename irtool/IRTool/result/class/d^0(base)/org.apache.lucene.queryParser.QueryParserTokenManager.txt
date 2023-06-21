@@ -1,0 +1,3 @@
+import org.apache.lucene.util.Parameter
+org.apache.lucene.queryParser.QueryParserTokenManager{
+}

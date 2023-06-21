@@ -1,0 +1,5 @@
+org.apache.lucene.store.IndexInput{
+readStringStringMap(){
+final Map map = new HashMap()
+}
+}

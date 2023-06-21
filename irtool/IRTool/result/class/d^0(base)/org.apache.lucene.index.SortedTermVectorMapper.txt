@@ -1,0 +1,10 @@
+org.apache.lucene.index.SortedTermVectorMapper{
+private SortedSet currentSet;
+private Map termToTVE = new HashMap();
+SortedTermVectorMapper(boolean, boolean, Comparator){
+currentSet = new TreeSet(comparator);
+}
+map(String, int, TermVectorOffsetInfo[], int[]){
+TermVectorEntry entry = (TermVectorEntry) termToTVE.get(term)
+}
+}

@@ -1,0 +1,21 @@
+
+h
+java:S3776
+"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(İü²ó
+B
+java:S1481"'Remove this unused "fw" local variable.(Ó°ñûÿÿÿÿ
+A
+java:S1481"&Remove this unused "a" local variable.(–ÎåÌûÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(„æšš
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(÷¾Äı
+S	java:S1061"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+Q	java:S125""<This block of commented-out lines of code should be removed.(î†É
+V	java:S125;"<This block of commented-out lines of code should be removed.(úÚŒÂúÿÿÿÿ
+i
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ßì‹
+T
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(Šó½ã
+0
+java:S1220""Move this file to a named package.
+c
+java:S20952"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(¾ƒÂüÿÿÿÿ

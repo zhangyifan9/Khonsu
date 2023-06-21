@@ -1,0 +1,6 @@
+org.apache.lucene.analysis.NormalizeCharMap{
+Map submap;
+add(String, String){
+for(int i = 0; i < singleMatch.length(); i++)
+}
+}

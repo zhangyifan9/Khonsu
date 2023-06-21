@@ -1,0 +1,5 @@
+org.apache.lucene.index.TermsHashPerField{
+start(Fieldable){
+termAtt = (TermAttribute) fieldState.attributeSource.addAttribute(TermAttribute.class);
+}
+}

@@ -1,0 +1,1 @@
+import org apach lucen util prioriti queue org apach lucen search fuzzi queri fuzzi queri term float int remov super term rewrit index reader int max claus count boolean queri max claus count score term queue queue score term queue max claus count score term reusabl null tri int size queue size int size string string string buffer buffer string buffer 

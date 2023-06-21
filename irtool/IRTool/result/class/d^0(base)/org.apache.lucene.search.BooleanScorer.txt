@@ -1,0 +1,28 @@
+import java.util.Iterator
+org.apache.lucene.search.BooleanScorer{
+BooleanScorer(Similarity, int, List, List){
+if (optionalScorers != null && optionalScorers.size() > 0)
+if (prohibitedScorers != null && prohibitedScorers.size() > 0)
+}
+score(HitCollector, int){
+return score(new HitCollectorWrapper(hc), max, docID());
+}
+doc(){
+return current.doc;
+}
+explain(int){
+new UnsupportedOperationException()
+}
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+score(HitCollector){
+score(new HitCollectorWrapper(hc));
+}
+skipTo(int){
+new UnsupportedOperationException()
+}
+toString(){
+StringBuffer buffer = new StringBuffer()
+}
+}

@@ -1,0 +1,10 @@
+import java.util.Iterator
+import org.apache.lucene.util.AttributeSource
+org.apache.lucene.index.DocInverter{
+flush(Map, SegmentWriteState){
+Map childThreadsAndFields = new HashMap()
+Map endChildThreadsAndFields = new HashMap()
+Iterator it = threadsAndFields.entrySet().iterator()
+while(it.hasNext())
+}
+}

@@ -1,0 +1,5 @@
+import java.util.Collection
+org.apache.lucene.search.spans.SpanQuery{
+getTerms(){
+}
+}

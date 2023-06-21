@@ -1,0 +1,16 @@
+import java.util.Arrays
+org.apache.lucene.store.FileSwitchDirectory{
+private final Set primaryExtensions;
+listAll(){
+Set files = new HashSet()
+files.addAll(Arrays.asList(primaryDir.listAll()));
+files.addAll(Arrays.asList(secondaryDir.listAll()));
+return (String[]) files.toArray(new String[files.size()]);
+}
+list(){
+return listAll();
+}
+renameFile(String, String){
+getDirectory(from).renameFile(from, to);
+}
+}

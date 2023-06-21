@@ -1,0 +1,20 @@
+org.apache.lucene.search.TermRangeFilter{
+getField(){
+return ((TermRangeQuery) query).getField();
+}
+getLowerTerm(){
+return ((TermRangeQuery) query).getLowerTerm();
+}
+getUpperTerm(){
+return ((TermRangeQuery) query).getUpperTerm();
+}
+includesLower(){
+return ((TermRangeQuery) query).includesLower();
+}
+includesUpper(){
+return ((TermRangeQuery) query).includesUpper();
+}
+getCollator(){
+return ((TermRangeQuery) query).getCollator();
+}
+}

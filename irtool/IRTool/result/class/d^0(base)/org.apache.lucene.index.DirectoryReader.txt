@@ -1,0 +1,67 @@
+import java.util.Iterator
+org.apache.lucene.index.DirectoryReader{
+private final HashSet synced = new HashSet();
+private Map normsCache = new HashMap();
+DirectoryReader(Directory, SegmentInfos, SegmentReader[], int[], Map, boolean, boolean, int){
+Map segmentReaders = new HashMap()
+if (oldReaders != null)
+for(int i = infos.size() - 1; i >= 0; i--)
+if (oldNormsCache != null)
+}
+private byte[] ones;
+open(Directory, IndexDeletionPolicy, IndexCommit, boolean, int){
+return (IndexReader) new SegmentInfos.FindSegmentsFile(directory) {
+
+    protected Object doBody(String segmentFileName) throws CorruptIndexException, IOException {
+        SegmentInfos infos = new SegmentInfos();
+        infos.read(directory, segmentFileName);
+        if (readOnly)
+            return new ReadOnlyDirectoryReader(directory, infos, deletionPolicy, termInfosIndexDivisor);
+        else
+            return new DirectoryReader(directory, infos, deletionPolicy, false, termInfosIndexDivisor);
+    }
+}.run(commit);
+}
+doReopenNoWriter(boolean, IndexCommit){
+if (commit == null)
+else
+return (IndexReader) new SegmentInfos.FindSegmentsFile(directory) {
+
+    protected Object doBody(String segmentFileName) throws CorruptIndexException, IOException {
+        SegmentInfos infos = new SegmentInfos();
+        infos.read(directory, segmentFileName);
+        return doReopen(infos, false, openReadOnly);
+    }
+}.run(commit);
+}
+doReopen(SegmentInfos, boolean, boolean){
+reader.setDisableFakeNorms(getDisableFakeNorms());
+}
+fakeNorms(){
+if (ones == null)
+return ones;
+}
+norms(String){
+byte[] bytes = (byte[]) normsCache.get(field)
+}
+norms(String, byte[], int){
+byte[] bytes = (byte[]) normsCache.get(field)
+}
+doCommit(){
+doCommit(null);
+}
+doCommit(Map){
+if (hasChanges)
+}
+getFieldNames(IndexReader.FieldOption, IndexReader[]){
+Set fieldSet = new HashSet()
+for(int i = 0; i < subReaders.length; i++)
+}
+setDisableFakeNorms(boolean){
+super.setDisableFakeNorms(disableFakeNorms);
+for(int i = 0; i < subReaders.length; i++)
+}
+listCommits(Directory){
+Collection commits = new ArrayList()
+}
+}

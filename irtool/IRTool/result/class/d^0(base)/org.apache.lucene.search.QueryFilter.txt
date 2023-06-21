@@ -1,0 +1,11 @@
+org.apache.lucene.search.QueryFilter{
+QueryFilter(Query){
+super(new QueryWrapperFilter(query));
+}
+equals(Object){
+return super.equals((QueryFilter) o);
+}
+hashCode(){
+return super.hashCode() ^ 0x923F64B9;
+}
+}

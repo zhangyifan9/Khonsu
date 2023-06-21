@@ -1,0 +1,1 @@
+lucen correct fix fieldcacheimpl getstringindex longer throw term count exceed doc count 

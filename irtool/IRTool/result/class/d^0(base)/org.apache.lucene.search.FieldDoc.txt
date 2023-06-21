@@ -1,0 +1,5 @@
+org.apache.lucene.search.FieldDoc{
+toString(){
+StringBuffer sb = new StringBuffer(super.toString())
+}
+}

@@ -1,0 +1,6 @@
+org.apache.lucene.search.FilterManager{
+protected Map cache;
+FilterManager(){
+cache = new HashMap();
+}
+}

@@ -1,0 +1,14 @@
+import java.util.BitSet
+org.apache.lucene.search.MultiTermQueryWrapperFilter{
+protected final MultiTermQuery query;
+MultiTermQueryWrapperFilter(MultiTermQuery){
+this.query = query;
+}
+bits(IndexReader){
+final TermEnum enumerator = query.getEnum(reader)
+try
+}
+getDocIdSet(IndexReader){
+try
+}
+}

@@ -1,0 +1,9 @@
+org.apache.lucene.search.PrefixQuery{
+PrefixQuery(Term){
+// will be removed in 3.0
+super(prefix);
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+}

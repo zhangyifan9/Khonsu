@@ -1,0 +1,5 @@
+org.apache.lucene.search.ExactPhraseScorer{
+phraseFreq(){
+for(PhrasePositions pp = first; pp != null; )
+}
+}

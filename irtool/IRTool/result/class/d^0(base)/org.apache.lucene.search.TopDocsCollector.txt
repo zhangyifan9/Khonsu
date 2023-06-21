@@ -1,0 +1,6 @@
+org.apache.lucene.search.TopDocsCollector{
+protected PriorityQueue pq;
+populateResults(ScoreDoc[], int){
+for(int i = howMany - 1; i >= 0; i--)
+}
+}

@@ -1,0 +1,29 @@
+org.apache.lucene.document.AbstractField{
+protected boolean isCompressed = false;
+AbstractField(String, Field.Store, Field.Index, Field.TermVector){
+if (store == Field.Store.YES)
+else
+if (index == Field.Index.NO)
+else
+}
+setStoreTermVector(Field.TermVector){
+if (termVector == Field.TermVector.NO)
+else
+}
+isCompressed(){
+return isCompressed;
+}
+getBinaryLength(){
+if (isBinary)
+}
+getOmitTf(){
+return omitTermFreqAndPositions;
+}
+setOmitTf(boolean){
+this.omitTermFreqAndPositions = omitTermFreqAndPositions;
+}
+toString(){
+StringBuffer result = new StringBuffer()
+if (isStored)
+}
+}

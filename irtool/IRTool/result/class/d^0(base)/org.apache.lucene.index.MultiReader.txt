@@ -1,0 +1,23 @@
+org.apache.lucene.index.MultiReader{
+private Map normsCache = new HashMap();
+private byte[] ones;
+initialize(IndexReader[], boolean){
+this.subReaders = (IndexReader[]) subReaders.clone();
+}
+doReopen(boolean){
+if (reopened)
+}
+fakeNorms(){
+if (ones == null)
+return ones;
+}
+norms(String){
+byte[] bytes = (byte[]) normsCache.get(field)
+}
+norms(String, byte[], int){
+byte[] bytes = (byte[]) normsCache.get(field)
+}
+doCommit(){
+doCommit(null);
+}
+}

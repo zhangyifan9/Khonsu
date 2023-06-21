@@ -1,0 +1,1 @@
+import java util array org apach lucen store file switch directori privat final set primari extens list set file hash set file add array list primari dir list file add array list secondari dir list return string file array string file size list return list renam file string string directori renam file 

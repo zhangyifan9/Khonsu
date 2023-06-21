@@ -1,0 +1,15 @@
+org.apache.lucene.analysis.CachingTokenFilter{
+private List cache = null;
+private Iterator iterator = null;
+next(Token){
+return super.next(reusableToken);
+}
+next(){
+return super.next();
+}
+incrementToken(){
+if (cache == null)
+// Since the TokenFilter can be reset, the tokens need to be preserved as immutable.
+restoreState((AttributeSource.State) iterator.next());
+}
+}

@@ -1,0 +1,85 @@
+import org.apache.lucene.analysis.Analyzer
+import org.apache.lucene.document.Document
+import org.apache.lucene.store.Directory
+import org.apache.lucene.store.FSDirectory
+import org.apache.lucene.store.LockObtainFailedException
+import java.io.File
+import java.io.IOException
+import java.io.PrintStream
+org.apache.lucene.index.IndexModifier{
+protected IndexWriter indexWriter = null;
+protected IndexReader indexReader = null;
+protected Directory directory = null;
+protected Analyzer analyzer = null;
+protected boolean open = false, closeDir = false;
+protected PrintStream infoStream = null;
+protected boolean useCompoundFile = true;
+protected int maxBufferedDocs = IndexWriter.DEFAULT_MAX_BUFFERED_DOCS;
+protected int maxFieldLength = IndexWriter.DEFAULT_MAX_FIELD_LENGTH;
+protected int mergeFactor = IndexWriter.DEFAULT_MERGE_FACTOR;
+IndexModifier(Directory, Analyzer, boolean){
+init(directory, analyzer, create);
+}
+IndexModifier(String, Analyzer, boolean){
+Directory dir = FSDirectory.getDirectory(dirName)
+this.closeDir = true;
+init(dir, analyzer, create);
+}
+IndexModifier(File, Analyzer, boolean){
+Directory dir = FSDirectory.getDirectory(file)
+this.closeDir = true;
+init(dir, analyzer, create);
+}
+init(Directory, Analyzer, boolean){
+this.directory = directory;
+}
+assureOpen(){
+if (!open)
+}
+createIndexWriter(){
+if (indexWriter == null)
+}
+createIndexReader(){
+if (indexReader == null)
+}
+flush(){
+}
+addDocument(Document, Analyzer){
+}
+addDocument(Document){
+addDocument(doc, null);
+}
+deleteDocuments(Term){
+}
+deleteDocument(int){
+}
+docCount(){
+}
+optimize(){
+}
+setInfoStream(PrintStream){
+}
+getInfoStream(){
+}
+setUseCompoundFile(boolean){
+}
+getUseCompoundFile(){
+}
+setMaxFieldLength(int){
+}
+getMaxFieldLength(){
+}
+setMaxBufferedDocs(int){
+}
+getMaxBufferedDocs(){
+}
+setMergeFactor(int){
+}
+getMergeFactor(){
+}
+close(){
+}
+toString(){
+return "Index@" + directory;
+}
+}

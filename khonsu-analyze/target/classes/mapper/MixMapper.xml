@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nju.mapper.MixMapper">
+<!--    后端分页-->
+<!--    <select id="selectCodeBlockVOByReleaseId" resultMap="CodeBlockVOResultMap,COUNT">-->
+<!--        SELECT cb.id as code_block_id, cb.class_path, cb.tags, rc.score, cb.file_path, rc.is_change-->
+<!--        FROM `release` r-->
+<!--                 JOIN `rc_link` rc ON rc.release_id = r.id-->
+<!--                 JOIN `code_block` cb ON cb.id = rc.code_block_id-->
+<!--        WHERE r.id = #{releaseId}-->
+<!--        ORDER BY rc.score DESC-->
+<!--            LIMIT #{limit}-->
+<!--        OFFSET #{offset};-->
+<!--        SELECT FOUND_ROWS() as `count`;-->
+<!--    </select>-->
+
+<!--    前端分页-->
+    <select id="selectCodeBlockVOByReleaseId" resultMap="CodeBlockVOResultMap">
+        SELECT cb.id as code_block_id, cb.class_path, cb.tags, rc.score, cb.file_path, rc.is_change
+        FROM `release` r
+                 JOIN `rc_link` rc ON rc.release_id = r.id
+                 JOIN `code_block` cb ON cb.id = rc.code_block_id
+        WHERE r.id = #{releaseId}
+        ORDER BY rc.score DESC;
+    </select>
+
+    <select id="selectCodeBlockVOAvg" resultMap="CodeBlockVOResultMap">
+        SELECT avg_s.id as code_block_id,
+               cb.class_path,
+               cb.tags,
+               CAST(ROUND(avg_s.avg_score, 5) AS CHAR(10)) as score,
+               cb.file_path,
+               avg_s.is_change
+        FROM (SELECT cb.id, AVG(rc.score) AS avg_score, rc.is_change
+              FROM `release` r
+                       JOIN `rc_link` rc ON r.id = rc.release_id
+                       JOIN `code_block` cb ON rc.code_block_id = cb.id
+              WHERE r.repo_name = #{repoName}
+                AND r.tag = #{tag}
+              GROUP BY cb.id) avg_s
+                 JOIN `code_block` cb ON avg_s.id = cb.id
+        ORDER BY score DESC;
+    </select>
+
+    <resultMap id="CodeBlockVOResultMap" type="cn.edu.nju.domain.vo.CodeBlockVO">
+        <result column="code_block_id" property="codeBlockId"/>
+        <result column="class_path" property="classPath"/>
+        <result column="tags" property="tags"/>
+        <result column="score" property="score"/>
+        <result column="file_path" property="content"/>
+        <result column="is_change" property="isChange"/>
+    </resultMap>
+
+    <resultMap id="COUNT" type="java.lang.Integer">
+        <result column="count"/>
+    </resultMap>
+</mapper>

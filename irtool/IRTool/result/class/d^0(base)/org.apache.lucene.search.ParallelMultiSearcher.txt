@@ -1,0 +1,29 @@
+import org.apache.lucene.util.PriorityQueue
+org.apache.lucene.search.ParallelMultiSearcher{
+private Searchable[] searchables;
+private int[] starts;
+docFreq(Term){
+return super.docFreq(term);
+}
+search(Weight, Filter, int){
+HitQueue hq = new HitQueue(nDocs, false)
+MultiSearcherThread[] msta = new MultiSearcherThread[searchables.length]
+for(int i = 0; i < searchables.length; i++)
+for(int i = 0; i < searchables.length; i++)
+ScoreDoc[] scoreDocs = new ScoreDoc[hq.size()]
+float maxScore = (totalHits == 0) ? Float.NEGATIVE_INFINITY : scoreDocs[0].score
+}
+search(Weight, Filter, int, Sort){
+FieldDocSortedHitQueue hq = new FieldDocSortedHitQueue(null, nDocs)
+MultiSearcherThread[] msta = new MultiSearcherThread[searchables.length]
+for(int i = 0; i < searchables.length; i++)
+for(int i = 0; i < searchables.length; i++)
+ScoreDoc[] scoreDocs = new ScoreDoc[hq.size()]
+}
+search(Weight, Filter, Collector){
+for(int i = 0; i < searchables.length; i++)
+}
+rewrite(Query){
+return super.rewrite(original);
+}
+}

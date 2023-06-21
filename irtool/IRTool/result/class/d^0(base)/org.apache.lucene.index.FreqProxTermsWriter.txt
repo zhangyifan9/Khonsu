@@ -1,0 +1,16 @@
+import org.apache.lucene.store.IndexOutput
+import org.apache.lucene.store.IndexInput
+import java.util.Iterator
+org.apache.lucene.index.FreqProxTermsWriter{
+private final TermInfo termInfo = new TermInfo();
+flush(Map, SegmentWriteState){
+List allFields = new ArrayList()
+Iterator it = threadsAndFields.entrySet().iterator()
+while(it.hasNext())
+while(start < numAllFields)
+it = threadsAndFields.entrySet().iterator();
+while(it.hasNext())
+}
+files(Collection){
+}
+}

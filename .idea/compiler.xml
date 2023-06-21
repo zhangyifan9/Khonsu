@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ecco-service" />
+        <module name="khonsu-quartz" />
+        <module name="khonsu-analyze" />
+        <module name="khonsu-framework" />
+        <module name="khonsu-admin" />
+        <module name="ecco-base" />
+        <module name="khonsu-generator" />
+        <module name="ecco-custom" />
+        <module name="khonsu-system" />
+        <module name="khonsu-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

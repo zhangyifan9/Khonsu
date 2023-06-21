@@ -1,0 +1,3 @@
+import org.apache.lucene.store.IndexInput
+org.apache.lucene.index.FormatPostingsPositionsConsumer{
+}

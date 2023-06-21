@@ -1,0 +1,17 @@
+org.apache.lucene.document.NumericField{
+binaryValue(){
+return null;
+}
+setLongValue(long){
+fieldsData = new Long(value);
+}
+setIntValue(int){
+fieldsData = new Integer(value);
+}
+setDoubleValue(double){
+fieldsData = new Double(value);
+}
+setFloatValue(float){
+fieldsData = new Float(value);
+}
+}

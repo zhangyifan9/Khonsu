@@ -1,0 +1,57 @@
+import java.util.Iterator
+import java.util.Locale
+import org.apache.lucene.document.NumericField
+org.apache.lucene.search.FieldCacheImpl{
+private Map caches;
+init(){
+caches = new HashMap(7);
+caches.put(Comparable.class, new CustomCache(this));
+caches.put(Object.class, new AutoCache(this));
+}
+purge(IndexReader){
+Iterator it = caches.values().iterator()
+while(it.hasNext())
+}
+getCacheEntries(){
+List result = new ArrayList(17)
+Iterator outerKeys = caches.keySet().iterator()
+while(outerKeys.hasNext())
+return (CacheEntry[]) result.toArray(new CacheEntry[result.size()]);
+}
+getBytes(IndexReader, String, ByteParser){
+return (byte[]) ((Cache) caches.get(Byte.TYPE)).get(reader, new Entry(field, parser));
+}
+getShorts(IndexReader, String, ShortParser){
+return (short[]) ((Cache) caches.get(Short.TYPE)).get(reader, new Entry(field, parser));
+}
+getInts(IndexReader, String, IntParser){
+return (int[]) ((Cache) caches.get(Integer.TYPE)).get(reader, new Entry(field, parser));
+}
+getFloats(IndexReader, String, FloatParser){
+return (float[]) ((Cache) caches.get(Float.TYPE)).get(reader, new Entry(field, parser));
+}
+getLongs(IndexReader, String, FieldCache.LongParser){
+return (long[]) ((Cache) caches.get(Long.TYPE)).get(reader, new Entry(field, parser));
+}
+getLongs(IndexReader, String, ExtendedFieldCache.LongParser){
+return (long[]) ((Cache) caches.get(Long.TYPE)).get(reader, new Entry(field, parser));
+}
+getDoubles(IndexReader, String, FieldCache.DoubleParser){
+return (double[]) ((Cache) caches.get(Double.TYPE)).get(reader, new Entry(field, parser));
+}
+getDoubles(IndexReader, String, ExtendedFieldCache.DoubleParser){
+return (double[]) ((Cache) caches.get(Double.TYPE)).get(reader, new Entry(field, parser));
+}
+getStrings(IndexReader, String){
+return (String[]) ((Cache) caches.get(String.class)).get(reader, new Entry(field, (Parser) null));
+}
+getStringIndex(IndexReader, String){
+return (StringIndex) ((Cache) caches.get(StringIndex.class)).get(reader, new Entry(field, (Parser) null));
+}
+getAuto(IndexReader, String){
+return ((Cache) caches.get(Object.class)).get(reader, new Entry(field, (Parser) null));
+}
+getCustom(IndexReader, String, SortComparator){
+return (Comparable[]) ((Cache) caches.get(Comparable.class)).get(reader, new Entry(field, comparator));
+}
+}

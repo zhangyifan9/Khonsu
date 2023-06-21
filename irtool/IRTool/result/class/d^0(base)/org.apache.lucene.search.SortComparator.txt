@@ -1,0 +1,24 @@
+import org.apache.lucene.index.IndexReader
+import java.io.IOException
+org.apache.lucene.search.SortComparator{
+newComparator(IndexReader, String){
+final String field = fieldname.intern()
+final Comparable[] cachedValues = FieldCache.DEFAULT.getCustom(reader, field, SortComparator.this)
+return new ScoreDocComparator() {
+
+    public int compare(ScoreDoc i, ScoreDoc j) {
+        return cachedValues[i.doc].compareTo(cachedValues[j.doc]);
+    }
+
+    public Comparable sortValue(ScoreDoc i) {
+        return cachedValues[i.doc];
+    }
+
+    public int sortType() {
+        return SortField.CUSTOM;
+    }
+};
+}
+getComparable(String){
+}
+}

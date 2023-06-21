@@ -1,0 +1,6 @@
+org.apache.lucene.index.SegmentWriteState{
+Collection flushedFiles;
+SegmentWriteState(DocumentsWriter, Directory, String, String, int, int, int){
+flushedFiles = new HashSet();
+}
+}

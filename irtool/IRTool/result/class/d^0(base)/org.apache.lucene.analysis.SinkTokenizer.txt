@@ -1,0 +1,41 @@
+import java.io.IOException
+import java.util.ArrayList
+import java.util.Iterator
+import java.util.List
+org.apache.lucene.analysis.SinkTokenizer{
+protected List /*<Token>*/
+lst = new ArrayList();
+protected Iterator /*<Token>*/
+iter;
+SinkTokenizer(List){
+this.lst = input;
+if (this.lst == null)
+}
+SinkTokenizer(){
+this.lst = new ArrayList();
+}
+SinkTokenizer(int){
+this.lst = new ArrayList(/*<Token>*/
+initCap);
+}
+getTokens(){
+return lst;
+}
+next(Token){
+if (iter == null)
+if (iter.hasNext())
+return null;
+}
+add(Token){
+if (t == null)
+lst.add((Token) t.clone());
+}
+close(){
+// nothing to close
+input = null;
+lst = null;
+}
+reset(){
+iter = lst.iterator();
+}
+}

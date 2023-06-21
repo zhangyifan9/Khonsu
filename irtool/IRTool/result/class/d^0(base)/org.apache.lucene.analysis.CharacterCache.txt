@@ -1,0 +1,7 @@
+org.apache.lucene.analysis.CharacterCache{
+private static final Character[] cache = new Character[128];
+valueOf(char){
+if (c < cache.length)
+return new Character(c);
+}
+}

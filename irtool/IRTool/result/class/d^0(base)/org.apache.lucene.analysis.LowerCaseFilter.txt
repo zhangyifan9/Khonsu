@@ -1,0 +1,5 @@
+org.apache.lucene.analysis.LowerCaseFilter{
+LowerCaseFilter(TokenStream){
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+}
+}

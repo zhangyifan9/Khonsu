@@ -1,0 +1,18 @@
+org.apache.lucene.search.spans.NearSpansOrdered{
+private List /*<byte[]>*/
+matchPayload;
+private final Comparator spanDocComparator = new Comparator() {
+
+    public int compare(Object o1, Object o2) {
+        return ((Spans) o1).doc() - ((Spans) o2).doc();
+    }
+};
+NearSpansOrdered(SpanNearQuery, IndexReader, boolean){
+matchPayload = new LinkedList();
+}
+shrinkToAfterShortestMatch(){
+Set possibleMatchPayloads = new HashSet()
+Collection possiblePayload = null
+for(int i = subSpans.length - 2; i >= 0; i--)
+}
+}

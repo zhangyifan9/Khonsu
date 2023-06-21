@@ -1,0 +1,1 @@
+org apach lucen document numer field binari valu return null set long valu long field data long valu set int valu int field data integ valu set doubl valu doubl field data doubl valu set float valu float field data float valu 

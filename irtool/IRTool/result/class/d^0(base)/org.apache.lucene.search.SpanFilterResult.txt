@@ -1,0 +1,12 @@
+import java.util.BitSet
+org.apache.lucene.search.SpanFilterResult{
+private BitSet bits;
+private List positions;
+SpanFilterResult(BitSet, List){
+this.bits = bits;
+this.positions = positions;
+}
+getBits(){
+return bits;
+}
+}

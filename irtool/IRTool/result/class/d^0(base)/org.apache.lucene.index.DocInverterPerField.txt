@@ -1,0 +1,5 @@
+org.apache.lucene.index.DocInverterPerField{
+processFields(Fieldable[], int){
+for(int i = 0; i < count; i++)
+}
+}

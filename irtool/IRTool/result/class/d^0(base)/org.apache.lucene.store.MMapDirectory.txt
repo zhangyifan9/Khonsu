@@ -1,0 +1,9 @@
+org.apache.lucene.store.MMapDirectory{
+MMapDirectory(){
+}
+static final Class[] NO_PARAM_TYPES = new Class[0];
+static final Object[] NO_PARAMS = new Object[0];
+cleanMapping(ByteBuffer){
+if (useUnmapHack)
+}
+}

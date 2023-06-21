@@ -1,0 +1,11 @@
+org.apache.lucene.index.TermInfosReader{
+private final CloseableThreadLocal threadResources = new CloseableThreadLocal();
+getThreadResources(){
+ThreadResources resources = (ThreadResources) threadResources.get()
+if (resources == null)
+}
+get(Term, boolean){
+Cache cache = null
+if (useCache)
+}
+}

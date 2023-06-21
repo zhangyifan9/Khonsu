@@ -1,0 +1,11 @@
+org.apache.lucene.util.CloseableThreadLocal{
+private ThreadLocal t = new ThreadLocal();
+private Map hardRefs = new HashMap();
+get(){
+WeakReference weakRef = (WeakReference) t.get()
+if (weakRef == null)
+}
+set(Object){
+t.set(new WeakReference(object));
+}
+}

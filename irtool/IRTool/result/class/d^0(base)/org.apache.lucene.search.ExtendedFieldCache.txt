@@ -1,0 +1,9 @@
+import org.apache.lucene.index.IndexReader
+import java.io.IOException
+org.apache.lucene.search.ExtendedFieldCache{
+public static ExtendedFieldCache EXT_DEFAULT = (ExtendedFieldCache) FieldCache.DEFAULT;
+getLongs(IndexReader, String, ExtendedFieldCache.LongParser){
+}
+getDoubles(IndexReader, String, ExtendedFieldCache.DoubleParser){
+}
+}

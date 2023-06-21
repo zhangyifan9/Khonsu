@@ -1,0 +1,24 @@
+import java.util.Iterator
+import java.util.NoSuchElementException
+org.apache.lucene.search.HitIterator{
+private Hits hits;
+private int hitNumber = 0;
+HitIterator(Hits){
+this.hits = hits;
+}
+hasNext(){
+return hitNumber < hits.length();
+}
+next(){
+if (hitNumber == hits.length())
+Object next = new Hit(hits, hitNumber)
+hitNumber++;
+return next;
+}
+remove(){
+new UnsupportedOperationException()
+}
+length(){
+return hits.length();
+}
+}

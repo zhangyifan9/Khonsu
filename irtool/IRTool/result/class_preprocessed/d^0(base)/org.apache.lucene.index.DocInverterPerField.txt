@@ -1,0 +1,1 @@
+org apach lucen index doc invert field process field fieldabl int int count 

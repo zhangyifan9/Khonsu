@@ -1,0 +1,1 @@
+org apach lucen analysi length filter length filter token stream int int term att term attribut add attribut term attribut class increment token return null return fals 

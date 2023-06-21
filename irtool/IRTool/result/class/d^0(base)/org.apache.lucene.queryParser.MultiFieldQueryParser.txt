@@ -1,0 +1,34 @@
+org.apache.lucene.queryParser.MultiFieldQueryParser{
+protected Map boosts;
+MultiFieldQueryParser(String[], Analyzer, Map){
+this(Version.LUCENE_24, fields, analyzer);
+this.boosts = boosts;
+}
+MultiFieldQueryParser(String[], Analyzer){
+this(Version.LUCENE_24, fields, analyzer);
+}
+getFieldQuery(String, String, int){
+if (field == null)
+}
+getFuzzyQuery(String, String, float){
+if (field == null)
+}
+getPrefixQuery(String, String){
+if (field == null)
+}
+getWildcardQuery(String, String){
+if (field == null)
+}
+getRangeQuery(String, String, String, boolean){
+if (field == null)
+}
+parse(String[], String[], Analyzer){
+return parse(Version.LUCENE_24, queries, fields, analyzer);
+}
+parse(String, String[], BooleanClause.Occur[], Analyzer){
+return parse(Version.LUCENE_24, query, fields, flags, analyzer);
+}
+parse(String[], String[], BooleanClause.Occur[], Analyzer){
+return parse(Version.LUCENE_24, queries, fields, flags, analyzer);
+}
+}

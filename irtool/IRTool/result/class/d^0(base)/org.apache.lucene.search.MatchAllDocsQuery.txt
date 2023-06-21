@@ -1,0 +1,5 @@
+org.apache.lucene.search.MatchAllDocsQuery{
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+}

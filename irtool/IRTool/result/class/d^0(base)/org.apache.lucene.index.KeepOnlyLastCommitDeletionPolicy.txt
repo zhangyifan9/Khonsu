@@ -1,0 +1,5 @@
+org.apache.lucene.index.KeepOnlyLastCommitDeletionPolicy{
+onCommit(List){
+for(int i = 0; i < size - 1; i++)
+}
+}

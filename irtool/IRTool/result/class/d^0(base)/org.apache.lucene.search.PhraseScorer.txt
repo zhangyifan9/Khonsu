@@ -1,0 +1,22 @@
+org.apache.lucene.search.PhraseScorer{
+doc(){
+return first.doc;
+}
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+pqToList(){
+while(pq.top() != null)
+}
+explain(int){
+Explanation tfExplanation = new Explanation()
+int d = advance(doc)
+float phraseFreq = (d == doc) ? freq : 0.0f
+tfExplanation.setValue(getSimilarity().tf(phraseFreq));
+tfExplanation.setDescription("tf(phraseFreq=" + phraseFreq + ")");
+return tfExplanation;
+}
+}

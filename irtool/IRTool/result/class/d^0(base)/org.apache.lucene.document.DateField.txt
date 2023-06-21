@@ -1,0 +1,5 @@
+org.apache.lucene.document.DateField{
+timeToString(long){
+if (s.length() < DATE_LEN)
+}
+}

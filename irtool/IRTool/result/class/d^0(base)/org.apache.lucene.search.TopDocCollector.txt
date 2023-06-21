@@ -1,0 +1,30 @@
+import org.apache.lucene.util.PriorityQueue
+org.apache.lucene.search.TopDocCollector{
+private ScoreDoc reusableSD;
+protected int totalHits;
+protected PriorityQueue hq;
+TopDocCollector(int){
+this(new HitQueue(numHits, false));
+}
+TopDocCollector(int, PriorityQueue){
+this.hq = hq;
+}
+TopDocCollector(PriorityQueue){
+this.hq = hq;
+}
+collect(int, float){
+if (score > 0.0f)
+}
+getTotalHits(){
+return totalHits;
+}
+topDocs(){
+ScoreDoc[] scoreDocs = new ScoreDoc[hq.size()]
+for(// put docs in array
+int i = hq.size() - 1; // put docs in array
+i >= 0; // put docs in array
+i--)
+float maxScore = (totalHits == 0) ? Float.NEGATIVE_INFINITY : scoreDocs[0].score
+return new TopDocs(totalHits, scoreDocs, maxScore);
+}
+}

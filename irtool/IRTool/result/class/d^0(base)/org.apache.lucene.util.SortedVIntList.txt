@@ -1,0 +1,67 @@
+org.apache.lucene.util.SortedVIntList{
+iterator(){
+return new DocIdSetIterator() {
+
+    int bytePos = 0;
+
+    int lastInt = 0;
+
+    int doc = -1;
+
+    private void advance() {
+        // See org.apache.lucene.store.IndexInput.readVInt()
+        byte b = bytes[bytePos++];
+        lastInt += b & VB1;
+        for (int s = BIT_SHIFT; (b & ~VB1) != 0; s += BIT_SHIFT) {
+            b = bytes[bytePos++];
+            lastInt += (b & VB1) << s;
+        }
+    }
+
+    /**
+     * @deprecated use {@link #docID()} instead.
+     */
+    public int doc() {
+        return lastInt;
+    }
+
+    public int docID() {
+        return doc;
+    }
+
+    /**
+     * @deprecated use {@link #nextDoc()} instead.
+     */
+    public boolean next() {
+        return nextDoc() != NO_MORE_DOCS;
+    }
+
+    public int nextDoc() {
+        if (bytePos >= lastBytePos) {
+            doc = NO_MORE_DOCS;
+        } else {
+            advance();
+            doc = lastInt;
+        }
+        return doc;
+    }
+
+    /**
+     * @deprecated use {@link #advance(int)} instead.
+     */
+    public boolean skipTo(int docNr) {
+        return advance(docNr) != NO_MORE_DOCS;
+    }
+
+    public int advance(int target) {
+        while (bytePos < lastBytePos) {
+            advance();
+            if (lastInt >= target) {
+                return doc = lastInt;
+            }
+        }
+        return doc = NO_MORE_DOCS;
+    }
+};
+}
+}

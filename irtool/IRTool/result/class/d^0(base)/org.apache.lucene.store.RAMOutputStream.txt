@@ -1,0 +1,8 @@
+org.apache.lucene.store.RAMOutputStream{
+writeTo(IndexOutput){
+while(pos < end)
+}
+switchCurrentBuffer(){
+else
+}
+}

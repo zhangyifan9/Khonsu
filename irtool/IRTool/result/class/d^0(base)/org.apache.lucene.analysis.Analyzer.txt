@@ -1,0 +1,10 @@
+org.apache.lucene.analysis.Analyzer{
+private CloseableThreadLocal tokenStreams = new CloseableThreadLocal();
+protected boolean overridesTokenStreamMethod;
+setOverridesTokenStreamMethod(Class){
+final Class[] params = new Class[2]
+params[0] = String.class;
+params[1] = Reader.class;
+try
+}
+}

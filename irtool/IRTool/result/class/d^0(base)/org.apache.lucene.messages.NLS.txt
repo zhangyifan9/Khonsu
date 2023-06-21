@@ -1,0 +1,14 @@
+org.apache.lucene.messages.NLS{
+private static Map /*<String, Class<Object>>*/
+bundles = new HashMap(/*<String, Class<Object>>*/
+0);
+getResourceBundleObject(String, Locale){
+for(Iterator /*<String>*/
+it = bundles.keySet().iterator())
+}
+load(Class){
+Map /*<String, Field>*/
+fields = new HashMap(/*<String, Field>*/
+len * 2)
+}
+}

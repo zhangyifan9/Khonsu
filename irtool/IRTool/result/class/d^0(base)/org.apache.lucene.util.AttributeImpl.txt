@@ -1,0 +1,5 @@
+org.apache.lucene.util.AttributeImpl{
+toString(){
+StringBuffer buffer = new StringBuffer()
+}
+}

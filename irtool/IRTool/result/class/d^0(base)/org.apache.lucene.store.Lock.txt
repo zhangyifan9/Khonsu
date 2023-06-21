@@ -1,0 +1,5 @@
+org.apache.lucene.store.Lock{
+obtain(long){
+while(!locked)
+}
+}

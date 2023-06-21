@@ -1,0 +1,15 @@
+import java.util.Iterator
+org.apache.lucene.index.MultipleTermPositions{
+MultipleTermPositions(IndexReader, Term[]){
+List termPositions = new LinkedList()
+}
+next(){
+do (_termPositionsQueue.size() > 0 && _termPositionsQueue.peek().doc() == _doc )
+}
+skipTo(int){
+while(_termPositionsQueue.peek() != null && target > _termPositionsQueue.peek().doc())
+}
+close(){
+while(_termPositionsQueue.size() > 0)
+}
+}

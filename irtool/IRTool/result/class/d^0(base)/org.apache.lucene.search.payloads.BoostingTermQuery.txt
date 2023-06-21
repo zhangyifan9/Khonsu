@@ -1,0 +1,23 @@
+import java.io.IOException
+import org.apache.lucene.index.IndexReader
+import org.apache.lucene.index.Term
+import org.apache.lucene.search.Scorer
+import org.apache.lucene.search.Searcher
+import org.apache.lucene.search.Weight
+import org.apache.lucene.search.spans.TermSpans
+org.apache.lucene.search.payloads.BoostingTermQuery{
+BoostingTermQuery(Term){
+this(term, true);
+}
+BoostingTermQuery(Term, boolean){
+super(term, new AveragePayloadFunction(), includeSpanScore);
+}
+createWeight(Searcher){
+return new BoostingTermWeight(this, searcher);
+}
+equals(Object){
+if (!(o instanceof BoostingTermQuery))
+BoostingTermQuery other = (BoostingTermQuery) o
+return (this.getBoost() == other.getBoost()) && this.term.equals(other.term);
+}
+}

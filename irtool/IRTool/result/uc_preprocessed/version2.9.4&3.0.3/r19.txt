@@ -1,0 +1,1 @@
+lucen fix rare deadlock case indexwrit 

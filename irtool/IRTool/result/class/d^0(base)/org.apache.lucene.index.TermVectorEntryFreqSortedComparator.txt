@@ -1,0 +1,10 @@
+org.apache.lucene.index.TermVectorEntryFreqSortedComparator{
+compare(Object, Object){
+int result = 0
+TermVectorEntry entry = (TermVectorEntry) object
+TermVectorEntry entry1 = (TermVectorEntry) object1
+result = entry1.getFrequency() - entry.getFrequency();
+if (result == 0)
+return result;
+}
+}

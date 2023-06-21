@@ -1,0 +1,30 @@
+org.apache.lucene.search.MultiSearcher{
+search(Weight, Filter, int){
+HitQueue hq = new HitQueue(nDocs, false)
+for(int i = 0; i < searchables.length; i++)
+ScoreDoc[] scoreDocs = new ScoreDoc[hq.size()]
+}
+search(Weight, Filter, int, Sort){
+FieldDocSortedHitQueue hq = null
+for(int i = 0; i < searchables.length; i++)
+ScoreDoc[] scoreDocs = new ScoreDoc[hq.size()]
+}
+search(Weight, Filter, Collector){
+for(int i = 0; i < searchables.length; i++)
+}
+rewrite(Query){
+Query[] queries = new Query[searchables.length]
+}
+explain(Weight, int){
+int i = subSearcher(doc)
+}
+createWeight(Query){
+Query rewrittenQuery = rewrite(original)
+Set terms = new HashSet()
+Term[] allTermsArray = new Term[terms.size()]
+HashMap dfMap = new HashMap()
+for(int i = 0; i < allTermsArray.length; i++)
+int numDocs = maxDoc()
+CachedDfSource cacheSim = new CachedDfSource(dfMap, numDocs, getSimilarity())
+}
+}

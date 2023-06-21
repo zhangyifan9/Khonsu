@@ -1,0 +1,26 @@
+org.apache.lucene.search.spans.NearSpansUnordered{
+private List ordered = new ArrayList();
+next(){
+else
+while(more)
+}
+skipTo(int){
+else
+}
+min(){
+return (SpansCell) queue.top();
+}
+getPayload(){
+Set /*<byte[]*/
+matchPayload = new HashSet()
+}
+initList(boolean){
+for(int i = 0; more && i < ordered.size(); i++)
+}
+queueToList(){
+while(queue.top() != null)
+}
+listToQueue(){
+for(SpansCell cell = first; cell != null; )
+}
+}

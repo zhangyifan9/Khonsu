@@ -1,0 +1,1 @@
+import org apach lucen store index output import org apach lucen store index input import java util iter org apach lucen index freq prox term writer privat final term info term info term info flush map segment write state list field array list iter thread field entri set iter start num field thread field entri set iter file collect 

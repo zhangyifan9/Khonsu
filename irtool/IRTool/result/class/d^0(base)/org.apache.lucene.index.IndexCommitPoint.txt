@@ -1,0 +1,10 @@
+import java.util.Collection
+import java.io.IOException
+org.apache.lucene.index.IndexCommitPoint{
+getSegmentsFileName(){
+}
+getFileNames(){
+}
+delete(){
+}
+}

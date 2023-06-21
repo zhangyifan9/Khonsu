@@ -1,0 +1,33 @@
+org.apache.lucene.index.SegmentInfos{
+// or wrote; this is normally the same as generation except if
+// there was an IOException that had interrupted a commit
+private Map userData = Collections.EMPTY_MAP;
+info(int){
+return (SegmentInfo) get(i);
+}
+read(Directory, String){
+try
+}
+read(Directory){
+new FindSegmentsFile(directory) {
+
+    protected Object doBody(String segmentFileName) throws CorruptIndexException, IOException {
+        read(directory, segmentFileName);
+        return null;
+    }
+}.run();
+}
+clone(){
+for(int i = 0; i < sis.size(); i++)
+sis.userData = new HashMap(userData);
+}
+files(Directory, boolean){
+HashSet files = new HashSet()
+}
+segString(Directory){
+StringBuffer buffer = new StringBuffer()
+}
+setUserData(Map){
+if (data == null)
+}
+}

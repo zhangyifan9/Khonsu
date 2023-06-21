@@ -1,0 +1,1 @@
+lucen fix bug mmapdirectori chunk file exact multipl chunk size 

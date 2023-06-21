@@ -1,0 +1,68 @@
+
+F
+java:S3740÷"/Provide the parametrized type for this generic.(²™å“
+;
+java:S2157
+"%Add a "clone()" method to this class.(õ”ª¡
+9
+java:S1948"#Make "matrix" private or transient.(Îˆ•¾
+R	java:S125®"<This block of commented-out lines of code should be removed.(õêž«
+N	java:S106Ä"9Replace this use of System.out or System.err by a logger.(æêÄ$
+C
+java:S1125ß"'Remove the unnecessary boolean literal.(¿Œ»öûÿÿÿÿ
+W	java:S125ê"<This block of commented-out lines of code should be removed.(ÆÐéÕüÿÿÿÿ
+?	java:S108ú")Either remove or fill this block of code.(°›ß¾
+R	java:S125"<This block of commented-out lines of code should be removed.(’¨Ìû
+R	java:S125Š"<This block of commented-out lines of code should be removed.(üüÅ
+‚
+java:S2178”"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(ì™Êþÿÿÿÿ
+R	java:S125¾"<This block of commented-out lines of code should be removed.(»ŽÐ†
+W	java:S125Î"<This block of commented-out lines of code should be removed.(·ë”†ÿÿÿÿÿ
+a
+java:S1854ò"JRemove this useless assignment to local variable "linksForSourceArtifact".(»ŸóÈ
+P
+java:S2864÷"4Iterate over the "entrySet" instead of the "keySet".(ÝÚŒÅùÿÿÿÿ
+a
+java:S1854"JRemove this useless assignment to local variable "linksForSourceArtifact".(»ŸóÈ
+a
+java:S1854"JRemove this useless assignment to local variable "linksForSourceArtifact".(»ŸóÈ
+a
+java:S1854ž"JRemove this useless assignment to local variable "linksForSourceArtifact".(»ŸóÈ
+a
+java:S1854¬"JRemove this useless assignment to local variable "linksForSourceArtifact".(»ŸóÈ
+a
+java:S1854¼"JRemove this useless assignment to local variable "linksForSourceArtifact".(œÓ“‘
+P
+java:S2864Á"4Iterate over the "entrySet" instead of the "keySet".(ŽÏ¾Þýÿÿÿÿ
+a
+java:S1854Ì"JRemove this useless assignment to local variable "linksForSourceArtifact".(œÓ“‘
+P
+java:S2864Ñ"4Iterate over the "entrySet" instead of the "keySet".(ŽÏ¾Þýÿÿÿÿ
+a
+java:S1854Ü"JRemove this useless assignment to local variable "linksForSourceArtifact".(œÓ“‘
+P
+java:S2864á"4Iterate over the "entrySet" instead of the "keySet".(ŽÏ¾Þýÿÿÿÿ
+a
+java:S1854ì"JRemove this useless assignment to local variable "linksForSourceArtifact".(œÓ“‘
+P
+java:S2864ñ"4Iterate over the "entrySet" instead of the "keySet".(ŽÏ¾Þýÿÿÿÿ
+a
+java:S1854ü"JRemove this useless assignment to local variable "linksForSourceArtifact".(œÓ“‘
+P
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ŽÏ¾Þýÿÿÿÿ
+W	java:S125þ"<This block of commented-out lines of code should be removed.(€¦¸øÿÿÿÿ
+X
+java:S1854—"ARemove this useless assignment to local variable "qualityTarget".(‘Žßˆ
+]
+java:S1854¡"ARemove this useless assignment to local variable "qualityTarget".(žå¾ôþÿÿÿÿ
+W	java:S125‰"<This block of commented-out lines of code should be removed.(ûú÷©ûÿÿÿÿ
+I
+java:S1481—"2Remove this unused "qualityTarget" local variable.(‘Žßˆ
+W	java:S125¬"<This block of commented-out lines of code should be removed.(Ëˆúÿÿÿÿÿ
+R	java:S125®"<This block of commented-out lines of code should be removed.(ý¦®£
+Z
+java:S1155Ý">Use isEmpty() to check whether the collection is empty or not.(Ú©ƒÈýÿÿÿÿ
+S
+java:S4973â"<Strings and Boxed types should be compared using "equals()".(Ã»È¤
+e
+java:S3824Ù"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(³…é 

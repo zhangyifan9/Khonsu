@@ -1,0 +1,26 @@
+org.apache.lucene.index.FieldInfos{
+private final ArrayList byNumber = new ArrayList();
+private final HashMap byName = new HashMap();
+clone(){
+for(int i = 0; i < numField; i++)
+}
+add(Document){
+List fields = doc.getFields()
+Iterator fieldIterator = fields.iterator()
+while(fieldIterator.hasNext())
+}
+addIndexed(Collection, boolean, boolean, boolean){
+Iterator i = names.iterator()
+while(i.hasNext())
+}
+add(Collection, boolean){
+Iterator i = names.iterator()
+while(i.hasNext())
+}
+fieldInfo(String){
+return (FieldInfo) byName.get(fieldName);
+}
+fieldInfo(int){
+return (fieldNumber >= 0) ? (FieldInfo) byNumber.get(fieldNumber) : null;
+}
+}

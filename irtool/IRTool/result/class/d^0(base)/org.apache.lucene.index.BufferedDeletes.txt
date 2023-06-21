@@ -1,0 +1,17 @@
+org.apache.lucene.index.BufferedDeletes{
+Map terms;
+Map queries = new HashMap();
+List docIDs = new ArrayList();
+BufferedDeletes(boolean){
+if (doTermSort)
+else
+}
+remap(MergeDocIDRemapper, SegmentInfos, int[][], int[], MergePolicy.OneMerge, int){
+final Map newDeleteTerms
+if (terms.size() > 0)
+final List newDeleteDocIDs
+if (docIDs.size() > 0)
+final HashMap newDeleteQueries
+if (queries.size() > 0)
+}
+}

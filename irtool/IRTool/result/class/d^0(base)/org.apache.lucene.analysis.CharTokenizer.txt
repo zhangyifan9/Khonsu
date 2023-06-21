@@ -1,0 +1,20 @@
+org.apache.lucene.analysis.CharTokenizer{
+CharTokenizer(Reader){
+offsetAtt = (OffsetAttribute) addAttribute(OffsetAttribute.class);
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+}
+CharTokenizer(AttributeSource, Reader){
+offsetAtt = (OffsetAttribute) addAttribute(OffsetAttribute.class);
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+}
+CharTokenizer(AttributeFactory, Reader){
+offsetAtt = (OffsetAttribute) addAttribute(OffsetAttribute.class);
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+}
+next(Token){
+return super.next(reusableToken);
+}
+next(){
+return super.next();
+}
+}

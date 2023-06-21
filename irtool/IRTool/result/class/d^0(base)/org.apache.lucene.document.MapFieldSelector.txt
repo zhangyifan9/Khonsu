@@ -1,0 +1,14 @@
+org.apache.lucene.document.MapFieldSelector{
+Map fieldSelections;
+MapFieldSelector(List){
+fieldSelections = new HashMap(fields.size() * 5 / 3);
+for(int i = 0; i < fields.size(); i++)
+}
+MapFieldSelector(String[]){
+fieldSelections = new HashMap(fields.length * 5 / 3);
+for(int i = 0; i < fields.length; i++)
+}
+accept(String){
+FieldSelectorResult selection = (FieldSelectorResult) fieldSelections.get(field)
+}
+}

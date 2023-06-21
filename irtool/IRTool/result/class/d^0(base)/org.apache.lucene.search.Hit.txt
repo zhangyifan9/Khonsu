@@ -1,0 +1,45 @@
+import java.io.IOException
+import org.apache.lucene.document.Document
+import org.apache.lucene.index.CorruptIndexException
+org.apache.lucene.search.Hit{
+private Document doc = null;
+private boolean resolved = false;
+private Hits hits = null;
+private int hitNumber;
+Hit(Hits, int){
+this.hits = hits;
+this.hitNumber = hitNumber;
+}
+getDocument(){
+if (!resolved)
+return doc;
+}
+getScore(){
+return hits.score(hitNumber);
+}
+getId(){
+return hits.id(hitNumber);
+}
+fetchTheHit(){
+doc = hits.doc(hitNumber);
+resolved = true;
+}
+getBoost(){
+return getDocument().getBoost();
+}
+get(String){
+return getDocument().get(name);
+}
+toString(){
+StringBuffer buffer = new StringBuffer()
+buffer.append("Hit<");
+buffer.append(hits.toString());
+buffer.append(" [");
+buffer.append(hitNumber);
+buffer.append("] ");
+if (resolved)
+else
+buffer.append(">");
+return buffer.toString();
+}
+}

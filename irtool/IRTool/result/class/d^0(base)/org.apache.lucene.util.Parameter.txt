@@ -1,0 +1,3 @@
+org.apache.lucene.util.Parameter{
+static Map allParameters = new HashMap();
+}

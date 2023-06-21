@@ -1,0 +1,1 @@
+import org apach lucen analysi token stream org apach lucen index doc invert thread final singl token token stream singl token token stream singl token token stream 

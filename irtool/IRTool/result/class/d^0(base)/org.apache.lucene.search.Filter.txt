@@ -1,0 +1,9 @@
+import java.util.BitSet
+org.apache.lucene.search.Filter{
+bits(IndexReader){
+new UnsupportedOperationException()
+}
+getDocIdSet(IndexReader){
+return new DocIdBitSet(bits(reader));
+}
+}

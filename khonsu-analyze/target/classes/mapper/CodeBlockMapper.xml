@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nju.mapper.CodeBlockMapper">
+    <insert id="insertCodeBlock" useGeneratedKeys="true" keyProperty="id">
+        insert into `code_block` (repo_name, tags, class_path, file_path)
+        values (#{repoName}, #{tags}, #{classPath}, #{filePath})
+    </insert>
+
+    <insert id="batchInsertCodeBlock" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+        insert into `code_block`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            repo_name,
+            tags,
+            class_path,
+            file_path
+        </trim>
+        values
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.repoName},
+                #{item.tags},
+                #{item.classPath},
+                #{item.filePath}
+            </trim>
+        </foreach>
+    </insert>
+
+    <delete id="deleteCodeBlockByRepoName">
+        delete
+        from `code_block`
+        where repo_name = #{repoName}
+    </delete>
+
+    <select id="getCodeBlockAggregationList" resultMap="CodeBlockAggregationMap">
+        SET group_concat_max_len = 1000000;
+        SELECT class_path,
+               GROUP_CONCAT(tags SEPARATOR '=') as tags_list,
+               GROUP_CONCAT(file_path SEPARATOR '=') as file_path_list,
+               COUNT(1) as num
+        FROM `code_block`
+        WHERE repo_name = #{repoName}
+        GROUP BY class_path
+        ORDER BY class_path;
+    </select>
+
+    <select id="getCoreCodeBlockList" resultMap="CoreCodeBlockVOMap">
+        SELECT class_path, tags, file_path
+        FROM `code_block`
+        WHERE repo_name = #{repoName} AND tags LIKE CONCAT('%', #{tag}, '%base')
+    </select>
+
+    <resultMap id="CoreCodeBlockVOMap" type="cn.edu.nju.domain.vo.CoreCodeBlockVO">
+        <result column="class_path" property="classPath"/>
+        <result column="tags" property="tags"/>
+        <result column="file_path" property="content"/>
+    </resultMap>
+
+    <resultMap id="CodeBlockAggregationMap" type="cn.edu.nju.domain.CodeBlockAggregation">
+        <result column="class_path" property="classPath"/>
+        <result column="tags_list" property="tagsList"/>
+        <result column="file_path_list" property="filePathList"/>
+        <result column="num" property="count"/>
+    </resultMap>
+</mapper>

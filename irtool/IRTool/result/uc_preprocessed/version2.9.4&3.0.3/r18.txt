@@ -1,0 +1,1 @@
+lucen indexwrit newestseg normal test fix return null segment 

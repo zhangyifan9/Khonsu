@@ -1,0 +1,27 @@
+org.apache.lucene.search.function.OrdFieldSource{
+getValues(IndexReader){
+return new DocValues() {
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#floatVal(int) */
+    public float floatVal(int doc) {
+        return (float) arr[doc];
+    }
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#strVal(int) */
+    public String strVal(int doc) {
+        // the string value of the ordinal, not the string itself
+        return Integer.toString(arr[doc]);
+    }
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#toString(int) */
+    public String toString(int doc) {
+        return description() + '=' + intVal(doc);
+    }
+
+    /*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#getInnerArray() */
+    Object getInnerArray() {
+        return arr;
+    }
+};
+}
+}

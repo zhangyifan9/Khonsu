@@ -1,0 +1,11 @@
+org.apache.lucene.search.payloads.PayloadSpanUtil{
+getPayloadsForQuery(Query){
+Collection payloads = new ArrayList()
+}
+queryToSpanQuery(Query, Collection){
+else
+}
+getPayloads(Collection, SpanQuery){
+while(spans.next() == true)
+}
+}

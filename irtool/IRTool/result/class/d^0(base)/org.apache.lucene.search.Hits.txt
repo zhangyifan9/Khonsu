@@ -1,0 +1,108 @@
+import java.io.IOException
+import java.util.ConcurrentModificationException
+import java.util.Iterator
+import java.util.Vector
+import org.apache.lucene.document.Document
+import org.apache.lucene.index.CorruptIndexException
+org.apache.lucene.search.Hits{
+private Weight weight;
+private Searcher searcher;
+private Filter filter = null;
+private Sort sort = null;
+private int length;
+private Vector hitDocs = new Vector();
+private HitDoc first;
+private HitDoc last;
+private int numDocs = 0;
+private int maxDocs = 200;
+private int nDeletions;
+private int lengthAtStart;
+private int nDeletedHits = 0;
+boolean debugCheckedForDeletions = false;
+Hits(Searcher, Query, Filter){
+weight = q.weight(s);
+searcher = s;
+filter = f;
+nDeletions = countDeletions(s);
+// retrieve 100 initially
+getMoreDocs(50);
+lengthAtStart = length;
+}
+Hits(Searcher, Query, Filter, Sort){
+weight = q.weight(s);
+searcher = s;
+filter = f;
+sort = o;
+nDeletions = countDeletions(s);
+// retrieve 100 initially
+getMoreDocs(50);
+lengthAtStart = length;
+}
+countDeletions(Searcher){
+int cnt = -1
+if (s instanceof IndexSearcher)
+return cnt;
+}
+getMoreDocs(int){
+if (hitDocs.size() > min)
+int n = min * 2
+TopDocs topDocs = (sort == null) ? searcher.search(weight, filter, n) : searcher.search(weight, filter, n, sort)
+length = topDocs.totalHits;
+ScoreDoc[] scoreDocs = topDocs.scoreDocs
+float scoreNorm = 1.0f
+if (length > 0 && topDocs.getMaxScore() > 1.0f)
+int start = hitDocs.size() - nDeletedHits
+int nDels2 = countDeletions(searcher)
+debugCheckedForDeletions = false;
+if (nDeletions < 0 || nDels2 > nDeletions)
+int end = scoreDocs.length < length ? scoreDocs.length : length
+length += nDeletedHits;
+for(int i = start; i < end; i++)
+nDeletions = nDels2;
+}
+length(){
+return length;
+}
+doc(int){
+HitDoc hitDoc = hitDoc(n)
+// Update LRU cache of documents
+// remove from list, if there
+remove(hitDoc);
+// add to front of list
+addToFront(hitDoc);
+if (numDocs > maxDocs)
+if (hitDoc.doc == null)
+return hitDoc.doc;
+}
+score(int){
+return hitDoc(n).score;
+}
+id(int){
+return hitDoc(n).id;
+}
+iterator(){
+return new HitIterator(this);
+}
+hitDoc(int){
+if (n >= lengthAtStart)
+if (n >= hitDocs.size())
+if (n >= length)
+return (HitDoc) hitDocs.elementAt(n);
+}
+addToFront(HitDoc){
+if (first == null)
+else
+hitDoc.next = first;
+first = hitDoc;
+hitDoc.prev = null;
+numDocs++;
+}
+remove(HitDoc){
+if (hitDoc.doc == null)
+if (hitDoc.next == null)
+else
+if (hitDoc.prev == null)
+else
+numDocs--;
+}
+}

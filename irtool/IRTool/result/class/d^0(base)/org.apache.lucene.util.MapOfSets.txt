@@ -1,0 +1,17 @@
+org.apache.lucene.util.MapOfSets{
+private final Map theMap;
+put(Object, Object){
+final Set theSet
+if (theMap.containsKey(key))
+else
+theSet.add(val);
+return theSet.size();
+}
+putAll(Object, Collection){
+final Set theSet
+if (theMap.containsKey(key))
+else
+theSet.addAll(vals);
+return theSet.size();
+}
+}

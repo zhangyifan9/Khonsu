@@ -1,0 +1,20 @@
+import java.text.Collator
+org.apache.lucene.search.ConstantScoreRangeQuery{
+ConstantScoreRangeQuery(String, String, String, boolean, boolean){
+super(fieldName, lowerVal, upperVal, includeLower, includeUpper);
+rewriteMethod = CONSTANT_SCORE_AUTO_REWRITE_DEFAULT;
+}
+ConstantScoreRangeQuery(String, String, String, boolean, boolean, Collator){
+super(fieldName, lowerVal, upperVal, includeLower, includeUpper, collator);
+rewriteMethod = CONSTANT_SCORE_AUTO_REWRITE_DEFAULT;
+}
+getLowerVal(){
+return getLowerTerm();
+}
+getUpperVal(){
+return getUpperTerm();
+}
+setRewriteMethod(RewriteMethod){
+new UnsupportedOperationException("Use TermRangeQuery instead to change the rewrite method.")
+}
+}

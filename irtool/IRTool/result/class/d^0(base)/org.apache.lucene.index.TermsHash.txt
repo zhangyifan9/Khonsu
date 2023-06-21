@@ -1,0 +1,8 @@
+org.apache.lucene.index.TermsHash{
+flush(Map, SegmentWriteState){
+Map childThreadsAndFields = new HashMap()
+Map nextThreadsAndFields
+Iterator it = threadsAndFields.entrySet().iterator()
+while(it.hasNext())
+}
+}

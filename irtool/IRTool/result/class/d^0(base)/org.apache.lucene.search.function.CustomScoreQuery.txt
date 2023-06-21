@@ -1,0 +1,35 @@
+org.apache.lucene.search.function.CustomScoreQuery{
+toString(String){
+StringBuffer sb = new StringBuffer(name()).append("(")
+}
+equals(Object){
+for(int i = 0; i < valSrcQueries.length; i++)
+return true;
+}
+hashCode(){
+int valSrcHash = 0
+for(int i = 0; i < valSrcQueries.length; i++)
+return (getClass().hashCode() + subQuery.hashCode() + valSrcHash) ^ Float.floatToIntBits(getBoost()) ^ (strict ? 1234 : 4321);
+}
+getCustomScoreProvider(IndexReader){
+return new default CustomScoreProvider
+return new CustomScoreProvider(reader) {
+
+    public float customScore(int doc, float subQueryScore, float[] valSrcScores) throws IOException {
+        return CustomScoreQuery.this.customScore(doc, subQueryScore, valSrcScores);
+    }
+
+    public float customScore(int doc, float subQueryScore, float valSrcScore) throws IOException {
+        return CustomScoreQuery.this.customScore(doc, subQueryScore, valSrcScore);
+    }
+
+    public Explanation customExplain(int doc, Explanation subQueryExpl, Explanation[] valSrcExpls) throws IOException {
+        return CustomScoreQuery.this.customExplain(doc, subQueryExpl, valSrcExpls);
+    }
+
+    public Explanation customExplain(int doc, Explanation subQueryExpl, Explanation valSrcExpl) throws IOException {
+        return CustomScoreQuery.this.customExplain(doc, subQueryExpl, valSrcExpl);
+    }
+};
+}
+}

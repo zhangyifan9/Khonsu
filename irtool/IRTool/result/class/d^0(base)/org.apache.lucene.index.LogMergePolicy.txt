@@ -1,0 +1,5 @@
+org.apache.lucene.index.LogMergePolicy{
+makeOneMerge(SegmentInfos, SegmentInfos){
+else
+}
+}

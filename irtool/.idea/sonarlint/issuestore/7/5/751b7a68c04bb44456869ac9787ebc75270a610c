@@ -1,0 +1,18 @@
+
+E
+java:S3740"/Provide the parametrized type for this generic.(µ‰°Á
+U
+java:S1118
+":Add a private constructor to hide the implicit public one.(‰úØõüÿÿÿÿ
+Z
+java:S2147;"DCombine this catch with the one at line 57, which has the same body.(Å¡ß
+Z
+java:S2147="DCombine this catch with the one at line 57, which has the same body.(ï­£Ä
+Q	java:S125"<This block of commented-out lines of code should be removed.(£¯û
+H
+java:S1135"2Complete the task associated to this TODO comment.(Ó¬…
+N	java:S106'"9Replace this use of System.out or System.err by a logger.(¶¾«¾
+V	java:S125*"<This block of commented-out lines of code should be removed.(•äµÔûÿÿÿÿ
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(›€·Š
+c
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(¶—ã´şÿÿÿÿ

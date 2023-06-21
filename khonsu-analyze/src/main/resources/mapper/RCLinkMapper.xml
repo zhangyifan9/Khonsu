@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nju.mapper.RCLinkMapper">
+    <insert id="insertRCLink">
+        insert into `rc_link` (repo_name, release_id, code_block_id, score, is_change)
+        values (#{repoName}, #{releaseId}, #{codeBlockId}, #{score}, #{isChange})
+    </insert>
+
+    <insert id="batchInsertRCLink" parameterType="java.util.List">
+        insert into `rc_link`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            repo_name,
+            release_id,
+            code_block_id,
+            score,
+            is_change
+        </trim>
+        values
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.repoName},
+                #{item.releaseId},
+                #{item.codeBlockId},
+                #{item.score},
+                #{item.isChange}
+            </trim>
+        </foreach>
+    </insert>
+
+    <update id="updateScore">
+        update `rc_link`
+        set score = #{score}, is_change = true
+        where release_id = #{releaseId} and code_block_id= #{codeBlockId}
+    </update>
+
+    <delete id="deleteRCLinkByRepoName">
+        delete
+        from `rc_link`
+        where repo_name = #{repoName}
+    </delete>
+</mapper>

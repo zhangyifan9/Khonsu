@@ -1,0 +1,5 @@
+org.apache.lucene.index.NormsWriterPerField{
+compareTo(Object){
+return fieldInfo.name.compareTo(((NormsWriterPerField) other).fieldInfo.name);
+}
+}

@@ -1,0 +1,15 @@
+import java.text.Collator
+org.apache.lucene.search.RangeFilter{
+RangeFilter(String, String, String, boolean, boolean){
+super(new TermRangeQuery(fieldName, lowerTerm, upperTerm, includeLower, includeUpper));
+}
+RangeFilter(String, String, String, boolean, boolean, Collator){
+super(new TermRangeQuery(fieldName, lowerTerm, upperTerm, includeLower, includeUpper, collator));
+}
+Less(String, String){
+return new RangeFilter(fieldName, null, upperTerm, false, true);
+}
+More(String, String){
+return new RangeFilter(fieldName, lowerTerm, null, true, false);
+}
+}

@@ -1,0 +1,8 @@
+import java.util.Iterator
+org.apache.lucene.index.DocFieldProcessor{
+flush(Collection, SegmentWriteState){
+Map childThreadsAndFields = new HashMap()
+Iterator it = threads.iterator()
+while(it.hasNext())
+}
+}

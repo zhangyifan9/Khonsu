@@ -1,0 +1,1 @@
+org apach lucen util map set privat final map map put object object final set set map key key els set add val return set size put object collect final set set map key key els set add val return set size 

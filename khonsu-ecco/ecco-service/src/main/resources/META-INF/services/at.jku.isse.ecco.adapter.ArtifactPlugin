@@ -1,0 +1,4 @@
+at.jku.isse.ecco.adapter.plugin.file.FilePlugin
+at.jku.isse.ecco.adapter.plugin.java.JavaPlugin
+at.jku.isse.ecco.adapter.plugin.image.ImagePlugin
+at.jku.isse.ecco.adapter.plugin.text.TextPlugin

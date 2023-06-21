@@ -1,0 +1,36 @@
+org.apache.lucene.search.BooleanQuery{
+private ArrayList clauses = new ArrayList();
+private static boolean allowDocsOutOfOrder = true;
+getSimilarity(Searcher){
+if (disableCoord)
+}
+getClauses(){
+return (BooleanClause[]) clauses.toArray(new BooleanClause[clauses.size()]);
+}
+setAllowDocsOutOfOrder(boolean){
+allowDocsOutOfOrder = allow;
+}
+getAllowDocsOutOfOrder(){
+return allowDocsOutOfOrder;
+}
+setUseScorer14(boolean){
+setAllowDocsOutOfOrder(use14);
+}
+getUseScorer14(){
+return getAllowDocsOutOfOrder();
+}
+rewrite(IndexReader){
+if (minNrShouldMatch == 0 && clauses.size() == 1)
+for(int i = 0; i < clauses.size(); i++)
+}
+extractTerms(Set){
+for(Iterator i = clauses.iterator())
+}
+clone(){
+clone.clauses = (ArrayList) this.clauses.clone();
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+for(int i = 0; i < clauses.size(); i++)
+}
+}

@@ -1,0 +1,7 @@
+org.apache.lucene.messages.MessageImpl{
+toString(){
+String argsString = ""
+if (args != null)
+return getKey() + " " + argsString;
+}
+}

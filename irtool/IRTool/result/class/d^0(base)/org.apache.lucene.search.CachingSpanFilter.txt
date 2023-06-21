@@ -1,0 +1,20 @@
+import java.util.BitSet
+org.apache.lucene.search.CachingSpanFilter{
+protected SpanFilter filter;
+private final CachingWrapperFilter.FilterCache cache;
+CachingSpanFilter(SpanFilter, CachingWrapperFilter.DeletesMode){
+this.cache = new CachingWrapperFilter.FilterCache(deletesMode) {
+
+    protected Object mergeDeletes(final IndexReader r, final Object value) {
+        throw new IllegalStateException("DeletesMode.DYNAMIC is not supported");
+    }
+};
+}
+bits(IndexReader){
+SpanFilterResult result = getCachedResult(reader)
+return result != null ? result.getBits() : null;
+}
+getCachedResult(IndexReader){
+SpanFilterResult result = (SpanFilterResult) cache.get(reader, coreKey, delCoreKey)
+}
+}

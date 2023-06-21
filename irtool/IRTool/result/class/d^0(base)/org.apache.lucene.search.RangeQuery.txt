@@ -1,0 +1,52 @@
+import java.text.Collator
+import java.io.IOException
+import org.apache.lucene.index.IndexReader
+import org.apache.lucene.index.Term
+org.apache.lucene.search.RangeQuery{
+private final TermRangeQuery delegate;
+RangeQuery(Term, Term, boolean){
+this(lowerTerm, upperTerm, inclusive, null);
+}
+RangeQuery(Term, Term, boolean, Collator){
+if (lowerTerm == null && upperTerm == null)
+if (lowerTerm != null && upperTerm != null && lowerTerm.field() != upperTerm.field())
+delegate = new TermRangeQuery((lowerTerm == null) ? upperTerm.field() : lowerTerm.field(), (lowerTerm == null) ? null : lowerTerm.text(), (upperTerm == null) ? null : upperTerm.text(), inclusive, inclusive, collator);
+delegate.setRewriteMethod(TermRangeQuery.SCORING_BOOLEAN_QUERY_REWRITE);
+}
+setBoost(float){
+super.setBoost(b);
+delegate.setBoost(b);
+}
+rewrite(IndexReader){
+return delegate.rewrite(reader);
+}
+getField(){
+return delegate.getField();
+}
+getLowerTerm(){
+final String term = delegate.getLowerTerm()
+return (term == null) ? null : new Term(getField(), term);
+}
+getUpperTerm(){
+final String term = delegate.getUpperTerm()
+return (term == null) ? null : new Term(getField(), term);
+}
+isInclusive(){
+return delegate.includesLower() && delegate.includesUpper();
+}
+getCollator(){
+return delegate.getCollator();
+}
+toString(String){
+return delegate.toString(field);
+}
+equals(Object){
+if (this == o)
+if (!(o instanceof RangeQuery))
+final RangeQuery other = (RangeQuery) o
+return this.delegate.equals(other.delegate);
+}
+hashCode(){
+return delegate.hashCode();
+}
+}

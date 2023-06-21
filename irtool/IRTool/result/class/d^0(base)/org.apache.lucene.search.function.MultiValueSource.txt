@@ -1,0 +1,25 @@
+import java.io.IOException
+import org.apache.lucene.util.ReaderUtil
+import org.apache.lucene.index.IndexReader
+import org.apache.lucene.search.Explanation
+org.apache.lucene.search.function.MultiValueSource{
+final ValueSource other;
+MultiValueSource(ValueSource){
+this.other = other;
+}
+getValues(IndexReader){
+IndexReader[] subReaders = reader.getSequentialSubReaders()
+if (subReaders != null)
+else
+}
+description(){
+return other.description();
+}
+equals(Object){
+if (o instanceof MultiValueSource)
+else
+}
+hashCode(){
+return 31 * other.hashCode();
+}
+}

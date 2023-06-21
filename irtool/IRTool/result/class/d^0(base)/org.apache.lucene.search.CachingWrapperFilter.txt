@@ -1,0 +1,34 @@
+import org.apache.lucene.util.DocIdBitSet
+import org.apache.lucene.util.Parameter
+import java.util.BitSet
+org.apache.lucene.search.CachingWrapperFilter{
+protected Filter filter;
+protected final FilterCache cache;
+CachingWrapperFilter(Filter, DeletesMode){
+cache = new FilterCache(deletesMode) {
+
+    public Object mergeDeletes(final IndexReader r, final Object docIdSet) {
+        return new FilteredDocIdSet((DocIdSet) docIdSet) {
+
+            protected boolean match(int docID) {
+                return !r.isDeleted(docID);
+            }
+        };
+    }
+};
+}
+bits(IndexReader){
+final Object coreKey = reader.getFieldCacheKey()
+final Object delCoreKey = reader.hasDeletions() ? reader.getDeletesCacheKey() : coreKey
+Object cached = cache.get(reader, coreKey, delCoreKey)
+if (cached != null)
+final BitSet bits = filter.bits(reader)
+if (bits != null)
+return bits;
+}
+getDocIdSet(IndexReader){
+Object cached = cache.get(reader, coreKey, delCoreKey)
+if (cached != null)
+final DocIdSet docIdSet = docIdSetToCache(filter.getDocIdSet(reader), reader)
+}
+}

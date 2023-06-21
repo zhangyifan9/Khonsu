@@ -1,0 +1,1 @@
+org apach lucen index field sort term vector mapper privat map field term hash map privat sort set current set privat compar compar set expect string int boolean boolean current set tree set compar 

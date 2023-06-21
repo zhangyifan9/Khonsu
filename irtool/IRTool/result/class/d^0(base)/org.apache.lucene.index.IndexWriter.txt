@@ -1,0 +1,251 @@
+import org.apache.lucene.store.FSDirectory
+import java.io.File
+org.apache.lucene.index.IndexWriter{
+public static final int DEFAULT_MERGE_FACTOR = LogMergePolicy.DEFAULT_MERGE_FACTOR;
+public static final int DEFAULT_MAX_MERGE_DOCS = LogDocMergePolicy.DEFAULT_MAX_MERGE_DOCS;
+public static final double DEFAULT_MAX_SYNC_PAUSE_SECONDS;
+private HashMap rollbackSegments;
+private boolean localAutoCommit;
+private boolean autoCommit = true;
+private Set segmentsToOptimize = new HashSet();
+private boolean closeDir;
+// Holds all SegmentInfo instances currently involved in
+private HashSet mergingSegments = new HashSet();
+private LinkedList pendingMerges = new LinkedList();
+private Set runningMerges = new HashSet();
+private List mergeExceptions = new ArrayList();
+private double maxSyncPauseSeconds = DEFAULT_MAX_SYNC_PAUSE_SECONDS;
+IndexWriter(String, Analyzer, boolean, MaxFieldLength){
+init(FSDirectory.getDirectory(path), a, create, true, null, false, mfl.getLimit(), null, null);
+}
+IndexWriter(String, Analyzer, boolean){
+init(FSDirectory.getDirectory(path), a, create, true, null, true, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(File, Analyzer, boolean, MaxFieldLength){
+init(FSDirectory.getDirectory(path), a, create, true, null, false, mfl.getLimit(), null, null);
+}
+IndexWriter(File, Analyzer, boolean){
+init(FSDirectory.getDirectory(path), a, create, true, null, true, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(Directory, Analyzer, boolean, MaxFieldLength){
+init(d, a, create, false, null, false, mfl.getLimit(), null, null);
+}
+IndexWriter(Directory, Analyzer, boolean){
+init(d, a, create, false, null, true, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(String, Analyzer, MaxFieldLength){
+init(FSDirectory.getDirectory(path), a, true, null, false, mfl.getLimit(), null, null);
+}
+IndexWriter(String, Analyzer){
+init(FSDirectory.getDirectory(path), a, true, null, true, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(File, Analyzer, MaxFieldLength){
+init(FSDirectory.getDirectory(path), a, true, null, false, mfl.getLimit(), null, null);
+}
+IndexWriter(File, Analyzer){
+init(FSDirectory.getDirectory(path), a, true, null, true, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(Directory, Analyzer, MaxFieldLength){
+init(d, a, false, null, false, mfl.getLimit(), null, null);
+}
+IndexWriter(Directory, Analyzer){
+init(d, a, false, null, true, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(Directory, boolean, Analyzer){
+init(d, a, false, null, autoCommit, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(Directory, boolean, Analyzer, boolean){
+init(d, a, create, false, null, autoCommit, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(Directory, Analyzer, IndexDeletionPolicy, MaxFieldLength){
+init(d, a, false, deletionPolicy, false, mfl.getLimit(), null, null);
+}
+IndexWriter(Directory, boolean, Analyzer, IndexDeletionPolicy){
+init(d, a, false, deletionPolicy, autoCommit, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(Directory, Analyzer, boolean, IndexDeletionPolicy, MaxFieldLength){
+init(d, a, create, false, deletionPolicy, false, mfl.getLimit(), null, null);
+}
+IndexWriter(Directory, Analyzer, boolean, IndexDeletionPolicy, MaxFieldLength, IndexingChain, IndexCommit){
+init(d, a, create, false, deletionPolicy, false, mfl.getLimit(), indexingChain, commit);
+}
+IndexWriter(Directory, boolean, Analyzer, boolean, IndexDeletionPolicy){
+init(d, a, create, false, deletionPolicy, autoCommit, DEFAULT_MAX_FIELD_LENGTH, null, null);
+}
+IndexWriter(Directory, Analyzer, IndexDeletionPolicy, MaxFieldLength, IndexCommit){
+init(d, a, false, false, deletionPolicy, false, mfl.getLimit(), null, commit);
+}
+private final HashSet synced = new HashSet();
+private HashSet syncing = new HashSet();
+private boolean allowMinus1Position;
+init(Directory, Analyzer, boolean, IndexDeletionPolicy, boolean, int, IndexingChain, IndexCommit){
+if (IndexReader.indexExists(d))
+else
+}
+init(Directory, Analyzer, boolean, boolean, IndexDeletionPolicy, boolean, int, IndexingChain, IndexCommit){
+this.closeDir = closeDir;
+directory = d;
+analyzer = a;
+setMessageID(defaultInfoStream);
+this.maxFieldLength = maxFieldLength;
+if (indexingChain == null)
+if (create)
+Lock writeLock = directory.makeLock(WRITE_LOCK_NAME)
+if (// obtain write lock
+!writeLock.obtain(writeLockTimeout))
+// save it
+this.writeLock = writeLock;
+boolean success = false
+try
+}
+setRollbackSegmentInfos(SegmentInfos){
+rollbackSegments = new HashMap();
+for(int i = 0; i < size; i++)
+}
+getMaxSyncPauseSeconds(){
+return maxSyncPauseSeconds;
+}
+setMaxSyncPauseSeconds(double){
+maxSyncPauseSeconds = seconds;
+}
+messageState(){
+message("setInfoStream: dir=" + directory + " autoCommit=" + autoCommit + " mergePolicy=" + mergePolicy + " mergeScheduler=" + mergeScheduler + " ramBufferSizeMB=" + docWriter.getRAMBufferSizeMB() + " maxBufferedDocs=" + docWriter.getMaxBufferedDocs() + " maxBuffereDeleteTerms=" + docWriter.getMaxBufferedDeleteTerms() + " maxFieldLength=" + maxFieldLength + " index=" + segString());
+}
+closeInternal(boolean){
+try
+}
+flushDocStores(){
+if (useCompoundDocStore && docStoreSegment != null && docWriter.closedFiles().size() != 0)
+}
+docCount(){
+ensureOpen();
+return maxDoc();
+}
+deleteDocuments(Term[]){
+try
+}
+optimizeMergesPending(){
+Iterator it = pendingMerges.iterator()
+while(it.hasNext())
+it = runningMerges.iterator();
+while(it.hasNext())
+}
+updatePendingMerges(int, boolean){
+if (optimize)
+if (spec != null)
+}
+getNextMerge(){
+else
+}
+getNextExternalMerge(){
+else
+}
+startTransaction(boolean){
+try
+}
+rollbackTransaction(){
+// First restore autoCommit in case we hit an exception below:
+autoCommit = localAutoCommit;
+if (!autoCommit)
+}
+commitTransaction(){
+// First restore autoCommit in case we hit an exception below:
+autoCommit = localAutoCommit;
+if (autoCommit)
+else
+}
+abort(){
+rollback();
+}
+rollback(){
+if (autoCommit)
+}
+finishMerges(boolean){
+if (!waitForMerges)
+}
+addIndexes(Directory[]){
+// Do not allow add docs or deletes while we are running:
+docWriter.pauseAllThreads();
+try
+}
+resetMergeExceptions(){
+mergeExceptions = new ArrayList();
+}
+noDupDirs(Directory[]){
+HashSet dups = new HashSet()
+}
+addIndexes(IndexReader[]){
+try
+}
+flush(){
+if (hitOOM)
+flush(true, false, true);
+}
+prepareCommit(Map){
+prepareCommit(commitUserData, false);
+}
+prepareCommit(Map, boolean){
+if (hitOOM)
+if (autoCommit && !internal)
+if (!autoCommit && pendingCommit != null)
+if (infoStream != null)
+flush(true, true, true);
+startCommit(0, commitUserData);
+}
+doFlush(boolean, boolean){
+try
+}
+doFlushInternal(boolean, boolean){
+// When autoCommit=true we must always flush deletes
+// when flushing a segment; otherwise deletes may become
+// visible before their corresponding added document
+// from an updateDocument call
+flushDeletes |= autoCommit;
+try
+}
+_mergeInit(MergePolicy.OneMerge){
+boolean changed = applyDeletes()
+Map details = new HashMap()
+}
+setDiagnostics(SegmentInfo, String, Map){
+Map diagnostics = new HashMap()
+}
+doCommitBeforeMergeCFS(MergePolicy.OneMerge){
+long freeableBytes = 0
+final int size = merge.segments.size()
+for(int i = 0; i < size; i++)
+long totalBytes = 0
+final int numSegments = segmentInfos.size()
+for(int i = 0; i < numSegments; i++)
+if (3 * freeableBytes > totalBytes)
+else
+}
+mergeMiddle(MergePolicy.OneMerge){
+final Set dss = new HashSet()
+merge.mergeDone = true;
+if (autoCommit)
+}
+segString(SegmentInfos){
+StringBuffer buffer = new StringBuffer()
+}
+syncPause(long){
+if (mergeScheduler instanceof ConcurrentMergeScheduler && maxSyncPauseSeconds > 0)
+}
+doWait(){
+try
+}
+startCommit(long, Map){
+try
+}
+isLocked(String){
+Directory dir = FSDirectory.getDirectory(directory)
+try
+}
+setAllowMinus1Position(){
+allowMinus1Position = true;
+docWriter.setAllowMinus1Position();
+}
+getAllowMinus1Position(){
+return allowMinus1Position;
+}
+}

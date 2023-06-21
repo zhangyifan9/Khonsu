@@ -1,0 +1,1 @@
+org apach lucen search req opt sum scorer return req scorer skip int return req scorer skip target doc return req scorer doc explain int explan res explan res set descript requir option res add detail req scorer explain doc res add detail opt scorer explain doc return res 

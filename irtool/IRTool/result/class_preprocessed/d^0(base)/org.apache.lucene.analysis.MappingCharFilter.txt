@@ -1,0 +1,1 @@
+org apach lucen analysi map char filter privat link list buffer read true char buffer null buffer empti push char int buffer add charact char push char int buffer null buffer add charact char match normal char map map submap null 

@@ -1,0 +1,1 @@
+org apach lucen document map field selector map field select map field selector list field select hash map field size int field size map field selector string field select hash map field length int field length accept string field selector result select field selector result field select field 

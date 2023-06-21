@@ -1,0 +1,18 @@
+org.apache.lucene.util.AverageGuessMemoryModel{
+private final Map sizes = new IdentityHashMap() {
+
+    {
+        put(boolean.class, new Integer(1));
+        put(byte.class, new Integer(1));
+        put(char.class, new Integer(2));
+        put(short.class, new Integer(2));
+        put(int.class, new Integer(4));
+        put(float.class, new Integer(4));
+        put(double.class, new Integer(8));
+        put(long.class, new Integer(8));
+    }
+};
+getPrimitiveSize(Class){
+return ((Integer) sizes.get(clazz)).intValue();
+}
+}

@@ -1,0 +1,18 @@
+org.apache.lucene.search.ReqExclScorer{
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+doc(){
+return false
+return reqScorer.doc();
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+explain(int){
+Explanation res = new Explanation()
+if (exclDisi.advance(doc) == doc)
+else
+return res;
+}
+}

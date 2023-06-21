@@ -1,0 +1,11 @@
+org.apache.lucene.analysis.ISOLatin1AccentFilter{
+ISOLatin1AccentFilter(TokenStream){
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+}
+next(Token){
+return super.next(reusableToken);
+}
+next(){
+return super.next();
+}
+}

@@ -1,0 +1,16 @@
+org.apache.lucene.search.SloppyPhraseScorer{
+phraseFreq(){
+while(!done)
+}
+flip(PhrasePositions, PhrasePositions){
+while((pp3 = (PhrasePositions) pq.pop()) != pp2)
+for(n >= 0; n--)
+// insert pp back
+pq.put(pp);
+}
+initPhrasePositions(){
+if (checkedRepeats && repeats == null)
+if (!checkedRepeats)
+for(PhrasePositions pp = first; pp != null; )
+}
+}

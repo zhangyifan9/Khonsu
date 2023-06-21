@@ -1,0 +1,40 @@
+import org.apache.lucene.document
+import org.apache.lucene.util.StringHelper
+org.apache.lucene.index.FieldsReader{
+private CloseableThreadLocal fieldsStreamTL = new CloseableThreadLocal();
+FieldsReader(Directory, String, FieldInfos, int, int, int){
+try
+}
+canReadRawDocs(){
+return format >= FieldsWriter.FORMAT_VERSION_UTF8_LENGTH_IN_BYTES;
+}
+doc(int, FieldSelector){
+for(int i = 0; i < numFields; i++)
+}
+addFieldLazy(Document, FieldInfo, boolean, boolean, boolean){
+if (binary)
+else
+}
+addFieldForMerge(Document, FieldInfo, boolean, boolean, boolean){
+Object data
+if (binary || compressed)
+else
+doc.add(new FieldForMerge(data, fi, binary, compressed, tokenize));
+}
+addField(Document, FieldInfo, boolean, boolean, boolean){
+if (binary)
+else
+}
+getTermVectorType(FieldInfo){
+Field.TermVector termVector = null
+if (fi.storeTermVector)
+else
+return termVector;
+}
+getIndexType(FieldInfo, boolean){
+Field.Index index
+if (fi.isIndexed && tokenize)
+else
+return index;
+}
+}

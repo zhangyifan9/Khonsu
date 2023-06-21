@@ -1,0 +1,1 @@
+lucen fix rare thread safeti issu wherebi indexwrit optim sometim return index wasn fulli optim 

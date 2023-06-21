@@ -1,0 +1,79 @@
+org.apache.lucene.search.BooleanScorer2{
+private final List requiredScorers;
+private final List optionalScorers;
+private final List prohibitedScorers;
+countingDisjunctionSumScorer(List, int){
+return new DisjunctionSumScorer(scorers, minNrShouldMatch) {
+
+    private int lastScoredDoc = -1;
+
+    // Save the score of lastScoredDoc, so that we don't compute it more than
+    // once in score().
+    private float lastDocScore = Float.NaN;
+
+    public float score() throws IOException {
+        int doc = docID();
+        if (doc >= lastScoredDoc) {
+            if (doc > lastScoredDoc) {
+                lastDocScore = super.score();
+                lastScoredDoc = doc;
+            }
+            coordinator.nrMatchers += super.nrMatchers;
+        }
+        return lastDocScore;
+    }
+};
+}
+countingConjunctionSumScorer(List){
+return new ConjunctionScorer(defaultSimilarity, requiredScorers) {
+
+    private int lastScoredDoc = -1;
+
+    // Save the score of lastScoredDoc, so that we don't compute it more than
+    // once in score().
+    private float lastDocScore = Float.NaN;
+
+    public float score() throws IOException {
+        int doc = docID();
+        if (doc >= lastScoredDoc) {
+            if (doc > lastScoredDoc) {
+                lastDocScore = super.score();
+                lastScoredDoc = doc;
+            }
+            coordinator.nrMatchers += requiredNrMatchers;
+        }
+        // is used as score.
+        return lastDocScore;
+    }
+};
+}
+makeCountingSumScorerNoReq(){
+else
+}
+makeCountingSumScorerSomeReq(){
+if (optionalScorers.size() == minNrShouldMatch)
+else
+}
+addProhibitedScorers(Scorer){
+return (prohibitedScorers.size() == 0) ? // no prohibited
+requiredCountingSumScorer : new ReqExclScorer(requiredCountingSumScorer, ((prohibitedScorers.size() == 1) ? (Scorer) prohibitedScorers.get(0) : new DisjunctionSumScorer(prohibitedScorers)));
+}
+score(HitCollector){
+score(new HitCollectorWrapper(hc));
+}
+score(HitCollector, int){
+return score(new HitCollectorWrapper(hc), max, docID());
+}
+doc(){
+return countingSumScorer.doc();
+}
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+explain(int){
+new UnsupportedOperationException()
+}
+}

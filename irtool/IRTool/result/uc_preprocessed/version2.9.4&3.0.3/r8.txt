@@ -1,0 +1,1 @@
+lucen fix bug wildcardqueri mani asterisk result unbear slow perform 

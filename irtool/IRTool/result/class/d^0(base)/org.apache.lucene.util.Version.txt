@@ -1,0 +1,18 @@
+import java.io.Serializable
+org.apache.lucene.util.Version{
+public static final Version LUCENE_CURRENT = new Version("LUCENE_CURRENT", 0);
+public static final Version LUCENE_20 = new Version("LUCENE_20", 2000);
+public static final Version LUCENE_21 = new Version("LUCENE_21", 2100);
+public static final Version LUCENE_22 = new Version("LUCENE_22", 2200);
+public static final Version LUCENE_23 = new Version("LUCENE_23", 2300);
+public static final Version LUCENE_24 = new Version("LUCENE_24", 2400);
+public static final Version LUCENE_29 = new Version("LUCENE_29", 2900);
+private final int v;
+Version(String, int){
+super(name);
+this.v = v;
+}
+onOrAfter(Version){
+return v == 0 || v >= other.v;
+}
+}

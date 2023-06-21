@@ -1,0 +1,94 @@
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.util.HashMap
+import java.util.Map
+import org.apache.lucene.index.IndexFileNameFilter
+import org.apache.lucene.index.IndexWriter
+org.apache.lucene.store.FSDirectory{
+private static final Map DIRECTORIES = new HashMap();
+private static boolean disableLocks = false;
+public static final String LOCK_DIR = System.getProperty("org.apache.lucene.lockDir", System.getProperty("java.io.tmpdir"));
+/**
+ * The default class which implements filesystem-based directories.
+ */
+private static Class IMPL;
+private byte[] buffer = null;
+private int refCount = 0;
+FSDirectory(){
+}
+FSDirectory(File, LockFactory){
+init(path, lockFactory);
+refCount = 1;
+}
+setDisableLocks(boolean){
+FSDirectory.disableLocks = doDisableLocks;
+}
+getDisableLocks(){
+return FSDirectory.disableLocks;
+}
+getDirectory(String){
+return getDirectory(new File(path), null);
+}
+getDirectory(String, LockFactory){
+return getDirectory(new File(path), lockFactory);
+}
+getDirectory(File){
+return getDirectory(file, null);
+}
+getDirectory(File, LockFactory){
+file = getCanonicalPath(file);
+FSDirectory dir
+return dir;
+}
+getDirectory(String, boolean){
+return getDirectory(new File(path), create);
+}
+getDirectory(File, boolean){
+FSDirectory dir = getDirectory(file, null)
+if (create)
+return dir;
+}
+create(){
+if (directory.exists())
+lockFactory.clearLock(IndexWriter.WRITE_LOCK_NAME);
+}
+init(File, LockFactory){
+// Set up lockFactory with cascaded defaults: if an instance was passed in,
+// use that; else if locks are disabled, use NoLockFactory; else if the
+// system property org.apache.lucene.store.FSDirectoryLockFactoryClass is set,
+// instantiate that; else, use SimpleFSLockFactory:
+directory = path;
+if (directory.exists() && !directory.isDirectory())
+if (lockFactory == null)
+setLockFactory(lockFactory);
+if (lockFactory instanceof FSLockFactory)
+}
+list(){
+ensureOpen();
+return directory.list(IndexFileNameFilter.getFilter());
+}
+renameFile(String, String){
+ensureOpen();
+File old = new File(directory, from)
+File nu = new File(directory, to)
+if (nu.exists())
+if (!old.renameTo(nu))
+}
+createOutput(String){
+initOutput(name);
+return new FSIndexOutput(new File(directory, name));
+}
+sync(String){
+while(!success && retryCount < 5)
+}
+openInput(String, int){
+ensureOpen();
+return new FSIndexInput(new File(directory, name), bufferSize);
+}
+getLockID(){
+StringBuffer buf = new StringBuffer()
+}
+close(){
+if (isOpen && --refCount <= 0)
+}
+}

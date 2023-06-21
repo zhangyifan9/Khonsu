@@ -1,0 +1,10 @@
+org.apache.lucene.search.TopScoreDocCollector{
+TopScoreDocCollector(int){
+// HitQueue implements getSentinelObject to return a ScoreDoc, so we know
+// that at this point top() is already initialized.
+pqTop = (ScoreDoc) pq.top();
+}
+newTopDocs(ScoreDoc[], int){
+else
+}
+}

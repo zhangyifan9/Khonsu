@@ -1,0 +1,36 @@
+org.apache.lucene.search.FuzzyTermEnum{
+private static final int TYPICAL_LONGEST_WORD_IN_INDEX = 19;
+private int[][] d;
+private final int[] maxDistances = new int[TYPICAL_LONGEST_WORD_IN_INDEX];
+FuzzyTermEnum(IndexReader, Term, float, int){
+initializeMaxDistances();
+this.d = initDistanceArray();
+}
+difference(){
+return (float) ((similarity - minimumSimilarity) * scale_factor);
+}
+min(int, int, int){
+final int t = (a < b) ? a : b
+return (t < c) ? t : c;
+}
+initDistanceArray(){
+return new int[this.text.length() + 1][TYPICAL_LONGEST_WORD_IN_INDEX];
+}
+similarity(String){
+final int maxDistance = getMaxDistance(m)
+if (d[0].length <= m)
+for(int i = 0; i <= n; i++)
+for(int j = 0; j <= m; j++)
+for(int i = 1; i <= n; i++)
+return 1.0f - ((float) d[n][m] / (float) (prefix.length() + Math.min(n, m)));
+}
+growDistanceArray(int){
+for(int i = 0; i < d.length; i++)
+}
+getMaxDistance(int){
+return (m < maxDistances.length) ? maxDistances[m] : calculateMaxDistance(m);
+}
+initializeMaxDistances(){
+for(int i = 0; i < maxDistances.length; i++)
+}
+}

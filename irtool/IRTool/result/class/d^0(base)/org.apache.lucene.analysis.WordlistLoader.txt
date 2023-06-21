@@ -1,0 +1,17 @@
+org.apache.lucene.analysis.WordlistLoader{
+getWordSet(File){
+HashSet result = new HashSet()
+}
+getWordSet(File, String){
+HashSet result = new HashSet()
+}
+getWordSet(Reader){
+HashSet result = new HashSet()
+}
+getWordSet(Reader, String){
+HashSet result = new HashSet()
+}
+getStemDict(File){
+HashMap result = new HashMap()
+}
+}

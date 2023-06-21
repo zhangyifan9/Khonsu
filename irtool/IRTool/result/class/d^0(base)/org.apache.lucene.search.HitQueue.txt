@@ -1,0 +1,8 @@
+org.apache.lucene.search.HitQueue{
+lessThan(Object, Object){
+ScoreDoc hitA = (ScoreDoc) a
+ScoreDoc hitB = (ScoreDoc) b
+if (hitA.score == hitB.score)
+else
+}
+}

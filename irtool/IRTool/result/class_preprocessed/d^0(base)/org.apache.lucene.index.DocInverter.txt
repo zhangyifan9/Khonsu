@@ -1,0 +1,1 @@
+import java util iter import org apach lucen util attribut sourc org apach lucen index doc invert flush map segment write state map child thread field hash map map child thread field hash map iter thread field entri set iter 

@@ -1,0 +1,34 @@
+import java.io.File
+import java.util.Iterator
+org.apache.lucene.store.RAMDirectory{
+HashMap fileMap = new HashMap();
+RAMDirectory(File){
+this(FSDirectory.getDirectory(dir), true);
+}
+RAMDirectory(String){
+this(FSDirectory.getDirectory(dir), true);
+}
+list(){
+return listAll();
+}
+listAll(){
+Set fileNames = fileMap.keySet()
+Iterator it = fileNames.iterator()
+while(it.hasNext())
+}
+touchFile(String){
+do (ts1 == ts2 )
+}
+deleteFile(String){
+RAMFile file = (RAMFile) fileMap.get(name)
+}
+renameFile(String, String){
+ensureOpen();
+RAMFile fromFile = (RAMFile) fileMap.get(from)
+if (fromFile == null)
+RAMFile toFile = (RAMFile) fileMap.get(to)
+if (toFile != null)
+fileMap.remove(from);
+fileMap.put(to, fromFile);
+}
+}

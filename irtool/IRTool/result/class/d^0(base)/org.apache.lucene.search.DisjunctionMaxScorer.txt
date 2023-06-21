@@ -1,0 +1,14 @@
+org.apache.lucene.search.DisjunctionMaxScorer{
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+doc(){
+return subScorers[0].doc();
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+explain(int){
+new UnsupportedOperationException()
+}
+}

@@ -1,0 +1,45 @@
+import java.io.IOException
+org.apache.lucene.index.DirectoryOwningReader{
+DirectoryOwningReader(IndexReader){
+super(in);
+this.ref = new SegmentReader.Ref();
+}
+DirectoryOwningReader(IndexReader, SegmentReader.Ref){
+super(in);
+this.ref = ref;
+ref.incRef();
+}
+private final SegmentReader.Ref ref;
+reopen(){
+ensureOpen();
+final IndexReader r = in.reopen()
+if (r != in)
+return this;
+}
+reopen(boolean){
+ensureOpen();
+final IndexReader r = in.reopen(openReadOnly)
+if (r != in)
+return this;
+}
+reopen(IndexCommit){
+ensureOpen();
+final IndexReader r = in.reopen(commit)
+if (r != in)
+return this;
+}
+clone(){
+ensureOpen();
+return new DirectoryOwningReader((IndexReader) in.clone(), ref);
+}
+clone(boolean){
+ensureOpen();
+return new DirectoryOwningReader(in.clone(openReadOnly), ref);
+}
+doClose(){
+IOException ioe = null
+try
+if (ref.decRef() == 0)
+if (ioe != null)
+}
+}

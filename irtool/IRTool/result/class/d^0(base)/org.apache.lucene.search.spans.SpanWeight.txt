@@ -1,0 +1,9 @@
+org.apache.lucene.search.spans.SpanWeight{
+protected Set terms;
+SpanWeight(SpanQuery, Searcher){
+terms = new HashSet();
+}
+explain(IndexReader, int){
+Explanation tfExpl = scorer(reader, true, false).explain(doc)
+}
+}

@@ -1,0 +1,1 @@
+lucen fix real time case doc store file open read open write 

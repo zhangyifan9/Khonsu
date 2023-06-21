@@ -1,0 +1,1 @@
+org apach lucen util ram usag estim privat final map ram usag estim memori model boolean map set ident hash map ident hash set ident hash map 

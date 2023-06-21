@@ -1,0 +1,12 @@
+org.apache.lucene.index.SegmentMergeQueue{
+lessThan(Object, Object){
+SegmentMergeInfo stiA = (SegmentMergeInfo) a
+SegmentMergeInfo stiB = (SegmentMergeInfo) b
+int comparison = stiA.term.compareTo(stiB.term)
+if (comparison == 0)
+else
+}
+close(){
+while(top() != null)
+}
+}

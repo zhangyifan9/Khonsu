@@ -1,0 +1,46 @@
+org.apache.lucene.analysis.StopFilter{
+private static boolean ENABLE_POSITION_INCREMENTS_DEFAULT = false;
+private boolean enablePositionIncrements = ENABLE_POSITION_INCREMENTS_DEFAULT;
+StopFilter(TokenStream, String[]){
+this(ENABLE_POSITION_INCREMENTS_DEFAULT, input, stopWords, false);
+}
+StopFilter(boolean, TokenStream, String[]){
+this(enablePositionIncrements, input, stopWords, false);
+}
+StopFilter(TokenStream, String[], boolean){
+this(ENABLE_POSITION_INCREMENTS_DEFAULT, in, stopWords, ignoreCase);
+}
+StopFilter(boolean, TokenStream, String[], boolean){
+super(in);
+this.stopWords = (CharArraySet) makeStopSet(stopWords, ignoreCase);
+this.enablePositionIncrements = enablePositionIncrements;
+init();
+}
+StopFilter(TokenStream, Set, boolean){
+this(ENABLE_POSITION_INCREMENTS_DEFAULT, input, stopWords, ignoreCase);
+}
+StopFilter(boolean, TokenStream, Set, boolean){
+init();
+}
+StopFilter(TokenStream, Set){
+this(ENABLE_POSITION_INCREMENTS_DEFAULT, in, stopWords, false);
+}
+init(){
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+posIncrAtt = (PositionIncrementAttribute) addAttribute(PositionIncrementAttribute.class);
+}
+incrementToken(){
+return null
+return false;
+}
+getEnablePositionIncrementsDefault(){
+return ENABLE_POSITION_INCREMENTS_DEFAULT;
+}
+getEnablePositionIncrementsVersionDefault(Version){
+if (matchVersion.onOrAfter(Version.LUCENE_29))
+else
+}
+setEnablePositionIncrementsDefault(boolean){
+ENABLE_POSITION_INCREMENTS_DEFAULT = defaultValue;
+}
+}

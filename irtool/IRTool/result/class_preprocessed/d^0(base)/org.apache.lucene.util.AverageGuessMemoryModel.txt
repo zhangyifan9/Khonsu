@@ -1,0 +1,1 @@
+org apach lucen util averag guess memori model privat final map size ident hash map put boolean class integ put byte class integ put char class integ put short class integ put int class integ put float class integ put doubl class integ put long class integ primit size class return integ size clazz int valu 

@@ -1,0 +1,23 @@
+org.apache.lucene.search.Searcher{
+search(Query){
+return search(query, (Filter) null);
+}
+search(Query, Filter){
+return new Hits(this, query, filter);
+}
+search(Query, Sort){
+return new Hits(this, query, null, sort);
+}
+search(Query, Filter, Sort){
+return new Hits(this, query, filter, sort);
+}
+search(Query, HitCollector){
+search(createWeight(query), null, new HitCollectorWrapper(results));
+}
+search(Query, Filter, HitCollector){
+search(createWeight(query), filter, new HitCollectorWrapper(results));
+}
+search(Weight, Filter, HitCollector){
+search(weight, filter, new HitCollectorWrapper(results));
+}
+}

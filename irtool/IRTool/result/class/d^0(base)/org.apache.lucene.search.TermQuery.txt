@@ -1,0 +1,5 @@
+org.apache.lucene.search.TermQuery{
+toString(String){
+StringBuffer buffer = new StringBuffer()
+}
+}

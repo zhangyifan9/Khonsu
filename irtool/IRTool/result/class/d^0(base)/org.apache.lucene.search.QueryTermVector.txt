@@ -1,0 +1,12 @@
+import java.util.Iterator
+org.apache.lucene.search.QueryTermVector{
+QueryTermVector(String, Analyzer){
+if (analyzer != null)
+}
+processTerms(String[]){
+if (queryTerms != null)
+}
+toString(){
+StringBuffer sb = new StringBuffer()
+}
+}

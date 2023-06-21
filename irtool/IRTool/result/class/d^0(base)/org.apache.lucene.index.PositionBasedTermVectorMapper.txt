@@ -1,0 +1,13 @@
+org.apache.lucene.index.PositionBasedTermVectorMapper{
+private Map /*<String, Map<Integer, TVPositionInfo>>*/
+fieldToTerms;
+private Map /*<Integer, TVPositionInfo>*/
+currentPositions;
+map(String, int, TermVectorOffsetInfo[], int[]){
+for(int i = 0; i < positions.length; i++)
+}
+setExpectations(String, int, boolean, boolean){
+fieldToTerms = new HashMap(numTerms);
+currentPositions = new HashMap();
+}
+}

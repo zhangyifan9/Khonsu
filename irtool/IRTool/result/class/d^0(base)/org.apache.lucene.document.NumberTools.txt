@@ -1,0 +1,5 @@
+org.apache.lucene.document.NumberTools{
+longToString(long){
+StringBuffer buf = new StringBuffer(STR_SIZE)
+}
+}

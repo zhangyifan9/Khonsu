@@ -1,0 +1,12 @@
+org.apache.lucene.search.spans.SpanScorer{
+protected boolean firstTime = true;
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+doc(){
+return doc;
+}
+}

@@ -1,0 +1,28 @@
+org.apache.lucene.search.TermScorer{
+score(HitCollector){
+score(new HitCollectorWrapper(hc));
+}
+score(HitCollector, int){
+return score(new HitCollectorWrapper(c), end, doc);
+}
+doc(){
+return doc;
+}
+next(){
+return nextDoc() != NO_MORE_DOCS;
+}
+skipTo(int){
+return advance(target) != NO_MORE_DOCS;
+}
+explain(int){
+TermQuery query = (TermQuery) weight.getQuery()
+Explanation tfExplanation = new Explanation()
+int tf = 0
+while(pointer < pointerMax)
+if (tf == 0)
+termDocs.close();
+tfExplanation.setValue(getSimilarity().tf(tf));
+tfExplanation.setDescription("tf(termFreq(" + query.getTerm() + ")=" + tf + ")");
+return tfExplanation;
+}
+}

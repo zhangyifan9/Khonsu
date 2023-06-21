@@ -1,0 +1,1 @@
+org apach lucen search span span scorer protect boolean time true return doc skip int return advanc target doc return doc 

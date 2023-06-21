@@ -1,0 +1,18 @@
+org.apache.lucene.search.ReqOptSumScorer{
+next(){
+return reqScorer.next();
+}
+skipTo(int){
+return reqScorer.skipTo(target);
+}
+doc(){
+return reqScorer.doc();
+}
+explain(int){
+Explanation res = new Explanation()
+res.setDescription("required, optional");
+res.addDetail(reqScorer.explain(doc));
+res.addDetail(optScorer.explain(doc));
+return res;
+}
+}

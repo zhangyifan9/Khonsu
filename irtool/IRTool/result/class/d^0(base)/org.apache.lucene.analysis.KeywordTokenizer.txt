@@ -1,0 +1,12 @@
+org.apache.lucene.analysis.KeywordTokenizer{
+init(int){
+termAtt = (TermAttribute) addAttribute(TermAttribute.class);
+offsetAtt = (OffsetAttribute) addAttribute(OffsetAttribute.class);
+}
+next(Token){
+return super.next(reusableToken);
+}
+next(){
+return super.next();
+}
+}

@@ -1,0 +1,41 @@
+org.apache.lucene.search.NumericRangeFilter{
+newLongRange(String, int, Long, Long, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newLongRange(field, precisionStep, min, max, minInclusive, maxInclusive));
+}
+newLongRange(String, Long, Long, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newLongRange(field, min, max, minInclusive, maxInclusive));
+}
+newIntRange(String, int, Integer, Integer, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newIntRange(field, precisionStep, min, max, minInclusive, maxInclusive));
+}
+newIntRange(String, Integer, Integer, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newIntRange(field, min, max, minInclusive, maxInclusive));
+}
+newDoubleRange(String, int, Double, Double, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newDoubleRange(field, precisionStep, min, max, minInclusive, maxInclusive));
+}
+newDoubleRange(String, Double, Double, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newDoubleRange(field, min, max, minInclusive, maxInclusive));
+}
+newFloatRange(String, int, Float, Float, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newFloatRange(field, precisionStep, min, max, minInclusive, maxInclusive));
+}
+newFloatRange(String, Float, Float, boolean, boolean){
+return new NumericRangeFilter(NumericRangeQuery.newFloatRange(field, min, max, minInclusive, maxInclusive));
+}
+getField(){
+return ((NumericRangeQuery) query).getField();
+}
+includesMin(){
+return ((NumericRangeQuery) query).includesMin();
+}
+includesMax(){
+return ((NumericRangeQuery) query).includesMax();
+}
+getMin(){
+return ((NumericRangeQuery) query).getMin();
+}
+getMax(){
+return ((NumericRangeQuery) query).getMax();
+}
+}

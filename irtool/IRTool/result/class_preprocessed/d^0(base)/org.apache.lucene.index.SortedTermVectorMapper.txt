@@ -1,0 +1,1 @@
+org apach lucen index sort term vector mapper privat sort set current set privat map term hash map sort term vector mapper boolean boolean compar current set tree set compar map string int term vector offset info int term vector entri entri term vector entri term term 

@@ -1,0 +1,94 @@
+import java.util.Iterator
+org.apache.lucene.index.DocumentsWriter{
+private final HashMap threadBindings = new HashMap();
+List newFiles;
+static final IndexingChain DefaultIndexingChain = new IndexingChain() {
+
+    DocConsumer getChain(DocumentsWriter documentsWriter) {
+        /*
+      This is the current indexing chain:
+
+      DocConsumer / DocConsumerPerThread
+        --> code: DocFieldProcessor / DocFieldProcessorPerThread
+          --> DocFieldConsumer / DocFieldConsumerPerThread / DocFieldConsumerPerField
+            --> code: DocFieldConsumers / DocFieldConsumersPerThread / DocFieldConsumersPerField
+              --> code: DocInverter / DocInverterPerThread / DocInverterPerField
+                --> InvertedDocConsumer / InvertedDocConsumerPerThread / InvertedDocConsumerPerField
+                  --> code: TermsHash / TermsHashPerThread / TermsHashPerField
+                    --> TermsHashConsumer / TermsHashConsumerPerThread / TermsHashConsumerPerField
+                      --> code: FreqProxTermsWriter / FreqProxTermsWriterPerThread / FreqProxTermsWriterPerField
+                      --> code: TermVectorsTermsWriter / TermVectorsTermsWriterPerThread / TermVectorsTermsWriterPerField
+                --> InvertedDocEndConsumer / InvertedDocConsumerPerThread / InvertedDocConsumerPerField
+                  --> code: NormsWriter / NormsWriterPerThread / NormsWriterPerField
+              --> code: StoredFieldsWriter / StoredFieldsWriterPerThread / StoredFieldsWriterPerField
+    */
+        // Build up indexing chain:
+        final TermsHashConsumer termVectorsWriter = new TermVectorsTermsWriter(documentsWriter);
+        final TermsHashConsumer freqProxWriter = new FreqProxTermsWriter();
+        final InvertedDocConsumer termsHash = new TermsHash(documentsWriter, true, freqProxWriter, new TermsHash(documentsWriter, false, termVectorsWriter, null));
+        final NormsWriter normsWriter = new NormsWriter();
+        final DocInverter docInverter = new DocInverter(termsHash, normsWriter);
+        return new DocFieldProcessor(documentsWriter, docInverter);
+    }
+};
+private Collection abortedFiles;
+final List openFiles = new ArrayList();
+final List closedFiles = new ArrayList();
+private ArrayList freeIntBlocks = new ArrayList();
+private ArrayList freeCharBlocks = new ArrayList();
+setAllowMinus1Position(){
+for(int i = 0; i < threadStates.length; i++)
+}
+openFiles(){
+return (List) ((ArrayList) openFiles).clone();
+}
+closedFiles(){
+return (List) ((ArrayList) closedFiles).clone();
+}
+abort(){
+try
+}
+pauseAllThreads(){
+while(!allThreadsIdle())
+}
+flush(boolean){
+try
+}
+createCompoundFile(String){
+Iterator it = flushState.flushedFiles.iterator()
+while(it.hasNext())
+}
+getThreadState(Document, Term){
+DocumentsWriterThreadState state = (DocumentsWriterThreadState) threadBindings.get(Thread.currentThread())
+}
+waitReady(DocumentsWriterThreadState){
+while(!closed && ((state != null && !state.isIdle) || pauseThreads != 0 || flushPending || aborting))
+}
+applyDeletes(IndexReader, int){
+Iterator iter = deletesFlushed.terms.entrySet().iterator()
+try
+// Delete by docID
+iter = deletesFlushed.docIDs.iterator();
+while(iter.hasNext())
+iter = deletesFlushed.queries.entrySet().iterator();
+while(iter.hasNext())
+}
+addDeleteTerm(Term, int){
+BufferedDeletes.Num num = (BufferedDeletes.Num) deletesInRAM.terms.get(term)
+}
+addDeleteDocID(int){
+deletesInRAM.docIDs.add(new Integer(flushedDocCount + docID));
+}
+addDeleteQuery(Query, int){
+deletesInRAM.queries.put(query, new Integer(flushedDocCount + docID));
+}
+waitForWaitQueue(){
+do (!waitQueue.doResume() )
+}
+recycleIntBlocks(int[][], int, int){
+if (infoStream != null)
+}
+recycleCharBlocks(char[][], int){
+if (infoStream != null)
+}
+}

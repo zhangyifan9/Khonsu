@@ -1,0 +1,1 @@
+org apach lucen index term hash flush map segment write state map child thread field hash map map thread field iter thread field entri set iter 

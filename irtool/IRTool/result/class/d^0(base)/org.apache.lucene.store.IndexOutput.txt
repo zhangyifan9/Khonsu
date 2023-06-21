@@ -1,0 +1,6 @@
+import java.util.Iterator
+org.apache.lucene.store.IndexOutput{
+writeStringStringMap(Map){
+else
+}
+}

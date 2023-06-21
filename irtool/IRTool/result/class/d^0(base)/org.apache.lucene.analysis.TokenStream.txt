@@ -1,0 +1,69 @@
+import java.util.IdentityHashMap
+import org.apache.lucene.analysis.tokenattributes.FlagsAttribute
+import org.apache.lucene.analysis.tokenattributes.OffsetAttribute
+import org.apache.lucene.analysis.tokenattributes.PayloadAttribute
+import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute
+import org.apache.lucene.analysis.tokenattributes.TermAttribute
+import org.apache.lucene.analysis.tokenattributes.TypeAttribute
+import org.apache.lucene.index.Payload
+org.apache.lucene.analysis.TokenStream{
+private static final AttributeFactory DEFAULT_TOKEN_WRAPPER_ATTRIBUTE_FACTORY = new TokenWrapperAttributeFactory(AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY);
+private final TokenWrapper tokenWrapper;
+private static boolean onlyUseNewAPI = false;
+private final MethodSupport supportedMethods = getSupportedMethods(this.getClass());
+private static final IdentityHashMap /*<Class<? extends TokenStream>,MethodSupport>*/
+knownMethodSupport = new IdentityHashMap();
+TokenStream(){
+super(onlyUseNewAPI ? AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY : TokenStream.DEFAULT_TOKEN_WRAPPER_ATTRIBUTE_FACTORY);
+tokenWrapper = initTokenWrapper(null);
+check();
+}
+TokenStream(AttributeSource){
+tokenWrapper = initTokenWrapper(input);
+check();
+}
+TokenStream(AttributeFactory){
+super(onlyUseNewAPI ? factory : new TokenWrapperAttributeFactory(factory));
+tokenWrapper = initTokenWrapper(null);
+check();
+}
+getSupportedMethods(Class){
+MethodSupport supportedMethods
+return supportedMethods;
+}
+initTokenWrapper(AttributeSource){
+if (onlyUseNewAPI)
+else
+}
+check(){
+if (onlyUseNewAPI && !supportedMethods.hasIncrementToken)
+if (!(supportedMethods.hasIncrementToken || supportedMethods.hasNext || supportedMethods.hasReusableNext))
+}
+setOnlyUseNewAPI(boolean){
+TokenStream.onlyUseNewAPI = onlyUseNewAPI;
+}
+getOnlyUseNewAPI(){
+return onlyUseNewAPI;
+}
+incrementToken(){
+final Token token
+if (supportedMethods.hasReusableNext)
+else
+if (token == null)
+tokenWrapper.delegate = token;
+return true;
+}
+next(Token){
+if (tokenWrapper == null)
+if (supportedMethods.hasIncrementToken)
+else
+}
+next(){
+if (tokenWrapper == null)
+final Token nextToken
+if (supportedMethods.hasIncrementToken)
+else
+if (nextToken != null)
+return nextToken;
+}
+}

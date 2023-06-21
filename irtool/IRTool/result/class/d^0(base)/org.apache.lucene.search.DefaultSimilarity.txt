@@ -1,0 +1,5 @@
+org.apache.lucene.search.DefaultSimilarity{
+computeNorm(String, FieldInvertState){
+return (float) (state.getBoost() * lengthNorm(field, numTerms));
+}
+}

@@ -1,0 +1,1 @@
+lucen onli add support lucen store field file file format chang onli version number upgrad mark segment compress fieldswrit onli write segment compress field cross version index format compat provid sole becaus lucen bugfix level featur index format slight compress differ general lucen doe support read newer index older librari version 

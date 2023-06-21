@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nju.mapper.ProjectMapper">
+    <resultMap id="projectResultMap" type="cn.edu.nju.domain.vo.ProjectVO">
+        <result column="id" property="id"/>
+        <result column="user_name" property="owner"/>
+        <result column="repo_name" property="name"/>
+        <result column="update_time" property="date" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    </resultMap>
+
+    <insert id="insertProject">
+        insert into `project` (user_name, repo_name, update_time)
+        values (#{userName}, #{repoName}, NOW())
+    </insert>
+
+    <select id="selectAllRepoName" resultType="java.lang.String">
+        select distinct repo_name
+        from `project`
+    </select>
+
+    <select id="selectAllProject" resultMap="projectResultMap">
+        select id, user_name, repo_name, update_time
+        from `project`
+        ORDER BY update_time DESC;
+    </select>
+
+    <update id="updateProjectById">
+        update `project`
+        set update_time = NOW()
+        where id= #{id}
+    </update>
+
+    <delete id="deleteProjectByRepoName">
+        DELETE
+        FROM `project`
+        WHERE repo_name = #{repoName}
+    </delete>
+</mapper>

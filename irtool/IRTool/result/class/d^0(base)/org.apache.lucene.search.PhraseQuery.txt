@@ -1,0 +1,17 @@
+org.apache.lucene.search.PhraseQuery{
+private ArrayList terms = new ArrayList(4);
+private ArrayList positions = new ArrayList(4);
+add(Term, int){
+positions.add(new Integer(position));
+}
+getTerms(){
+return (Term[]) terms.toArray(new Term[0]);
+}
+createWeight(Searcher){
+if (terms.size() == 1)
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+for(int i = 0; i < terms.size(); i++)
+}
+}

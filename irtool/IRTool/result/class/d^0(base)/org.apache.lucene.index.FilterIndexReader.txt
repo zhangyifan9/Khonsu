@@ -1,0 +1,5 @@
+org.apache.lucene.index.FilterIndexReader{
+doCommit(){
+doCommit(null);
+}
+}

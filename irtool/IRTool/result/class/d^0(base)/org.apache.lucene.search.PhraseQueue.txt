@@ -1,0 +1,8 @@
+org.apache.lucene.search.PhraseQueue{
+lessThan(Object, Object){
+PhrasePositions pp1 = (PhrasePositions) o1
+PhrasePositions pp2 = (PhrasePositions) o2
+if (pp1.doc == pp2.doc)
+else
+}
+}

@@ -1,0 +1,33 @@
+import java.util.Iterator
+import org.apache.lucene.util.ToStringUtils
+org.apache.lucene.search.MultiTermQuery{
+protected Term term;
+public static final RewriteMethod CONSTANT_SCORE_AUTO_REWRITE_DEFAULT = new ConstantScoreAutoRewrite() {
+
+    public void setTermCountCutoff(int count) {
+        throw new UnsupportedOperationException("Please create a private instance");
+    }
+
+    public void setDocCountPercent(double percent) {
+        throw new UnsupportedOperationException("Please create a private instance");
+    }
+
+    // Make sure we are still a singleton even after deserializing
+    protected Object readResolve() {
+        return CONSTANT_SCORE_AUTO_REWRITE_DEFAULT;
+    }
+};
+MultiTermQuery(Term){
+this.term = term;
+}
+getTerm(){
+return term;
+}
+toString(String){
+StringBuffer buffer = new StringBuffer()
+if (term != null)
+else
+buffer.append(ToStringUtils.boost(getBoost()));
+return buffer.toString();
+}
+}
